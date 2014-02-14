@@ -8,6 +8,7 @@
 
 #import "CSAppDelegate.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
+#import "CSUtilities.h"
 
 @implementation CSAppDelegate
 
@@ -19,7 +20,13 @@
     // setup coredata stack
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    // detect iphone or ipad
+    UIStoryboard *sb;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    } else if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        sb = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    }
 
     // setup ecsliding view controller
     ECSlidingViewController *slidingVC = (ECSlidingViewController*)self.window.rootViewController;

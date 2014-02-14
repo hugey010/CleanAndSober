@@ -10,6 +10,7 @@
 
 @interface CSUtilities : NSObject
 
-+(void)parseJsonIntoDatabase:(NSString*)json;
++(void)parseJSONDictionaryIntoDatabase:(NSDictionary*)json;
++(void)checkAndLoadInitialJSONFileIntoDatabase;
 
 @end

@@ -13,6 +13,4 @@
 #define kAppTitle @"Clean & Sober Toolbox"
 
 
-
-
 #endif

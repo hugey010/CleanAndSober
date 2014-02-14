@@ -11,6 +11,8 @@
 		1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3A918ADCBC200BC81FC /* CSUtilities.m */; };
 		1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */; };
 		1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */; };
+		1E04D3BB18ADD95100BC81FC /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3BA18ADD95100BC81FC /* Content.m */; };
+		1E04D3BE18ADD95100BC81FC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3BD18ADD95100BC81FC /* Category.m */; };
 		1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */; };
 		1E58AF8E18A540A300E28EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8D18A540A300E28EAA /* Foundation.framework */; };
 		1E58AF9018A540A300E28EAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */; };
@@ -48,6 +50,10 @@
 		1E04D3AE18ADD4B300BC81FC /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1E04D3B018ADD65900BC81FC /* CSMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMenuViewController.h; sourceTree = "<group>"; };
 		1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMenuViewController.m; sourceTree = "<group>"; };
+		1E04D3B918ADD95100BC81FC /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		1E04D3BA18ADD95100BC81FC /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		1E04D3BC18ADD95100BC81FC /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		1E04D3BD18ADD95100BC81FC /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		1E3377A718ADBCA80052DEAA /* CSCategoryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategoryListController.h; sourceTree = "<group>"; };
 		1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategoryListController.m; sourceTree = "<group>"; };
 		1E58AF8A18A540A300E28EAA /* Clean & Sober Toolbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clean & Sober Toolbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,10 @@
 				1E58AFA818A540A300E28EAA /* Images.xcassets */,
 				1E58AF9418A540A300E28EAA /* Supporting Files */,
 				1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */,
+				1E04D3B918ADD95100BC81FC /* Content.h */,
+				1E04D3BA18ADD95100BC81FC /* Content.m */,
+				1E04D3BC18ADD95100BC81FC /* Category.h */,
+				1E04D3BD18ADD95100BC81FC /* Category.m */,
 			);
 			path = "Clean & Sober Toolbox";
 			sourceTree = "<group>";
@@ -341,9 +351,11 @@
 				1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */,
 				1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */,
 				1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */,
+				1E04D3BE18ADD95100BC81FC /* Category.m in Sources */,
 				1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */,
 				1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */,
 				1E58AF9A18A540A300E28EAA /* main.m in Sources */,
+				1E04D3BB18ADD95100BC81FC /* Content.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

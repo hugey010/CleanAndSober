@@ -44,15 +44,18 @@
     NSLog(@"result = %@", json);
     
     for (NSDictionary *topLevel in json[@"list"]) {
-        if ([topLevel[@"type"] isEqualToString:kContentType]) {
-            
-        } else if ([topLevel[@"type"] isEqualToString:kCategoryType]) {
-            
-        }
+        
+        [CSUtilities parseCategoryOrContentDictionaryIntoDatabase:topLevel];
     }
 }
 
-+(void)parseDictionaryIntoDatabase {
++(void)parseCategoryOrContentDictionaryIntoDatabase:(NSDictionary*)cc {
+        if ([cc[@"type"] isEqualToString:kContentType]) {
+            
+            
+        } else if ([cc[@"type"] isEqualToString:kCategoryType]) {
+            
+        }
     
 }
 
