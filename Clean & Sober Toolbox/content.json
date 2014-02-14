@@ -31,6 +31,7 @@
     },
     {
         "identifier" : 1,
+        "type" : "category",
         "title" : "something 2",
         "list" : [
             {
@@ -46,7 +47,10 @@
         },
         {
             "identifier" : 2,
+            "type" : "content",
             "title" : "gooseen",
+           "message" : "some alskdjfalks;dfj asdjf alskf messageasdf asl;kf j"
+           
         }
     ]
 }

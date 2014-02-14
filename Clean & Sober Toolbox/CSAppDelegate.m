@@ -9,6 +9,7 @@
 #import "CSAppDelegate.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import "CSUtilities.h"
+#import "CSCategoryListController.h"
 
 @implementation CSAppDelegate
 
@@ -32,6 +33,9 @@
     // setup ecsliding view controller
     ECSlidingViewController *slidingVC = (ECSlidingViewController*)self.window.rootViewController;
     UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_list"];
+    CSCategoryListController *catList = categoryNav.viewControllers[0];
+    [catList loadInitialContent];
+    
     UIViewController *menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
     menuVC.view.layer.shadowOpacity = 0.75;
     menuVC.view.layer.shadowRadius = 10.0f;

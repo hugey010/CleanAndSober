@@ -51,6 +51,7 @@
         }
         
         [CSUtilities parseJSONDictionaryIntoDatabase:result];
+        [CSUtilities setHasLoadedJson:YES];
     }
     
     // perform version check and update data if necessary
@@ -77,6 +78,7 @@
     category.identifier = cc[@"identifier"];
     category.type = cc[@"type"];
     category.title = cc[@"title"];
+    category.in_category = nil;
     
     for (NSDictionary *subcat in cc[@"list"]) {
         if ([subcat[@"type"] isEqualToString:kCSContentType]) {
