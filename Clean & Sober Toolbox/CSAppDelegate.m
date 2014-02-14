@@ -7,12 +7,34 @@
 //
 
 #import "CSAppDelegate.h"
+#import <ECSlidingViewController/ECSlidingViewController.h>
 
 @implementation CSAppDelegate
 
+#define MENU_PEEK_AMOUNT 280
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    // setup coredata stack
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+
+    // setup ecsliding view controller
+    ECSlidingViewController *slidingVC = (ECSlidingViewController*)self.window.rootViewController;
+    UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_list"];
+    UIViewController *menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
+    menuVC.view.layer.shadowOpacity = 0.75;
+    menuVC.view.layer.shadowRadius = 10.0f;
+    menuVC.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    [slidingVC setTopViewController:categoryNav];
+    [slidingVC setUnderRightViewController:menuVC];
+    [slidingVC setAnchorLeftRevealAmount:MENU_PEEK_AMOUNT];
+    [slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
+    slidingVC.underRightWidthLayout = ECFixedRevealWidth;
+    
     return YES;
 }
 							

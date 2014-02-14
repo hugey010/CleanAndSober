@@ -1,0 +1,52 @@
+{
+  "list": [
+    {
+      "identifier" : 0,
+      "type" : "category",
+      "title" : "title 1",
+      "list" : [
+          {
+            "identifier" : 4,
+            "type" : "category",
+            "title" : "subcategory 11",
+            "list" : [
+                {
+                  "identifier" : 6,
+                  "type" : "content",
+                  "title" : "content 111",
+                },
+                {
+                "identifier" : 7,
+                "type" : "content",
+                "title" : "content 112",
+                }
+              ]
+          },
+          {
+            "identifier" : 5,
+            "type" : "category",
+            "title" : "subcategory 12",
+          }
+              ]
+    },
+    {
+        "identifier" : 1,
+        "title" : "something 2",
+        "list" : [
+            {
+              "identifier" : 4,
+              "title" : "subcategory 21",
+            },
+            {
+              "identifier" : 5,
+              "title" : "subcategory 22",
+            }
+                ]
+
+        },
+        {
+            "identifier" : 2,
+            "title" : "gooseen",
+        }
+    ]
+}
