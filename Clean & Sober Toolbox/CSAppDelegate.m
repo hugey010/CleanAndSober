@@ -32,7 +32,7 @@
 
     // setup ecsliding view controller
     ECSlidingViewController *slidingVC = (ECSlidingViewController*)self.window.rootViewController;
-    UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_list"];
+    UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_nav"];
     CSCategoryListController *catList = categoryNav.viewControllers[0];
     [catList loadInitialContent];
     

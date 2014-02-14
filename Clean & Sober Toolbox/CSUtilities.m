@@ -73,26 +73,26 @@
     // TODO: send notification data has updated?
 }
 
-+(CSCategory*)parseCSCategoryFromDictionaryIntoDatabase:(NSDictionary*)cc {
++(CSCategory*)parseCSCategoryFromDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat {
     CSCategory *category = [CSCategory MR_createEntity];
     category.identifier = cc[@"identifier"];
     category.type = cc[@"type"];
     category.title = cc[@"title"];
-    category.in_category = nil;
+    category.in_category = incat;
     
     for (NSDictionary *subcat in cc[@"list"]) {
         if ([subcat[@"type"] isEqualToString:kCSContentType]) {
-            [category addHas_contentsObject:[CSUtilities parseCSContentFromDictionaryIntoDatabase:subcat]];
+            [category addHas_contentsObject:[CSUtilities parseCSContentFromDictionaryIntoDatabase:subcat inCategory:category]];
             
         } else if ([subcat[@"type"] isEqualToString:kCSCategoryType]) {
-            [category addHas_categoriesObject:[CSUtilities parseCSCategoryFromDictionaryIntoDatabase:subcat]];
+            [category addHas_categoriesObject:[CSUtilities parseCSCategoryFromDictionaryIntoDatabase:subcat inCategory:category]];
         }
     }
     
     return category;
 }
 
-+(CSContent*)parseCSContentFromDictionaryIntoDatabase:(NSDictionary*)cc {
++(CSContent*)parseCSContentFromDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat {
     
     CSContent *content = [CSContent MR_createEntity];
     content.identifier = cc[@"identifier"];
@@ -100,16 +100,18 @@
     content.title = cc[@"title"];
     content.message = cc[@"message"];
     
+    content.in_category = incat;
+    
     return content;
 }
 
 +(void)parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:(NSDictionary*)cc {
     
     if ([cc[@"type"] isEqualToString:kCSContentType]) {
-        [CSUtilities parseCSContentFromDictionaryIntoDatabase:cc];
+        [CSUtilities parseCSContentFromDictionaryIntoDatabase:cc inCategory:nil];
         
     } else if ([cc[@"type"] isEqualToString:kCSCategoryType]) {
-        [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:cc];
+        [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:cc inCategory:nil];
         
     }
 

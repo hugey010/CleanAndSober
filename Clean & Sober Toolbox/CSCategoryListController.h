@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CSCategory;
+
 @interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (IBAction)menuButtonPressed:(id)sender;
@@ -15,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 -(void)loadInitialContent;
--(void)loadAtContentAt:(NSInteger)identifier;
+-(void)loadListAt:(CSCategory*)cat;
 
 @end

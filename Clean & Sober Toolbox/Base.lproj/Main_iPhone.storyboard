@@ -25,7 +25,7 @@
         <!--Navigation Controller-->
         <scene sceneID="duE-e8-90p">
             <objects>
-                <navigationController storyboardIdentifier="category_list" definesPresentationContext="YES" id="AzX-cB-A6r" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="category_nav" definesPresentationContext="YES" id="AzX-cB-A6r" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Du-18-QVQ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -40,7 +40,7 @@
         <!--Category List Controller-->
         <scene sceneID="DMO-cu-MIp">
             <objects>
-                <viewController id="5m6-TB-DkH" customClass="CSCategoryListController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="category_list" id="5m6-TB-DkH" customClass="CSCategoryListController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8bu-iN-3zp"/>
                         <viewControllerLayoutGuide type="bottom" id="s28-q8-Fu3"/>
@@ -102,6 +102,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORH-gk-8g0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186" y="-35"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="99A-UA-XvD">
+            <objects>
+                <viewController storyboardIdentifier="content" id="gHN-cF-Wtb" customClass="CSContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1mC-mY-cti"/>
+                        <viewControllerLayoutGuide type="bottom" id="gVe-Af-d0q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3TJ-E6-pBq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZn-hd-8rS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-171" y="665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Nc-YN-jNF">
