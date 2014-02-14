@@ -7,25 +7,40 @@
 //
 
 #import "CSUtilities.h"
+#import "CSContent.h"
+#import "CSCategory.h"
 
-#define kHasFirstLoadedData @"has_loaded_static_json"
-#define kContentType @"content"
-#define kCategoryType @"category"
+#define kHasFirstLoadedDataKey @"has_loaded_static_json"
+#define kLastVersionKey @"last_version"
+#define kCSContentType @"content"
+#define kCSCategoryType @"category"
 
 @implementation CSUtilities
 
 +(BOOL)hasLoadedJson {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    return [def boolForKey:kHasFirstLoadedData];
+    return [def boolForKey:kHasFirstLoadedDataKey];
 }
 
 +(void)setHasLoadedJson:(BOOL)loaded {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setBool:loaded forKey:kHasFirstLoadedData];
+    [def setBool:loaded forKey:kHasFirstLoadedDataKey];
+    [def synchronize];
+}
+
++(NSInteger)lastVersion {
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    return [def integerForKey:kLastVersionKey];
+}
+
++(void)setLastVersion:(NSInteger)version {
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setInteger:version forKey:kLastVersionKey];
     [def synchronize];
 }
 
 +(void)checkAndLoadInitialJSONFileIntoDatabase {
+    
     if (!CSUtilities.hasLoadedJson) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"content" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -37,6 +52,9 @@
         
         [CSUtilities parseJSONDictionaryIntoDatabase:result];
     }
+    
+    // perform version check and update data if necessary
+    
 }
 
 +(void)parseJSONDictionaryIntoDatabase:(NSDictionary *)json {
@@ -45,17 +63,54 @@
     
     for (NSDictionary *topLevel in json[@"list"]) {
         
-        [CSUtilities parseCategoryOrContentDictionaryIntoDatabase:topLevel];
+        [CSUtilities parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:topLevel];
     }
+    
+    // save
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    // TODO: send notification data has updated?
 }
 
-+(void)parseCategoryOrContentDictionaryIntoDatabase:(NSDictionary*)cc {
-        if ([cc[@"type"] isEqualToString:kContentType]) {
++(CSCategory*)parseCSCategoryFromDictionaryIntoDatabase:(NSDictionary*)cc {
+    CSCategory *category = [CSCategory MR_createEntity];
+    category.identifier = cc[@"identifier"];
+    category.type = cc[@"type"];
+    category.title = cc[@"title"];
+    
+    for (NSDictionary *subcat in cc[@"list"]) {
+        if ([subcat[@"type"] isEqualToString:kCSContentType]) {
+            [category addHas_contentsObject:[CSUtilities parseCSContentFromDictionaryIntoDatabase:subcat]];
             
-            
-        } else if ([cc[@"type"] isEqualToString:kCategoryType]) {
-            
+        } else if ([subcat[@"type"] isEqualToString:kCSCategoryType]) {
+            [category addHas_categoriesObject:[CSUtilities parseCSCategoryFromDictionaryIntoDatabase:subcat]];
         }
+    }
+    
+    return category;
+}
+
++(CSContent*)parseCSContentFromDictionaryIntoDatabase:(NSDictionary*)cc {
+    
+    CSContent *content = [CSContent MR_createEntity];
+    content.identifier = cc[@"identifier"];
+    content.type = cc[@"type"];
+    content.title = cc[@"title"];
+    content.message = cc[@"message"];
+    
+    return content;
+}
+
++(void)parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:(NSDictionary*)cc {
+    
+    if ([cc[@"type"] isEqualToString:kCSContentType]) {
+        [CSUtilities parseCSContentFromDictionaryIntoDatabase:cc];
+        
+    } else if ([cc[@"type"] isEqualToString:kCSCategoryType]) {
+        [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:cc];
+        
+    }
+
     
 }
 

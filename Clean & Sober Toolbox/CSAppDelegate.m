@@ -19,6 +19,7 @@
     
     // setup coredata stack
     [MagicalRecord setupAutoMigratingCoreDataStack];
+    [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
     
     // detect iphone or ipad
     UIStoryboard *sb;

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Category" representedClassName="Category" syncable="YES">
+    <entity name="CSCategory" representedClassName="CSCategory" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="has_categories" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Category" inverseName="in_category" inverseEntity="Category" syncable="YES"/>
-        <relationship name="has_contents" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Content" inverseName="in_category" inverseEntity="Content" syncable="YES"/>
-        <relationship name="in_category" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Category" inverseName="has_categories" inverseEntity="Category" syncable="YES"/>
+        <relationship name="has_categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CSCategory" inverseName="in_category" inverseEntity="CSCategory" syncable="YES"/>
+        <relationship name="has_contents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CSContent" inverseName="in_category" inverseEntity="CSContent" syncable="YES"/>
+        <relationship name="in_category" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CSCategory" inverseName="has_categories" inverseEntity="CSCategory" syncable="YES"/>
     </entity>
-    <entity name="Content" representedClassName="Content" syncable="YES">
+    <entity name="CSContent" representedClassName="CSContent" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="in_category" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Category" inverseName="has_contents" inverseEntity="Category" syncable="YES"/>
+        <relationship name="in_category" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CSCategory" inverseName="has_contents" inverseEntity="CSCategory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="160" positionY="192" width="128" height="133"/>
-        <element name="Content" positionX="387" positionY="162" width="128" height="118"/>
+        <element name="CSCategory" positionX="160" positionY="192" width="128" height="133"/>
+        <element name="CSContent" positionX="387" positionY="162" width="128" height="118"/>
     </elements>
 </model>
