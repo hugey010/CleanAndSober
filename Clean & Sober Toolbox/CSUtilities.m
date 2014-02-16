@@ -42,7 +42,7 @@
 +(void)checkAndLoadInitialJSONFileIntoDatabase {
     
     if (!CSUtilities.hasLoadedJson) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"content" ofType:@"json"];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"result" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         id result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -60,7 +60,6 @@
 
 +(void)parseJSONDictionaryIntoDatabase:(NSDictionary *)json {
     // check to see if database has been initialized with static data or previous downloads
-    NSLog(@"result = %@", json);
     
     for (NSDictionary *topLevel in json[@"list"]) {
         

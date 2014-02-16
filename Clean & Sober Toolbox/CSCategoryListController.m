@@ -40,6 +40,8 @@
     contents = nil;
     
     [self.tableView reloadData];
+    
+
 }
 
 -(void)loadListAt:(CSCategory*)cat {
@@ -48,7 +50,7 @@
     
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category = %d", [cat.identifier integerValue]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category.identifier = %d", [cat.identifier integerValue]];
     categories = [CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
     contents = [CSContent MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
     

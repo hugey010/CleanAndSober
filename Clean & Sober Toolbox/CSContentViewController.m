@@ -9,7 +9,10 @@
 #import "CSContentViewController.h"
 #import "CSContent.h"
 
-@interface CSContentViewController ()
+@interface CSContentViewController () {
+    BOOL viewLoaded;
+    CSContent *cscontent;
+}
 
 @end
 
@@ -19,12 +22,21 @@
 {
     [super viewDidLoad];
 
-
+    if (cscontent) {
+        viewLoaded = YES;
+        [self setupWithContent:cscontent];
+    }
 }
 
 -(void)setupWithContent:(CSContent*)content {
+    if (!viewLoaded) {
+        cscontent = content;
+        return;
+    }
+    
     self.navigationItem.title = content.title;
     
+   [self.webview loadHTMLString:content.message baseURL:nil];
 }
 
 @end

@@ -12,6 +12,8 @@
 
 @interface CSContentViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *webview;
+
 -(void)setupWithContent:(CSContent*)content;
 
 @end

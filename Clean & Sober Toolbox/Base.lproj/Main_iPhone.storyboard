@@ -49,7 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6au-Gp-SXq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6au-Gp-SXq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,6 +79,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6au-Gp-SXq" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="8gy-0k-4wR"/>
+                            <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="iJc-4h-Nb7"/>
+                            <constraint firstItem="6au-Gp-SXq" firstAttribute="top" secondItem="SEx-VB-LB5" secondAttribute="top" id="osc-YY-Wms"/>
+                            <constraint firstAttribute="trailing" secondItem="6au-Gp-SXq" secondAttribute="trailing" id="viD-Nx-gxG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6tn-i7-Fod">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="tNZ-Gh-wx1">
@@ -114,8 +120,24 @@
                     <view key="view" contentMode="scaleToFill" id="3TJ-E6-pBq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8QL-8G-vQQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8QL-8G-vQQ" firstAttribute="top" secondItem="3TJ-E6-pBq" secondAttribute="top" id="5xz-BC-nno"/>
+                            <constraint firstAttribute="trailing" secondItem="8QL-8G-vQQ" secondAttribute="trailing" id="Hgm-TM-FtY"/>
+                            <constraint firstItem="8QL-8G-vQQ" firstAttribute="leading" secondItem="3TJ-E6-pBq" secondAttribute="leading" id="uJt-Ev-nfi"/>
+                            <constraint firstItem="gVe-Af-d0q" firstAttribute="top" secondItem="8QL-8G-vQQ" secondAttribute="bottom" id="z7w-SG-5yJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webview" destination="8QL-8G-vQQ" id="OPv-6F-vnw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZn-hd-8rS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
