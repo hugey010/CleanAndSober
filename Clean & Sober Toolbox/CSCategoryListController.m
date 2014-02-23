@@ -13,9 +13,11 @@
 #import "CSContentViewController.h"
 
 @interface CSCategoryListController () {
-    NSArray *categories;
-    NSArray *contents;
+    NSMutableArray *categories;
+    NSMutableArray *contents;
     BOOL containsContent;
+
+    CSCategory *originCategory;
 }
 
 @end
@@ -36,7 +38,7 @@
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category = nil"];
-    categories = [CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
+    categories = [[CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
     contents = nil;
     
     [self.tableView reloadData];
@@ -51,8 +53,39 @@
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category.identifier = %d", [cat.identifier integerValue]];
-    categories = [CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
-    contents = [CSContent MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
+    categories = [[CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
+    contents = [[CSContent MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
+    
+    [self.tableView reloadData];
+}
+
+-(void)searchAllContent:(NSString*)search {
+    
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[c] %@", search, search];
+    NSArray *unfilteredContents = [CSContent MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
+    predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", search];
+    NSArray *unfilteredCategories = [CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
+    
+    categories = [NSMutableArray array];
+    contents = [NSMutableArray array];
+    
+    // remove duplicates
+    NSMutableSet *cTitles = [NSMutableSet set];
+    for (CSCategory *c in unfilteredCategories) {
+        if (![cTitles containsObject:c.title]) {
+            [cTitles addObject:c.title];
+            [categories addObject:c];
+        }
+    }
+    cTitles = [NSMutableSet set];
+    for (CSContent *c in unfilteredContents) {
+        if (![cTitles containsObject:c.title]) {
+            [cTitles addObject:c.title];
+            [contents addObject:c];
+        }
+    }
     
     [self.tableView reloadData];
 }
@@ -121,5 +154,29 @@
     
 }
 
+#pragma mark - UISearchBar methods
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    [self searchAllContent:searchBar.text];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    //NSLog(@"search text = %@", searchText);
+    [self searchAllContent:searchText];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    if (originCategory) {
+        [self loadListAt:originCategory];
+    } else {
+        [self loadInitialContent];
+    }
+}
 
 @end

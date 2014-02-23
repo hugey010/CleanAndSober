@@ -10,11 +10,12 @@
 
 @class CSCategory;
 
-@interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 - (IBAction)menuButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 -(void)loadInitialContent;
 -(void)loadListAt:(CSCategory*)cat;
