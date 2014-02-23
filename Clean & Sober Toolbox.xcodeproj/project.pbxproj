@@ -32,6 +32,8 @@
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
 		1EDC5FDB18B9B72D00826A52 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDA18B9B72D00826A52 /* User.m */; };
+		1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */; };
+		1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */; };
 		DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,10 @@
 		1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDonateViewController.m; sourceTree = "<group>"; };
 		1EDC5FD918B9B72D00826A52 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1EDC5FDA18B9B72D00826A52 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1EDC5FDC18B9BA1800826A52 /* CSPsychologyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPsychologyViewController.h; sourceTree = "<group>"; };
+		1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPsychologyViewController.m; sourceTree = "<group>"; };
+		1EDC5FDF18B9BFAC00826A52 /* CSDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDisclaimerViewController.h; sourceTree = "<group>"; };
+		1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDisclaimerViewController.m; sourceTree = "<group>"; };
 		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,14 +141,11 @@
 		1E04D3AF18ADD63C00BC81FC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1EDC5FE218B9C06600826A52 /* Menu */,
 				1E3377A718ADBCA80052DEAA /* CSCategoryListController.h */,
 				1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */,
-				1E04D3B018ADD65900BC81FC /* CSMenuViewController.h */,
-				1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */,
 				1E04D3DA18ADECE400BC81FC /* CSContentViewController.h */,
 				1E04D3DB18ADECE400BC81FC /* CSContentViewController.m */,
-				1EDC5FD618B9B57600826A52 /* CSDonateViewController.h */,
-				1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +240,21 @@
 				1E58AFB818A540A300E28EAA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1EDC5FE218B9C06600826A52 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1E04D3B018ADD65900BC81FC /* CSMenuViewController.h */,
+				1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */,
+				1EDC5FD618B9B57600826A52 /* CSDonateViewController.h */,
+				1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */,
+				1EDC5FDC18B9BA1800826A52 /* CSPsychologyViewController.h */,
+				1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */,
+				1EDC5FDF18B9BFAC00826A52 /* CSDisclaimerViewController.h */,
+				1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,11 +397,13 @@
 				1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */,
 				1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */,
 				1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */,
+				1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */,
 				1E04D3D918ADE1CE00BC81FC /* CSCategory.m in Sources */,
 				1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */,
 				1EDC5FDB18B9B72D00826A52 /* User.m in Sources */,
 				1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */,
 				1E58AF9A18A540A300E28EAA /* main.m in Sources */,
+				1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */,
 				1E04D3D618ADE1CD00BC81FC /* CSContent.m in Sources */,
 				1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */,
 			);
@@ -526,6 +546,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -540,6 +561,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

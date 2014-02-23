@@ -1,24 +1,24 @@
 //
-//  CSDonateViewController.m
+//  CSDisclaimerViewController.m
 //  Clean & Sober Toolbox
 //
-//  Created by Hugey on 2/22/14.
+//  Created by Hugey on 2/23/14.
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
-#import "CSDonateViewController.h"
+#import "CSDisclaimerViewController.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 
-@interface CSDonateViewController ()
+@interface CSDisclaimerViewController ()
 
 @end
 
-@implementation CSDonateViewController
+@implementation CSDisclaimerViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Donate";
+    self.navigationItem.title = @"Disclaimer";
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
