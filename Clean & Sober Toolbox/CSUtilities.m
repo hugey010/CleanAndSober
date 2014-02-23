@@ -9,6 +9,7 @@
 #import "CSUtilities.h"
 #import "CSContent.h"
 #import "CSCategory.h"
+#import "User.h"
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
 #define kLastVersionKey @"last_version"
@@ -49,6 +50,8 @@
         if (error) {
             NSLog(@"error loading json from file = %@", [error description]);
         }
+        
+        [CSUtilities createInitialUser];
         
         [CSUtilities parseJSONDictionaryIntoDatabase:result];
         [CSUtilities setHasLoadedJson:YES];
@@ -113,8 +116,13 @@
         [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:cc inCategory:nil];
         
     }
+}
 
-    
++(void)createInitialUser {
+    User *user = [User MR_createEntity];
+    user.notificationsOn = [NSNumber numberWithBool:YES];
+    user.emailsOn = [NSNumber numberWithBool:NO];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end

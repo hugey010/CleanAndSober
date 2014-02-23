@@ -10,4 +10,11 @@
 
 @interface CSMenuViewController : UIViewController
 
+
+- (IBAction)psychologyButtonPressed:(id)sender;
+- (IBAction)donateButtonPressed:(id)sender;
+- (IBAction)disclaimerButtonPressed:(id)sender;
+- (IBAction)notificationsValueChanged:(id)sender;
+- (IBAction)emailValueChanged:(id)sender;
+
 @end
