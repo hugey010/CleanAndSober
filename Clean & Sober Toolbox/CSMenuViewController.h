@@ -20,5 +20,6 @@
 - (IBAction)notificationsValueChanged:(id)sender;
 - (IBAction)emailValueChanged:(id)sender;
 - (IBAction)homeButtonPressed:(id)sender;
+- (IBAction)psycologyButtonPressed:(id)sender;
 
 @end

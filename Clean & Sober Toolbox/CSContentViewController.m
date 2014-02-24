@@ -36,7 +36,7 @@
     
     self.navigationItem.title = content.title;
     
-   [self.webview loadHTMLString:content.message baseURL:nil];
+    self.textView.text = [NSString stringWithFormat:@"%@\n\n%@", content.message, content.todo];
 }
 
 @end

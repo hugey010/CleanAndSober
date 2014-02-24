@@ -12,6 +12,7 @@
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="todo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="in_category" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CSCategory" inverseName="has_contents" inverseEntity="CSCategory" syncable="YES"/>
     </entity>
@@ -24,8 +25,8 @@
         <attribute name="notificationsOn" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CSCategory" positionX="160" positionY="192" width="128" height="133"/>
-        <element name="CSContent" positionX="387" positionY="162" width="128" height="118"/>
-        <element name="User" positionX="313" positionY="380" width="128" height="28"/>
+        <element name="CSCategory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CSContent" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

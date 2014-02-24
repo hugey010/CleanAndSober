@@ -60,11 +60,18 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please Enter Email" message:@"To receive emails, please enter your email address." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
         });
+        
+        [self.emailSwitch setOn:NO];
     }
 }
 
 - (IBAction)homeButtonPressed:(id)sender {
     [self.slidingViewController resetTopView];
+}
+
+- (IBAction)psycologyButtonPressed:(id)sender {
+    UIViewController *psychVC = [self.storyboard instantiateViewControllerWithIdentifier:@"psychology"];
+    [self specializedPush:psychVC];
 }
 
 -(void)specializedPush:(UIViewController*)viewController {
