@@ -2,7 +2,7 @@
 //  CSContent.h
 //  Clean & Sober Toolbox
 //
-//  Created by Hugey on 2/14/14.
+//  Created by Hugey on 2/24/14.
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
@@ -13,10 +13,11 @@
 
 @interface CSContent : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSString * message;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * todo;
 @property (nonatomic, retain) CSCategory *in_category;
 
 @end
