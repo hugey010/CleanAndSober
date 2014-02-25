@@ -132,24 +132,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2li-WM-uI1">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-D1-Cxp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2li-WM-uI1" firstAttribute="top" secondItem="3TJ-E6-pBq" secondAttribute="top" id="6tw-yF-p8s"/>
-                            <constraint firstAttribute="trailing" secondItem="2li-WM-uI1" secondAttribute="trailing" id="jNq-WK-uIa"/>
-                            <constraint firstItem="2li-WM-uI1" firstAttribute="leading" secondItem="3TJ-E6-pBq" secondAttribute="leading" id="rbg-fL-p3Q"/>
-                            <constraint firstItem="gVe-Af-d0q" firstAttribute="top" secondItem="2li-WM-uI1" secondAttribute="bottom" id="vfY-c4-rXe"/>
+                            <constraint firstAttribute="trailing" secondItem="EmY-D1-Cxp" secondAttribute="trailing" id="EcW-85-WHl"/>
+                            <constraint firstItem="EmY-D1-Cxp" firstAttribute="leading" secondItem="3TJ-E6-pBq" secondAttribute="leading" id="NZl-tP-5AO"/>
+                            <constraint firstItem="EmY-D1-Cxp" firstAttribute="top" secondItem="3TJ-E6-pBq" secondAttribute="top" id="Q6Y-MV-suJ"/>
+                            <constraint firstItem="gVe-Af-d0q" firstAttribute="top" secondItem="EmY-D1-Cxp" secondAttribute="bottom" id="wfI-sj-8yk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="2li-WM-uI1" id="YIc-4o-Drb"/>
+                        <outlet property="webview" destination="EmY-D1-Cxp" id="No1-cz-dsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZn-hd-8rS" userLabel="First Responder" sceneMemberID="firstResponder"/>
