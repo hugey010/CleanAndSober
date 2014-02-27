@@ -2,7 +2,7 @@
 //  CSCategory.m
 //  Clean & Sober Toolbox
 //
-//  Created by Hugey on 2/14/14.
+//  Created by Hugey on 2/27/14.
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 
 @implementation CSCategory
 
-@dynamic title;
 @dynamic identifier;
+@dynamic title;
 @dynamic type;
-@dynamic has_contents;
 @dynamic has_categories;
+@dynamic has_contents;
 @dynamic in_category;
 
 @end

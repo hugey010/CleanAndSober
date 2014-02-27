@@ -43,7 +43,7 @@
 +(void)checkAndLoadInitialJSONFileIntoDatabase {
     
     if (!CSUtilities.hasLoadedJson) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"txt_result" ofType:@"json"];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"finalized_json" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         id result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -62,17 +62,28 @@
 }
 
 +(void)parseJSONDictionaryIntoDatabase:(NSDictionary *)json {
-    // check to see if database has been initialized with static data or previous downloads
+    // TODO: delete old database entries
     
-    for (NSDictionary *topLevel in json[@"list"]) {
-        
-        [CSUtilities parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:topLevel];
+    for (NSDictionary *message in json[@"messages"]) {
+        CSContent *content = [CSContent MR_createEntity];
+        content.identifier = message[@"identifier"];
+        content.message = message[@"message"];
+        content.todo = message[@"todo"];
+        content.title = message[@"title"];
+        content.type = @"content";
+    }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    for (NSDictionary *topLevel in json[@"structure"][@"list"]) {
+       
+        [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:topLevel inCategory:nil];
+        //[CSUtilities parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:topLevel];
     }
     
     // save
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
-    // TODO: send notification data has updated?
+    // TODO: post notification data has updated?
 }
 
 +(CSCategory*)parseCSCategoryFromDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat {
@@ -82,41 +93,26 @@
     category.title = cc[@"title"];
     category.in_category = incat;
     
+    //NSLog(@"category title = %@", category.title);
+    //NSLog(@"category.list %@", cc[@"list"]);
+    
     for (NSDictionary *subcat in cc[@"list"]) {
         if ([subcat[@"type"] isEqualToString:kCSContentType]) {
-            [category addHas_contentsObject:[CSUtilities parseCSContentFromDictionaryIntoDatabase:subcat inCategory:category]];
+            // fetch content with id and link relationship
+            CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:subcat[@"identifier"]];
+            [content addIn_categoryObject:category];
+            NSMutableOrderedSet *oset = [category.has_contents mutableCopy];
+            [oset addObject:content];
+            category.has_contents = oset;
             
         } else if ([subcat[@"type"] isEqualToString:kCSCategoryType]) {
-            [category addHas_categoriesObject:[CSUtilities parseCSCategoryFromDictionaryIntoDatabase:subcat inCategory:category]];
+            NSMutableOrderedSet *oset = [category.has_categories mutableCopy];
+            [oset addObject:[CSUtilities parseCSCategoryFromDictionaryIntoDatabase:subcat inCategory:category]];
+            category.has_categories = oset;
         }
     }
     
     return category;
-}
-
-+(CSContent*)parseCSContentFromDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat {
-    
-    CSContent *content = [CSContent MR_createEntity];
-    content.identifier = cc[@"identifier"];
-    content.type = cc[@"type"];
-    content.title = cc[@"title"];
-    content.message = cc[@"message"];
-    content.todo = cc[@"todo"];
-    
-    content.in_category = incat;
-    
-    return content;
-}
-
-+(void)parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:(NSDictionary*)cc {
-    
-    if ([cc[@"type"] isEqualToString:kCSContentType]) {
-        [CSUtilities parseCSContentFromDictionaryIntoDatabase:cc inCategory:nil];
-        
-    } else if ([cc[@"type"] isEqualToString:kCSCategoryType]) {
-        [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:cc inCategory:nil];
-        
-    }
 }
 
 +(void)createInitialUser {

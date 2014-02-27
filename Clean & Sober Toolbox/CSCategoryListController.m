@@ -38,7 +38,7 @@
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category = nil"];
-    categories = [[CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
+    categories = [[CSCategory MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
     contents = nil;
     
     [self.tableView reloadData];
@@ -52,9 +52,9 @@
     
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category.identifier = %d", [cat.identifier integerValue]];
-    categories = [[CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
-    contents = [[CSContent MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY in_category.identifier = %d", [cat.identifier integerValue]];
+    categories = [[CSCategory MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
+    contents = [[CSContent MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
     
     [self.tableView reloadData];
 }
@@ -64,9 +64,9 @@
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[c] %@", search, search];
-    NSArray *unfilteredContents = [CSContent MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
+    NSArray *unfilteredContents = [CSContent MR_findAllWithPredicate:predicate inContext:context];
     predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", search];
-    NSArray *unfilteredCategories = [CSCategory MR_findAllSortedBy:@"title" ascending:NO withPredicate:predicate inContext:context];
+    NSArray *unfilteredCategories = [CSCategory MR_findAllWithPredicate:predicate inContext:context];
     
     categories = [NSMutableArray array];
     contents = [NSMutableArray array];
@@ -147,6 +147,7 @@
         [self.navigationController pushViewController:listVC animated:YES];
         
         CSCategory *category = categories[indexPath.row];
+        NSLog(@"cat has cats = %lu, has contents = %lu", [category.has_categories count], [category.has_contents count]);
         [listVC loadListAt:category];
 
         
