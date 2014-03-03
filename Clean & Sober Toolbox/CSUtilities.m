@@ -77,7 +77,6 @@
     for (NSDictionary *topLevel in json[@"structure"][@"list"]) {
        
         [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:topLevel inCategory:nil];
-        //[CSUtilities parseToplevelCSCategoryOrCSContentDictionaryIntoDatabase:topLevel];
     }
     
     // save
@@ -92,9 +91,6 @@
     category.type = cc[@"type"];
     category.title = cc[@"title"];
     category.in_category = incat;
-    
-    //NSLog(@"category title = %@", category.title);
-    //NSLog(@"category.list %@", cc[@"list"]);
     
     for (NSDictionary *subcat in cc[@"list"]) {
         if ([subcat[@"type"] isEqualToString:kCSContentType]) {

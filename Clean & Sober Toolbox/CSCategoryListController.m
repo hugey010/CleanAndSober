@@ -13,8 +13,8 @@
 #import "CSContentViewController.h"
 
 @interface CSCategoryListController () {
-    NSMutableArray *categories;
-    NSMutableArray *contents;
+    NSArray *categories;
+    NSArray *contents;
     BOOL containsContent;
 
     CSCategory *originCategory;
@@ -63,29 +63,10 @@
     
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[c] %@", search, search];
-    NSArray *unfilteredContents = [CSContent MR_findAllWithPredicate:predicate inContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[cd] %@", search, search];
+    contents = [CSContent MR_findAllWithPredicate:predicate inContext:context];
     predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", search];
-    NSArray *unfilteredCategories = [CSCategory MR_findAllWithPredicate:predicate inContext:context];
-    
-    categories = [NSMutableArray array];
-    contents = [NSMutableArray array];
-    
-    // remove duplicates
-    NSMutableSet *cTitles = [NSMutableSet set];
-    for (CSCategory *c in unfilteredCategories) {
-        if (![cTitles containsObject:c.title]) {
-            [cTitles addObject:c.title];
-            [categories addObject:c];
-        }
-    }
-    cTitles = [NSMutableSet set];
-    for (CSContent *c in unfilteredContents) {
-        if (![cTitles containsObject:c.title]) {
-            [cTitles addObject:c.title];
-            [contents addObject:c];
-        }
-    }
+    categories = [CSCategory MR_findAllWithPredicate:predicate inContext:context];
     
     [self.tableView reloadData];
 }
@@ -135,24 +116,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && [contents count] > 0) {
-        
         CSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"content"];
         [self.navigationController pushViewController:contentVC animated:YES];
-
         CSContent *content = contents[indexPath.row];
         [contentVC setupWithContent:content];
 
     } else {
         CSCategoryListController *listVC = [self.storyboard instantiateViewControllerWithIdentifier:@"category_list"];
         [self.navigationController pushViewController:listVC animated:YES];
-        
         CSCategory *category = categories[indexPath.row];
-        NSLog(@"cat has cats = %lu, has contents = %lu", [category.has_categories count], [category.has_contents count]);
         [listVC loadListAt:category];
-
-        
     }
-    
 }
 
 #pragma mark - UISearchBar methods
@@ -167,7 +141,6 @@
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    //NSLog(@"search text = %@", searchText);
     [self searchAllContent:searchText];
 }
 
