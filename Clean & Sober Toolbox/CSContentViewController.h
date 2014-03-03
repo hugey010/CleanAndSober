@@ -13,6 +13,7 @@
 @interface CSContentViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 -(void)setupWithContent:(CSContent*)content;
 

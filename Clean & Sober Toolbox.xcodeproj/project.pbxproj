@@ -28,6 +28,7 @@
 		1E58AFB218A540A300E28EAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF9118A540A300E28EAA /* UIKit.framework */; };
 		1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFB818A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
+		1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA41E5A18C5402A00FCE832 /* Florida_2014 */; };
 		1ED8215818BFA59C00EFB474 /* finalized_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED8215718BFA59C00EFB474 /* finalized_json.json */; };
 		1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216C18BFAEA500EFB474 /* CSCategory.m */; };
 		1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216F18BFAEA500EFB474 /* CSContent.m */; };
@@ -80,6 +81,7 @@
 		1E58AFB718A540A300E28EAA /* Clean & Sober ToolboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clean & Sober ToolboxTests-Info.plist"; sourceTree = "<group>"; };
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
+		1EA41E5A18C5402A00FCE832 /* Florida_2014 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Florida_2014; sourceTree = "<group>"; };
 		1ED8215718BFA59C00EFB474 /* finalized_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = finalized_json.json; sourceTree = "<group>"; };
 		1ED8216B18BFAEA500EFB474 /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
 		1ED8216C18BFAEA500EFB474 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		1E04D3A418ADC63D00BC81FC /* static content */ = {
 			isa = PBXGroup;
 			children = (
+				1EA41E5A18C5402A00FCE832 /* Florida_2014 */,
 				1ED8215718BFA59C00EFB474 /* finalized_json.json */,
 				1E3AFF8518BBF74F0057976C /* txt_result.json */,
 				1E04D3A518ADC65C00BC81FC /* content.json */,
@@ -342,6 +345,7 @@
 				1E04D3A618ADC65C00BC81FC /* content.json in Resources */,
 				1E58AFA418A540A300E28EAA /* Main_iPad.storyboard in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
+				1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */,
 				1E3AFF8618BBF74F0057976C /* txt_result.json in Resources */,
 				1E58AFA118A540A300E28EAA /* Main_iPhone.storyboard in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
