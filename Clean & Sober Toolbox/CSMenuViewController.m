@@ -20,6 +20,8 @@
 {
     [super viewDidLoad];
     
+    [self.view setBackgroundColor:COLOR_BACKGROUND];
+    
     User *user = [User MR_findFirst];
     self.navigationItem.title = [NSString stringWithFormat:@"Days Sober = %@", user.daysInARow];
     [self.emailSwitch setOn:[user.emailsOn boolValue]];

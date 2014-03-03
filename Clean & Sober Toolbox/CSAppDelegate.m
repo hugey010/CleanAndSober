@@ -36,10 +36,11 @@
     CSCategoryListController *catList = categoryNav.viewControllers[0];
     [catList loadInitialContent];
     
+    categoryNav.view.layer.shadowOpacity = 0.75;
+    categoryNav.view.layer.shadowRadius = 10.0f;
+    categoryNav.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
     UIViewController *menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
-    menuVC.view.layer.shadowOpacity = 0.75;
-    menuVC.view.layer.shadowRadius = 10.0f;
-    menuVC.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
     [slidingVC setTopViewController:categoryNav];
     [slidingVC setUnderRightViewController:menuVC];
@@ -47,9 +48,26 @@
     [slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
     slidingVC.underRightWidthLayout = ECFixedRevealWidth;
     
+    [self style];
+    
     return YES;
 }
-							
+
+-(void)style {
+    [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setTextColor:COLOR_TEXT_CELL];
+    [[UILabel appearance] setFont:FONT_LABELS];
+    [[UIButton appearance] setTitleColor:COLOR_BUTTONS forState:UIControlStateNormal];
+    [[UISwitch appearance] setTintColor:COLOR_SLIDER];
+    [[UISwitch appearance] setOnTintColor:COLOR_SLIDER];
+    
+    // special for back button appearance
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                COLOR_BUTTONS ,UITextAttributeTextColor,
+                                nil];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
