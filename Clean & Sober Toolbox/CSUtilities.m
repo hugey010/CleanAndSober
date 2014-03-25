@@ -43,7 +43,7 @@
 +(void)checkAndLoadInitialJSONFileIntoDatabase {
     
     if (!CSUtilities.hasLoadedJson) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"finalized_json" ofType:@"json"];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"newest_cleaned_data" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         id result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];

@@ -28,10 +28,12 @@
     }
 
     // load random background image
+    /*
     NSArray *backgroundImagePaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:@"Florida_2014"];
     NSUInteger randomIndex = arc4random() % [backgroundImagePaths count];
     UIImage *image = [UIImage imageWithContentsOfFile:backgroundImagePaths[randomIndex]];
     self.backgroundImage.image = image;
+     */
 }
 
 -(void)setupWithContent:(CSContent*)content {
@@ -41,7 +43,7 @@
     }
     self.navigationItem.title = content.title;
     
-    [self.webview loadHTMLString:[NSString stringWithFormat:@"<span style=\"text-shadow: 2px 2px 2px #B22222; color:white; font-size:17pt;\"<br>%@<br><br>%@</span>", content.message, content.todo] baseURL:nil];
+    [self.webview loadHTMLString:[NSString stringWithFormat:@"%@<br><br>%@", content.message, content.todo] baseURL:nil];
     [self.webview setBackgroundColor:[UIColor clearColor]];
     [self.webview setOpaque:NO];
 }

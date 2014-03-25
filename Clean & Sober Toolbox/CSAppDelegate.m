@@ -57,8 +57,8 @@
     [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setTextColor:COLOR_TEXT_CELL];
     [[UILabel appearance] setFont:FONT_LABELS];
     [[UIButton appearance] setTitleColor:COLOR_BUTTONS forState:UIControlStateNormal];
-    [[UISwitch appearance] setTintColor:COLOR_SLIDER];
-    [[UISwitch appearance] setOnTintColor:COLOR_SLIDER];
+    [[UISwitch appearance] setTintColor:COLOR_SWITCH];
+    [[UISwitch appearance] setOnTintColor:COLOR_SWITCH];
     
     // special for back button appearance
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
