@@ -96,6 +96,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6tn-i7-Fod">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Zq8-Xz-xfa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kOX-8o-Y9c">
+                                <rect key="frame" x="16" y="5" width="40" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="helpButtonPressed:" destination="5m6-TB-DkH" eventType="touchUpInside" id="SwH-mi-vVr"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="tNZ-Gh-wx1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LCG-3L-rEe">
                                 <rect key="frame" x="264" y="5" width="40" height="33"/>
@@ -112,6 +125,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="helpButton" destination="kOX-8o-Y9c" id="Dhp-yl-c9Y"/>
                         <outlet property="searchBar" destination="2g6-Ru-ZOU" id="0Bv-1i-Ixo"/>
                         <outlet property="tableView" destination="6au-Gp-SXq" id="SxA-im-3hR"/>
                     </connections>
@@ -119,6 +133,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORH-gk-8g0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186" y="-35"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="olV-Gs-PDB">
+            <objects>
+                <viewController storyboardIdentifier="HelpVC" id="uDR-rs-cgh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Raj-vA-RGl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pez-X6-4cK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LTR-Qt-S5Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the help text about something you might want to know about this app." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="cVQ-xb-VtX">
+                                <rect key="frame" x="15" y="0.0" width="290" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cVQ-xb-VtX" secondAttribute="trailing" constant="15" id="0Ob-4G-kSk"/>
+                            <constraint firstItem="cVQ-xb-VtX" firstAttribute="top" secondItem="LTR-Qt-S5Y" secondAttribute="top" id="0xf-rR-Tf1"/>
+                            <constraint firstItem="Pez-X6-4cK" firstAttribute="top" secondItem="cVQ-xb-VtX" secondAttribute="bottom" id="IZ5-eV-Muz"/>
+                            <constraint firstItem="cVQ-xb-VtX" firstAttribute="leading" secondItem="LTR-Qt-S5Y" secondAttribute="leading" constant="15" id="Yp3-Tg-JeT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="orR-kc-h8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-624" y="802"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="99A-UA-XvD">

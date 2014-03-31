@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPPopoverController.h"
 
 @class CSCategory;
 
 @interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 - (IBAction)menuButtonPressed:(id)sender;
+- (IBAction)helpButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *helpButton;
+@property (nonatomic, strong) FPPopoverController *popover;
 
 -(void)loadInitialContent;
 -(void)loadListAt:(CSCategory*)cat;

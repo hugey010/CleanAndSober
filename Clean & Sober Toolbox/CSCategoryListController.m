@@ -12,6 +12,8 @@
 #import "CSContent.h"
 #import "CSContentViewController.h"
 
+#define kFirstHelpLoad @"first_help_load"
+
 @interface CSCategoryListController () {
     NSArray *categories;
     NSArray *contents;
@@ -32,6 +34,20 @@
     self.navigationItem.title = kAppTitle;
 
     [self.tableView reloadData];
+    
+    if ([self firstLoad]) {
+        [self helpButtonPressed:self.helpButton];
+    }
+}
+
+-(BOOL)firstLoad {
+    
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    BOOL result = [[def objectForKey:kFirstHelpLoad] boolValue];
+    [def setObject:@YES forKey:kFirstHelpLoad];
+    [def synchronize];
+    
+    return result;
 }
 
 -(void)loadInitialContent {
@@ -57,6 +73,21 @@
     contents = [[CSContent MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
     
     [self.tableView reloadData];
+}
+
+- (IBAction)helpButtonPressed:(id)sender {
+    // show popover
+    UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
+    self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
+    self.popover.tint = FPPopoverRedTint;
+    self.popover.alpha = 0.85;
+    //self.popover.arrowDirection = ;
+    self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 50, 300);
+
+    
+    [self.popover presentPopoverFromView:sender];
+    //[self.popover presentPopoverFromPoint:CGPointMake(self.helpButton.frame.origin.x + 50, 70)];
+    //[self.popover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width / 4.0, self.view.frame.size.height / 2.0)];
 }
 
 -(void)searchAllContent:(NSString*)search {
