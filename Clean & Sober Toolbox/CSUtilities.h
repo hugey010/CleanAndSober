@@ -17,5 +17,6 @@
 
 +(void)parseJSONDictionaryIntoDatabase:(NSDictionary*)json;
 +(void)checkAndLoadInitialJSONFileIntoDatabase;
++(void)loadFromPremadeDatabase;
 
 @end

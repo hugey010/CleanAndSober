@@ -41,7 +41,8 @@
 }
 
 +(void)checkAndLoadInitialJSONFileIntoDatabase {
-    
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+
     if (!CSUtilities.hasLoadedJson) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"newest_cleaned_data" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -116,6 +117,80 @@
     user.notificationsOn = [NSNumber numberWithBool:YES];
     user.emailsOn = [NSNumber numberWithBool:NO];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
++(void)loadFromPremadeDatabase {
+    
+    // Get the default store path, then add the name that MR uses for the store
+    NSURL *defaultStorePath = [NSPersistentStore MR_defaultLocalStoreUrl];
+    defaultStorePath = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:[MagicalRecord defaultStoreName]];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:[defaultStorePath path]]) {
+        NSURL *seedPath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite"]];
+
+
+        NSLog(@"Core data store does not yet exist at: %@. Attempting to copy from seed db %@.", [defaultStorePath path], [seedPath path]);
+        
+        // We must create the path first, or the copy will fail
+        [self createPathToStoreFileIfNeccessary:defaultStorePath];
+        
+        NSError* err = nil;
+        if (![fileManager copyItemAtURL:seedPath toURL:defaultStorePath error:&err]) {
+            NSLog(@"Could not copy seed data 0. error: %@", err);
+        }
+        
+        NSURL *seedPath1 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite-wal"]];
+        NSURL *destPathWAL = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Clean & Sober Toolbox.sqlite-wal"];
+        err = nil;
+        if (![fileManager copyItemAtURL:seedPath1 toURL:destPathWAL error:&err]) {
+            NSLog(@"Could not copy seed data 1. error: %@", err);
+        }
+        
+        NSURL *seedPath2 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite-shm"]];
+        NSURL *destPathSHM = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Clean & Sober Toolbox.sqlite-shm"];
+        err = nil;
+        if (![fileManager copyItemAtURL:seedPath2 toURL:destPathSHM error:&err]) {
+            NSLog(@"Could not copy seed data 2. error: %@", err);
+        }
+        err = nil;
+        
+    }
+    
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    
+    /////////
+    /*
+    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentPath = [paths lastObject];
+    
+    NSURL *storeURL = [documentPath URLByAppendingPathComponent:@"Clean & Sober Toolbox.sqlite"];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite"];
+    
+    NSLog(@"storeurl = %@\n\n filePath = %@", storeURL, filePath);
+    
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+        NSURL *preloadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite"]];
+        NSError* err = nil;
+        
+        if (![[NSFileManager defaultManager] copyItemAtURL:preloadURL toURL:storeURL error:&err]) {
+            NSLog(@"Error: Unable to copy preloaded database.");
+        }
+    }
+
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Clean & Sober Toolbox.sqlite"];
+*/
+}
+
+// This method is copied from one of MR's categories
++ (void) createPathToStoreFileIfNeccessary:(NSURL *)urlForStore {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *pathToStore = [urlForStore URLByDeletingLastPathComponent];
+    
+    NSError *error = nil;
+    [fileManager createDirectoryAtPath:[pathToStore path] withIntermediateDirectories:YES attributes:nil error:&error];
 }
 
 @end

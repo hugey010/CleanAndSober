@@ -27,6 +27,12 @@
 		1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFB818A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
 		1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA41E5A18C5402A00FCE832 /* Florida_2014 */; };
+		1ED3136818E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */; };
+		1ED3136918E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */; };
+		1ED3136A18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
+		1ED3136B18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
+		1ED3136C18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
+		1ED3136D18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
 		1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216C18BFAEA500EFB474 /* CSCategory.m */; };
 		1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216F18BFAEA500EFB474 /* CSContent.m */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
@@ -78,6 +84,9 @@
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
 		1EA41E5A18C5402A00FCE832 /* Florida_2014 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Florida_2014; sourceTree = "<group>"; };
+		1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite"; sourceTree = "<group>"; };
+		1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-shm"; sourceTree = "<group>"; };
+		1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-wal"; sourceTree = "<group>"; };
 		1ED8216B18BFAEA500EFB474 /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
 		1ED8216C18BFAEA500EFB474 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
 		1ED8216E18BFAEA500EFB474 /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
@@ -91,6 +100,16 @@
 		1EDC5FDF18B9BFAC00826A52 /* CSDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDisclaimerViewController.h; sourceTree = "<group>"; };
 		1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDisclaimerViewController.m; sourceTree = "<group>"; };
 		1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newest_cleaned_data.json; sourceTree = "<group>"; };
+		1EDE809518E7A5C900A93FBB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1EDE809918E7A5D600A93FBB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1EDE80A018E7A83100A93FBB /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
+		1EDE80A118E7A83100A93FBB /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
+		1EDE80A218E7A83100A93FBB /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
+		1EDE80A318E7A83100A93FBB /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
+		1EDE80A418E7A83100A93FBB /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
+		1EDE80A518E7A83100A93FBB /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
 		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,6 +141,9 @@
 		1E04D3A418ADC63D00BC81FC /* static content */ = {
 			isa = PBXGroup;
 			children = (
+				1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */,
+				1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */,
+				1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */,
 				1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */,
 				1EA41E5A18C5402A00FCE832 /* Florida_2014 */,
 			);
@@ -187,6 +209,11 @@
 		1E58AF8C18A540A300E28EAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EDE809F18E7A83100A93FBB /* PayPalMobile */,
+				1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */,
+				1EDE809918E7A5D600A93FBB /* MessageUI.framework */,
+				1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */,
+				1EDE809518E7A5C900A93FBB /* AVFoundation.framework */,
 				1E58AF8D18A540A300E28EAA /* Foundation.framework */,
 				1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */,
 				1E58AF9118A540A300E28EAA /* UIKit.framework */,
@@ -257,6 +284,19 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		1EDE809F18E7A83100A93FBB /* PayPalMobile */ = {
+			isa = PBXGroup;
+			children = (
+				1EDE80A018E7A83100A93FBB /* libPayPalMobile.a */,
+				1EDE80A118E7A83100A93FBB /* PayPalConfiguration.h */,
+				1EDE80A218E7A83100A93FBB /* PayPalFuturePaymentViewController.h */,
+				1EDE80A318E7A83100A93FBB /* PayPalMobile.h */,
+				1EDE80A418E7A83100A93FBB /* PayPalPayment.h */,
+				1EDE80A518E7A83100A93FBB /* PayPalPaymentViewController.h */,
+			);
+			path = PayPalMobile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,7 +344,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CS;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Tyler Hugenberg";
 				TargetAttributes = {
 					1E58AFAD18A540A300E28EAA = {
@@ -336,10 +376,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED3136A18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
 				1E58AFA418A540A300E28EAA /* Main_iPad.storyboard in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
 				1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */,
 				1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */,
+				1ED3136C18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
+				1ED3136818E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */,
 				1E58AFA118A540A300E28EAA /* Main_iPhone.storyboard in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
 			);
@@ -349,7 +392,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED3136D18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
+				1ED3136B18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
 				1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */,
+				1ED3136918E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +513,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -507,7 +552,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -547,6 +591,26 @@
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayPalMobile",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreData,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-lc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -562,6 +626,26 @@
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayPalMobile",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreData,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-lc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -570,7 +654,6 @@
 		1E58AFC318A540A300E28EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clean & Sober Toolbox.app/Clean & Sober Toolbox";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -593,7 +676,6 @@
 		1E58AFC418A540A300E28EAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clean & Sober Toolbox.app/Clean & Sober Toolbox";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
