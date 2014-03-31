@@ -180,6 +180,17 @@
     user.lastLoginDate = [NSDate date];
     user.daysInARow = [NSNumber numberWithInt:[CSUtilities daysBetweenDate:user.streakStartDate andDate:user.lastLoginDate] + 1];
     
+    
+    // TODO: need to alert or something so we can show an image
+    switch ([user.daysInARow intValue]) {
+        case 7:
+
+            break;
+            
+        default:
+            break;
+    }
+    
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
