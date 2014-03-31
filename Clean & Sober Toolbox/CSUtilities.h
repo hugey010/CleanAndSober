@@ -19,4 +19,7 @@
 +(void)checkAndLoadInitialJSONFileIntoDatabase;
 +(void)loadFromPremadeDatabase;
 
++(void)updateUser;
++ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
+
 @end

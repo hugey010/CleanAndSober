@@ -27,16 +27,17 @@
 		1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFB818A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
 		1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */ = {isa = PBXBuildFile; fileRef = 1EA41E5A18C5402A00FCE832 /* Florida_2014 */; };
-		1ED3136818E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */; };
-		1ED3136918E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */; };
-		1ED3136A18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
-		1ED3136B18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
-		1ED3136C18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
-		1ED3136D18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
+		1ED3137018E977EA00C4A6A1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED3136F18E977EA00C4A6A1 /* User.m */; };
+		1ED3137118E977EA00C4A6A1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED3136F18E977EA00C4A6A1 /* User.m */; };
+		1ED3137518E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137218E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite */; };
+		1ED3137618E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137218E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite */; };
+		1ED3137718E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137318E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
+		1ED3137818E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137318E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
+		1ED3137918E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
+		1ED3137A18E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
 		1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216C18BFAEA500EFB474 /* CSCategory.m */; };
 		1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216F18BFAEA500EFB474 /* CSContent.m */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
-		1EDC5FDB18B9B72D00826A52 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDA18B9B72D00826A52 /* User.m */; };
 		1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */; };
 		1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */; };
 		1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */; };
@@ -84,17 +85,17 @@
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
 		1EA41E5A18C5402A00FCE832 /* Florida_2014 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Florida_2014; sourceTree = "<group>"; };
-		1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite"; sourceTree = "<group>"; };
-		1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-shm"; sourceTree = "<group>"; };
-		1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-wal"; sourceTree = "<group>"; };
+		1ED3136E18E977EA00C4A6A1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1ED3136F18E977EA00C4A6A1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1ED3137218E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite"; sourceTree = "<group>"; };
+		1ED3137318E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-shm"; sourceTree = "<group>"; };
+		1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-wal"; sourceTree = "<group>"; };
 		1ED8216B18BFAEA500EFB474 /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
 		1ED8216C18BFAEA500EFB474 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
 		1ED8216E18BFAEA500EFB474 /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
 		1ED8216F18BFAEA500EFB474 /* CSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSContent.m; sourceTree = "<group>"; };
 		1EDC5FD618B9B57600826A52 /* CSDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDonateViewController.h; sourceTree = "<group>"; };
 		1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDonateViewController.m; sourceTree = "<group>"; };
-		1EDC5FD918B9B72D00826A52 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		1EDC5FDA18B9B72D00826A52 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		1EDC5FDC18B9BA1800826A52 /* CSPsychologyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPsychologyViewController.h; sourceTree = "<group>"; };
 		1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPsychologyViewController.m; sourceTree = "<group>"; };
 		1EDC5FDF18B9BFAC00826A52 /* CSDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDisclaimerViewController.h; sourceTree = "<group>"; };
@@ -141,9 +142,9 @@
 		1E04D3A418ADC63D00BC81FC /* static content */ = {
 			isa = PBXGroup;
 			children = (
-				1ED3136518E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite */,
-				1ED3136618E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */,
-				1ED3136718E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */,
+				1ED3137218E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite */,
+				1ED3137318E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */,
+				1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */,
 				1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */,
 				1EA41E5A18C5402A00FCE832 /* Florida_2014 */,
 			);
@@ -176,12 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */,
+				1ED3136E18E977EA00C4A6A1 /* User.h */,
+				1ED3136F18E977EA00C4A6A1 /* User.m */,
 				1ED8216E18BFAEA500EFB474 /* CSContent.h */,
 				1ED8216F18BFAEA500EFB474 /* CSContent.m */,
 				1ED8216B18BFAEA500EFB474 /* CSCategory.h */,
 				1ED8216C18BFAEA500EFB474 /* CSCategory.m */,
-				1EDC5FD918B9B72D00826A52 /* User.h */,
-				1EDC5FDA18B9B72D00826A52 /* User.m */,
 			);
 			name = "CoreData Stuff";
 			sourceTree = "<group>";
@@ -376,13 +377,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ED3136A18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
+				1ED3137718E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
 				1E58AFA418A540A300E28EAA /* Main_iPad.storyboard in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
 				1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */,
 				1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */,
-				1ED3136C18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
-				1ED3136818E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */,
+				1ED3137918E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
+				1ED3137518E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */,
 				1E58AFA118A540A300E28EAA /* Main_iPhone.storyboard in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
 			);
@@ -392,10 +393,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ED3136D18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
-				1ED3136B18E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
+				1ED3137A18E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
+				1ED3137818E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
 				1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */,
-				1ED3136918E973F000C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */,
+				1ED3137618E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,13 +440,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED3137018E977EA00C4A6A1 /* User.m in Sources */,
 				1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */,
 				1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */,
 				1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */,
 				1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */,
 				1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */,
 				1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */,
-				1EDC5FDB18B9B72D00826A52 /* User.m in Sources */,
 				1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */,
 				1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */,
 				1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */,
@@ -459,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED3137118E977EA00C4A6A1 /* User.m in Sources */,
 				1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

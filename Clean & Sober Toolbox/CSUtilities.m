@@ -158,30 +158,6 @@
     }
     
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    
-    /////////
-    /*
-    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL *documentPath = [paths lastObject];
-    
-    NSURL *storeURL = [documentPath URLByAppendingPathComponent:@"Clean & Sober Toolbox.sqlite"];
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite"];
-    
-    NSLog(@"storeurl = %@\n\n filePath = %@", storeURL, filePath);
-    
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
-        NSURL *preloadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite"]];
-        NSError* err = nil;
-        
-        if (![[NSFileManager defaultManager] copyItemAtURL:preloadURL toURL:storeURL error:&err]) {
-            NSLog(@"Error: Unable to copy preloaded database.");
-        }
-    }
-
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Clean & Sober Toolbox.sqlite"];
-*/
 }
 
 // This method is copied from one of MR's categories
@@ -191,6 +167,38 @@
     
     NSError *error = nil;
     [fileManager createDirectoryAtPath:[pathToStore path] withIntermediateDirectories:YES attributes:nil error:&error];
+}
+
++(void)updateUser {
+    User *user = [User MR_findFirst];
+    if (!user) {
+        user = [User MR_createEntity];
+        user.streakStartDate = [NSDate date];
+    } else if ([CSUtilities daysBetweenDate:user.streakStartDate andDate:[NSDate date]] >= DAYS_BEFORE_RESET) {
+        user.streakStartDate = [NSDate date];
+    }
+    user.lastLoginDate = [NSDate date];
+    user.daysInARow = [NSNumber numberWithInt:[CSUtilities daysBetweenDate:user.streakStartDate andDate:user.lastLoginDate] + 1];
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
++ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSDayCalendarUnit
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 @end

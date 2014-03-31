@@ -22,6 +22,9 @@
     [CSUtilities loadFromPremadeDatabase];
     //[CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
     
+    [CSUtilities updateUser];
+
+    
     // detect iphone or ipad
     UIStoryboard *sb;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -83,6 +86,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [CSUtilities updateUser];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

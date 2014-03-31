@@ -26,4 +26,6 @@
 // fonts
 #define FONT_LABELS [UIFont fontWithName:@"Helvetica" size:17]
 
+#define DAYS_BEFORE_RESET 2
+
 #endif
