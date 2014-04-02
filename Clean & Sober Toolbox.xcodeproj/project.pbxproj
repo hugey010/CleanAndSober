@@ -35,6 +35,7 @@
 		1ED3137818E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137318E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */; };
 		1ED3137918E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
 		1ED3137A18E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */; };
+		1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED3137B18EC833D00C4A6A1 /* iAd.framework */; };
 		1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216C18BFAEA500EFB474 /* CSCategory.m */; };
 		1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216F18BFAEA500EFB474 /* CSContent.m */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
@@ -90,6 +91,7 @@
 		1ED3137218E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite"; sourceTree = "<group>"; };
 		1ED3137318E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-shm"; sourceTree = "<group>"; };
 		1ED3137418E9799500C4A6A1 /* Clean & Sober Toolbox.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-wal"; sourceTree = "<group>"; };
+		1ED3137B18EC833D00C4A6A1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1ED8216B18BFAEA500EFB474 /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
 		1ED8216C18BFAEA500EFB474 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
 		1ED8216E18BFAEA500EFB474 /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */,
 				1E58AF9018A540A300E28EAA /* CoreGraphics.framework in Frameworks */,
 				1E58AF9218A540A300E28EAA /* UIKit.framework in Frameworks */,
 				1E58AF8E18A540A300E28EAA /* Foundation.framework in Frameworks */,
@@ -210,6 +213,7 @@
 		1E58AF8C18A540A300E28EAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1ED3137B18EC833D00C4A6A1 /* iAd.framework */,
 				1EDE809F18E7A83100A93FBB /* PayPalMobile */,
 				1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */,
 				1EDE809918E7A5D600A93FBB /* MessageUI.framework */,

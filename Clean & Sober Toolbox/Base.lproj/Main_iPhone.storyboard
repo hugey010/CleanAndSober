@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6au-Gp-SXq" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" placeholder="describe your issue or feelings" id="2g6-Ru-ZOU">
@@ -86,29 +86,28 @@
                                     <outlet property="delegate" destination="5m6-TB-DkH" id="kr6-nv-fgR"/>
                                 </connections>
                             </tableView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="W7o-3W-Qwx">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6hd-Ou-wn0"/>
+                                    <constraint firstAttribute="width" constant="320" id="oPJ-Kn-qrQ"/>
+                                </constraints>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="W7o-3W-Qwx" secondAttribute="trailing" id="3Fv-7W-haN"/>
                             <constraint firstItem="6au-Gp-SXq" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="8gy-0k-4wR"/>
-                            <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="iJc-4h-Nb7"/>
+                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="fLA-0J-fuC"/>
+                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="fzO-m6-egz"/>
+                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="hbQ-C5-l17"/>
+                            <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="W7o-3W-Qwx" secondAttribute="bottom" id="l0a-f6-Hcn"/>
                             <constraint firstItem="6au-Gp-SXq" firstAttribute="top" secondItem="SEx-VB-LB5" secondAttribute="top" id="osc-YY-Wms"/>
                             <constraint firstAttribute="trailing" secondItem="6au-Gp-SXq" secondAttribute="trailing" id="viD-Nx-gxG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6tn-i7-Fod">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Zq8-Xz-xfa">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kOX-8o-Y9c">
-                                <rect key="frame" x="16" y="5" width="40" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="?">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="helpButtonPressed:" destination="5m6-TB-DkH" eventType="touchUpInside" id="SwH-mi-vVr"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="tNZ-Gh-wx1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LCG-3L-rEe">
                                 <rect key="frame" x="264" y="5" width="40" height="33"/>
@@ -125,7 +124,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="helpButton" destination="kOX-8o-Y9c" id="Dhp-yl-c9Y"/>
                         <outlet property="searchBar" destination="2g6-Ru-ZOU" id="0Bv-1i-Ixo"/>
                         <outlet property="tableView" destination="6au-Gp-SXq" id="SxA-im-3hR"/>
                     </connections>

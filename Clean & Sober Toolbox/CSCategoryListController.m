@@ -47,7 +47,7 @@
     [def setObject:@YES forKey:kFirstHelpLoad];
     [def synchronize];
     
-    return result;
+    return !result;
 }
 
 -(void)loadInitialContent {
@@ -80,7 +80,7 @@
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
     self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
     self.popover.tint = FPPopoverRedTint;
-    self.popover.alpha = 0.85;
+    //self.popover.alpha = 0.85;
     //self.popover.arrowDirection = ;
     self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 50, 300);
 
