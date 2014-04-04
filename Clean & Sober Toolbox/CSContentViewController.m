@@ -41,7 +41,7 @@
         cscontent = content;
         return;
     }
-    self.navigationItem.title = content.title;
+    self.navigationItem.title = @"Message";//content.title;
     
     [self.webview loadHTMLString:[NSString stringWithFormat:@"%@<br><br>%@", content.message, content.todo] baseURL:nil];
     [self.webview setBackgroundColor:[UIColor clearColor]];

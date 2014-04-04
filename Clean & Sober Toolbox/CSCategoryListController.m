@@ -105,8 +105,15 @@
 }
 
 -(void)navigateToContentWithId:(NSNumber*)identifier {
+    [self.slidingViewController resetTopView];
+    
+    NSLog(@"nagivateToContentWithId: %@", identifier);
+    [self.navigationController popToRootViewControllerAnimated:NO];
     CSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"content"];
-    [self.navigationController pushViewController:contentVC animated:YES];
+    NSLog(@"self.navg = %@", self.navigationController);
+    [self.navigationController pushViewController:contentVC animated:NO];
+    
+    
     CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:identifier];
     [contentVC setupWithContent:content];
 }

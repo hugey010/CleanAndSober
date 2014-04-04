@@ -51,9 +51,7 @@
         if (error) {
             NSLog(@"error loading json from file = %@", [error description]);
         }
-        
-        [CSUtilities createInitialUser];
-        
+                
         [CSUtilities parseJSONDictionaryIntoDatabase:result];
         [CSUtilities setHasLoadedJson:YES];
     }
@@ -112,12 +110,6 @@
     return category;
 }
 
-+(void)createInitialUser {
-    User *user = [User MR_createEntity];
-    user.emailsOn = [NSNumber numberWithBool:NO];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-}
-
 +(void)loadFromPremadeDatabase {
     
     // Get the default store path, then add the name that MR uses for the store
@@ -172,6 +164,7 @@
     User *user = [User MR_findFirst];
     if (!user) {
         user = [User MR_createEntity];
+        user.daysInARow = [NSNumber numberWithInt:1];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }

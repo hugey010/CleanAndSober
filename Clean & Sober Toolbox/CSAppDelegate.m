@@ -36,42 +36,27 @@
     }
 
     // setup ecsliding view controller
-    ECSlidingViewController *slidingVC = (ECSlidingViewController*)self.window.rootViewController;
+    self.slidingVC = (ECSlidingViewController*)self.window.rootViewController;
     UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_nav"];
-    CSCategoryListController *catList = categoryNav.viewControllers[0];
-    [catList loadInitialContent];
+    self.initialCatList = categoryNav.viewControllers[0];
+    [self.initialCatList loadInitialContent];
     
     categoryNav.view.layer.shadowOpacity = 0.75;
     categoryNav.view.layer.shadowRadius = 10.0f;
     categoryNav.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-    CSMenuViewController *menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
+    self.menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
     
-    [slidingVC setTopViewController:categoryNav];
-    [slidingVC setUnderRightViewController:menuVC];
-    [slidingVC setAnchorLeftRevealAmount:MENU_PEEK_AMOUNT];
-    [slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
-    slidingVC.underRightWidthLayout = ECFixedRevealWidth;
+    [self.slidingVC setTopViewController:categoryNav];
+    [self.slidingVC setUnderRightViewController:self.menuVC];
+    [self.slidingVC setAnchorLeftRevealAmount:MENU_PEEK_AMOUNT];
+    [self.slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
+    self.slidingVC.underRightWidthLayout = ECFixedRevealWidth;
     
     [self style];
     
-    UILocalNotification *localNotif = [launchOptions
-                                       objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    
-    if (localNotif) {
-        if ([localNotif.userInfo objectForKey:kCoinNotificationKey]) {
-            application.applicationIconBadgeNumber = 0;
-            // send to coin screen
-            [slidingVC anchorTopViewTo:ECLeft];
-            [menuVC sendToRewards];
-            
-        } else if ([localNotif.userInfo objectForKey:kDailyMessageNotificationKey]) {
-            [catList navigateToContentWithId:[localNotif.userInfo objectForKey:kDailyMessageNotificationKey]];
-            User *user = [User MR_findFirst];
-            user.dailyNotificationDate = [CSUtilities dateInFutureAfterDays:1 fromDate:user.dailyNotificationDate];
-        }
-        
-    }
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    [self checkNotification:notification application:application];
 
     return YES;
 }
@@ -89,6 +74,26 @@
                                 nil];
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [self checkNotification:notification application:application];
+}
+
+-(void)checkNotification:(UILocalNotification*)notification application:(UIApplication*)application {
+    if (notification) {
+        if ([notification.userInfo objectForKey:kCoinNotificationKey]) {
+            application.applicationIconBadgeNumber = 0;
+            // send to coin screen
+            [self.slidingVC anchorTopViewTo:ECLeft];
+            [self.menuVC sendToRewards];
+            
+        } else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {
+            [self.initialCatList navigateToContentWithId:[notification.userInfo objectForKey:kDailyMessageNotificationKey]];
+            User *user = [User MR_findFirst];
+            user.dailyNotificationDate = [CSUtilities dateInFutureAfterDays:1 fromDate:user.dailyNotificationDate];
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

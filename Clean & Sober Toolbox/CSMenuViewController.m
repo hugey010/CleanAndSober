@@ -34,6 +34,9 @@
     User *user = [User MR_findFirst];
     if (user.dailyNotificationDate) {
         self.notificationsDateField.text = [df stringFromDate:user.dailyNotificationDate];
+        [self.notificationsSwitch setOn:YES];
+    } else {
+        [self.notificationsSwitch setOn:NO];
     }
     
     [self.datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
