@@ -30,5 +30,6 @@
 // notifications (coins and such)
 #define ENTER_APP_MESSAGE @"Tap to enter."
 #define DAYS_FOR_COINS @[@6, @29, @59, @89, @182, @273, @364]
+#define kCoinNotificationKey @"coin_notification_key"
 
 #endif

@@ -180,11 +180,13 @@
         user.daysInARow = [NSNumber numberWithInt:[user.daysInARow integerValue] + 1.0];
         
         // schedule local notification if necessary.
+        
         if ([DAYS_FOR_COINS containsObject:user.daysInARow]) {
             UILocalNotification *not = [[UILocalNotification alloc] init];
             not.timeZone = [NSTimeZone defaultTimeZone];
             not.alertBody = [CSUtilities coinMessage:[user.daysInARow intValue]];
             not.fireDate = [CSUtilities dateInFutureAfterDays:1];
+            not.userInfo = @{kCoinNotificationKey : @1};
             [[UIApplication sharedApplication] scheduleLocalNotification:not];
         }
     }

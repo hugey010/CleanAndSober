@@ -27,17 +27,17 @@
     [self.notificationsSwitch setOn:[user.notificationsOn boolValue]];
 }
 
-- (IBAction)psychologyButtonPressed:(id)sender {
+- (void)sendToPsychology {
     UIViewController *psychVC = [self.storyboard instantiateViewControllerWithIdentifier:@"psychology"];
     [self specializedPush:psychVC];
 }
 
-- (IBAction)donateButtonPressed:(id)sender {
+- (void)sendToDonate {
     UIViewController *donateVC = [self.storyboard instantiateViewControllerWithIdentifier:@"donate"];
     [self specializedPush:donateVC];
 }
 
-- (IBAction)disclaimerButtonPressed:(id)sender {
+-(void)sendToDisclaimer {
     UIViewController *disclaimerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"disclaimer"];
     [self specializedPush:disclaimerVC];
 }
@@ -47,13 +47,19 @@
     User *user = [User MR_findFirst];
     user.notificationsOn = [NSNumber numberWithBool:self.notificationsSwitch.isOn];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    if (!user.notificationsOn) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    }
+
 }
 
-- (IBAction)homeButtonPressed:(id)sender {
+-(void)sendHome {
     [self.slidingViewController resetTopView];
 }
 
-- (IBAction)psycologyButtonPressed:(id)sender {
+-(void)sendtoPsychology {
     UIViewController *psychVC = [self.storyboard instantiateViewControllerWithIdentifier:@"psychology"];
     [self specializedPush:psychVC];
 }
@@ -63,6 +69,69 @@
     [(UINavigationController*)self.slidingViewController.topViewController pushViewController:viewController animated:YES];
 }
 
+-(void)sendToRewards {
+    
+}
 
+#pragma mark - UITableView methods
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cell_identifier = @"Menu_Cell_Identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_identifier forIndexPath:indexPath];
+    
+    switch (indexPath.row) {
+        case 0 : {
+            cell.textLabel.text = @"Psychology Behind App";
+            break;
+        }
+        case 1 : {
+            cell.textLabel.text = @"Donate";
+            break;
+        }
+        case 2 : {
+            cell.textLabel.text = @"Disclaimer";
+            break;
+        }
+        case 3 : {
+            cell.textLabel.text = @"Rewards";
+            break;
+        }
+        case 4 : {
+            cell.textLabel.text = @"Home";
+            break;
+        }
+    }
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0 : {
+            [self sendToPsychology];
+            break;
+        }
+        case 1 : {
+            [self sendToDonate];
+            break;
+        }
+        case 2 : {
+            [self sendToDisclaimer];
+            break;
+        }
+        case 3 : {
+            [self sendToRewards];
+            break;
+        }
+        case 4 : {
+            [self sendHome];
+            break;
+        }
+    }
+}
 
 @end

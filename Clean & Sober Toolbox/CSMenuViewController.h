@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSMenuViewController : UIViewController
+@interface CSMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UISwitch *notificationsSwitch;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (IBAction)psychologyButtonPressed:(id)sender;
-- (IBAction)donateButtonPressed:(id)sender;
-- (IBAction)disclaimerButtonPressed:(id)sender;
 - (IBAction)notificationsValueChanged:(id)sender;
-- (IBAction)homeButtonPressed:(id)sender;
-- (IBAction)psycologyButtonPressed:(id)sender;
+
+-(void)sendToRewards;
+
 
 @end

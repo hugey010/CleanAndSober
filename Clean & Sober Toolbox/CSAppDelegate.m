@@ -10,6 +10,7 @@
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import "CSUtilities.h"
 #import "CSCategoryListController.h"
+#import "CSMenuViewController.h"
 
 @implementation CSAppDelegate
 
@@ -43,7 +44,7 @@
     categoryNav.view.layer.shadowRadius = 10.0f;
     categoryNav.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-    UIViewController *menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
+    CSMenuViewController *menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
     
     [slidingVC setTopViewController:categoryNav];
     [slidingVC setUnderRightViewController:menuVC];
@@ -52,6 +53,19 @@
     slidingVC.underRightWidthLayout = ECFixedRevealWidth;
     
     [self style];
+    
+    UILocalNotification *localNotif = [launchOptions
+                                       objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if (localNotif) {
+        if ([localNotif.userInfo objectForKey:kCoinNotificationKey]) {
+            application.applicationIconBadgeNumber = 0;
+            // send to coin screen
+            [slidingVC anchorTopViewTo:ECLeft];
+            [menuVC sendToRewards];
+        }
+        
+    }
 
     return YES;
 }
