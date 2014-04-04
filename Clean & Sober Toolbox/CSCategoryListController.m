@@ -58,8 +58,6 @@
     contents = nil;
     
     [self.tableView reloadData];
-    
-
 }
 
 -(void)loadListAt:(CSCategory*)cat {
@@ -104,6 +102,13 @@
 
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+-(void)navigateToContentWithId:(NSNumber*)identifier {
+    CSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"content"];
+    [self.navigationController pushViewController:contentVC animated:YES];
+    CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:identifier];
+    [contentVC setupWithContent:content];
 }
 
 #pragma mark - UITableView methods

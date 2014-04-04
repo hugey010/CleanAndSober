@@ -21,6 +21,7 @@
 
 +(void)updateUser;
 + (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
-+(NSDate*)dateInFutureAfterDays:(int)days;
++(NSDate*)dateInFutureAfterDays:(int)days fromDate:(NSDate*)date;
++(void)scheduleDailyMessageNotification:(BOOL)on;
 
 @end

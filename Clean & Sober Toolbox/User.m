@@ -2,7 +2,7 @@
 //  User.m
 //  Clean & Sober Toolbox
 //
-//  Created by Hugey on 3/31/14.
+//  Created by Hugey on 4/3/14.
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
@@ -16,8 +16,7 @@
 @dynamic email;
 @dynamic emailsOn;
 @dynamic name;
-@dynamic notificationsOn;
-@dynamic streakStartDate;
 @dynamic lastLoginDate;
+@dynamic dailyNotificationDate;
 
 @end

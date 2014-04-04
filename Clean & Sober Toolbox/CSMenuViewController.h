@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CSMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *notificationsSwitch;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *notificationsDateField;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 - (IBAction)notificationsValueChanged:(id)sender;
+- (IBAction)doneButtonPressed:(id)sender;
 
 -(void)sendToRewards;
 

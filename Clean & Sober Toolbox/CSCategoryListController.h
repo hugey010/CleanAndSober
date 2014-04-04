@@ -23,5 +23,6 @@
 
 -(void)loadInitialContent;
 -(void)loadListAt:(CSCategory*)cat;
+-(void)navigateToContentWithId:(NSNumber*)identifier;
 
 @end

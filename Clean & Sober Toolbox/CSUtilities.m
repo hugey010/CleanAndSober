@@ -114,7 +114,6 @@
 
 +(void)createInitialUser {
     User *user = [User MR_createEntity];
-    user.notificationsOn = [NSNumber numberWithBool:YES];
     user.emailsOn = [NSNumber numberWithBool:NO];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
@@ -173,7 +172,8 @@
     User *user = [User MR_findFirst];
     if (!user) {
         user = [User MR_createEntity];
-        user.streakStartDate = [NSDate date];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
     user.lastLoginDate = [NSDate date];
     if ([CSUtilities date:user.lastLoginDate isDifferentDay:[NSDate date]]) {
@@ -185,7 +185,7 @@
             UILocalNotification *not = [[UILocalNotification alloc] init];
             not.timeZone = [NSTimeZone defaultTimeZone];
             not.alertBody = [CSUtilities coinMessage:[user.daysInARow intValue]];
-            not.fireDate = [CSUtilities dateInFutureAfterDays:1];
+            not.fireDate = [CSUtilities dateInFutureAfterDays:1 fromDate:[NSDate date]];
             not.userInfo = @{kCoinNotificationKey : @1};
             [[UIApplication sharedApplication] scheduleLocalNotification:not];
         }
@@ -255,9 +255,70 @@
 }
 
 
-+(NSDate*)dateInFutureAfterDays:(int)days {
-    NSDate *now = [NSDate date];
-    return [now dateByAddingTimeInterval:60*60*24*days];
++(NSDate*)dateInFutureAfterDays:(int)days fromDate:(NSDate*)date {
+    return [date dateByAddingTimeInterval:60*60*24*days];
+}
+
++(void)scheduleDailyMessageNotification:(BOOL)on {
+    User *user = [User MR_findFirst];
+    
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSData *notifData = [def objectForKey:kDailyMessageDefaultsKey];
+    UILocalNotification *notif = [NSKeyedUnarchiver unarchiveObjectWithData:notifData];
+    if (notif) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notif];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    }
+    if (!on) {
+        user.dailyNotificationDate = nil;
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        return;
+    }
+    
+    notif = [[UILocalNotification alloc] init];
+    notif.fireDate = user.dailyNotificationDate;
+    CSContent *content = [CSUtilities randomContent];
+    notif.alertBody = [NSString stringWithFormat:@"Daily Message: %@", content.title];
+    notif.userInfo = @{kDailyMessageNotificationKey : content.identifier};
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+    
+    notifData = [NSKeyedArchiver archivedDataWithRootObject:notif];
+    [def setObject:notifData forKey:kDailyMessageDefaultsKey];
+    [def synchronize];
+}
+
++(NSSet*)setOfUnusedContentIdentifiers {
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSData *setData = [def objectForKey:kUnusedContentIdentifiersDefaultsKey];
+    NSSet *set = [NSKeyedUnarchiver unarchiveObjectWithData:setData];
+    if (set && [set count] > 0) {
+        return set;
+    } else {
+        NSMutableSet *mutSet = [[NSMutableSet alloc] init];
+        NSArray *allContent = [CSContent MR_findAll];
+        [mutSet addObjectsFromArray:[allContent valueForKey:@"identifier"]];
+        return mutSet;
+    }
+    [def synchronize];
+}
+
++(CSContent*)randomContent {
+    NSSet *identifiers = [CSUtilities setOfUnusedContentIdentifiers];
+    
+    int randomIndex = arc4random() % [identifiers count];
+    NSMutableArray *idArray = [[identifiers allObjects] mutableCopy];
+    NSNumber *resultNumber = idArray[randomIndex];
+    [idArray removeObject:resultNumber];
+    
+    // reset setofususedcontentidentifiers
+    NSSet *newSet = [NSSet setWithArray:idArray];
+    NSData *setData = [NSKeyedArchiver archivedDataWithRootObject:newSet];
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setObject:setData forKey:kUnusedContentIdentifiersDefaultsKey];
+    [def synchronize];
+    
+    CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:resultNumber];
+    return content;
 }
 
 @end

@@ -2,7 +2,7 @@
 //  User.h
 //  Clean & Sober Toolbox
 //
-//  Created by Hugey on 3/31/14.
+//  Created by Hugey on 4/3/14.
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
@@ -17,8 +17,7 @@
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSNumber * emailsOn;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * notificationsOn;
-@property (nonatomic, retain) NSDate * streakStartDate;
 @property (nonatomic, retain) NSDate * lastLoginDate;
+@property (nonatomic, retain) NSDate * dailyNotificationDate;
 
 @end

@@ -11,6 +11,7 @@
 #import "CSUtilities.h"
 #import "CSCategoryListController.h"
 #import "CSMenuViewController.h"
+#import "User.h"
 
 @implementation CSAppDelegate
 
@@ -20,8 +21,8 @@
 {
     
     // setup coredata stack
-    [CSUtilities loadFromPremadeDatabase];
-    //[CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+    //[CSUtilities loadFromPremadeDatabase];
+    [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
     
     [CSUtilities updateUser];
 
@@ -63,6 +64,11 @@
             // send to coin screen
             [slidingVC anchorTopViewTo:ECLeft];
             [menuVC sendToRewards];
+            
+        } else if ([localNotif.userInfo objectForKey:kDailyMessageNotificationKey]) {
+            [catList navigateToContentWithId:[localNotif.userInfo objectForKey:kDailyMessageNotificationKey]];
+            User *user = [User MR_findFirst];
+            user.dailyNotificationDate = [CSUtilities dateInFutureAfterDays:1 fromDate:user.dailyNotificationDate];
         }
         
     }

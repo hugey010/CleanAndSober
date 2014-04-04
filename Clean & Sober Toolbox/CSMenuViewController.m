@@ -9,8 +9,11 @@
 #import "CSMenuViewController.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import "User.h"
+#import "CSUtilities.h"
 
-@interface CSMenuViewController ()
+@interface CSMenuViewController () {
+    NSDateFormatter *df;
+}
 
 @end
 
@@ -22,9 +25,34 @@
     
     [self.view setBackgroundColor:COLOR_BACKGROUND];
     
+    df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"hh:mm aa"];
+    
+    self.notificationsDateField.inputView = self.datePicker;
+    self.notificationsDateField.inputAccessoryView = self.toolbar;
+    
+    User *user = [User MR_findFirst];
+    if (user.dailyNotificationDate) {
+        self.notificationsDateField.text = [df stringFromDate:user.dailyNotificationDate];
+    }
+    
+    [self.datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     User *user = [User MR_findFirst];
     self.navigationItem.title = [NSString stringWithFormat:@"Days Sober: %@", user.daysInARow];
-    [self.notificationsSwitch setOn:[user.notificationsOn boolValue]];
+}
+
+-(void)dateChanged:(UIDatePicker*)dp {
+    User *user = [User MR_findFirst];
+    user.dailyNotificationDate = dp.date;
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+
+    self.notificationsDateField.text = [df stringFromDate:dp.date];
 }
 
 - (void)sendToPsychology {
@@ -43,16 +71,16 @@
 }
 
 - (IBAction)notificationsValueChanged:(id)sender {
-    // TODO: toggle notifications on server on/off
-    User *user = [User MR_findFirst];
-    user.notificationsOn = [NSNumber numberWithBool:self.notificationsSwitch.isOn];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    
-    if (!user.notificationsOn) {
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    if (!self.notificationsSwitch.isOn) {
+        [CSUtilities scheduleDailyMessageNotification:NO];
+    } else {
+        [self.notificationsDateField becomeFirstResponder];
     }
+}
 
+- (IBAction)doneButtonPressed:(id)sender {
+    [self.view endEditing:YES];
+    [CSUtilities scheduleDailyMessageNotification:YES];
 }
 
 -(void)sendHome {
