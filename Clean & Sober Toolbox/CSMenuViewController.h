@@ -8,17 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSMenuViewController : UIViewController <UITextFieldDelegate>
+@interface CSMenuViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISwitch *notificationsSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *emailSwitch;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
 
 - (IBAction)psychologyButtonPressed:(id)sender;
 - (IBAction)donateButtonPressed:(id)sender;
 - (IBAction)disclaimerButtonPressed:(id)sender;
 - (IBAction)notificationsValueChanged:(id)sender;
-- (IBAction)emailValueChanged:(id)sender;
 - (IBAction)homeButtonPressed:(id)sender;
 - (IBAction)psycologyButtonPressed:(id)sender;
 

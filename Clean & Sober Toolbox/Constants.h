@@ -26,6 +26,9 @@
 // fonts
 #define FONT_LABELS [UIFont fontWithName:@"Helvetica" size:17]
 
-#define DAYS_BEFORE_RESET 2
+
+// notifications (coins and such)
+#define ENTER_APP_MESSAGE @"Tap to enter."
+#define DAYS_FOR_COINS @[@6, @29, @59, @89, @182, @273, @364]
 
 #endif

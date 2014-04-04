@@ -174,24 +174,64 @@
     if (!user) {
         user = [User MR_createEntity];
         user.streakStartDate = [NSDate date];
-    } else if ([CSUtilities daysBetweenDate:user.streakStartDate andDate:[NSDate date]] >= DAYS_BEFORE_RESET) {
-        user.streakStartDate = [NSDate date];
     }
     user.lastLoginDate = [NSDate date];
-    user.daysInARow = [NSNumber numberWithInt:[CSUtilities daysBetweenDate:user.streakStartDate andDate:user.lastLoginDate] + 1];
-    
-    
-    // TODO: need to alert or something so we can show an image
-    switch ([user.daysInARow intValue]) {
-        case 7:
-
-            break;
-            
-        default:
-            break;
+    if ([CSUtilities date:user.lastLoginDate isDifferentDay:[NSDate date]]) {
+        user.daysInARow = [NSNumber numberWithInt:[user.daysInARow integerValue] + 1.0];
+        
+        // schedule local notification if necessary.
+        if ([DAYS_FOR_COINS containsObject:user.daysInARow]) {
+            UILocalNotification *not = [[UILocalNotification alloc] init];
+            not.timeZone = [NSTimeZone defaultTimeZone];
+            not.alertBody = [CSUtilities coinMessage:[user.daysInARow intValue]];
+            not.fireDate = [CSUtilities dateInFutureAfterDays:1];
+            [[UIApplication sharedApplication] scheduleLocalNotification:not];
+        }
     }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
++(NSString*)coinMessage:(int)days {
+    
+    switch (days) {
+        case 6: {
+            return [NSString stringWithFormat:@"You have earned a coin for 7 days of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+        case 29 : {
+            return [NSString stringWithFormat:@"You have earned a coin for 30 days of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+        case 59 : {
+            return [NSString stringWithFormat:@"You have earned a coin for 60 days of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+        case 89 : {
+            return [NSString stringWithFormat:@"You have earned a coin for 90 days of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+        case 182 : {
+            return [NSString stringWithFormat:@"You have earned a coin for 6 months of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+        case 273 : {
+            return [NSString stringWithFormat:@"You have earned a coin for 9 months of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+        case 364 : {
+            return [NSString stringWithFormat:@"You have earned a coin for 1 year of sobreity! %@", ENTER_APP_MESSAGE];
+        }
+    }
+    
+    return @"";
+}
+
++(BOOL)date:(NSDate*)date1 isDifferentDay:(NSDate*)date2 {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *comps1 = [cal components:(NSMonthCalendarUnit| NSYearCalendarUnit | NSDayCalendarUnit)
+                                      fromDate:date1];
+    NSDateComponents *comps2 = [cal components:(NSMonthCalendarUnit| NSYearCalendarUnit | NSDayCalendarUnit)
+                                      fromDate:date2];
+    
+    
+    return  [comps1 day] != [comps2 day]
+            || [comps1 month] != [comps2 month]
+            || [comps1 year] != [comps2 year];
 }
 
 + (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
@@ -210,6 +250,12 @@
                                                fromDate:fromDate toDate:toDate options:0];
     
     return [difference day];
+}
+
+
++(NSDate*)dateInFutureAfterDays:(int)days {
+    NSDate *now = [NSDate date];
+    return [now dateByAddingTimeInterval:60*60*24*days];
 }
 
 @end

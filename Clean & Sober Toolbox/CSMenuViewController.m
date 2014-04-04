@@ -24,7 +24,6 @@
     
     User *user = [User MR_findFirst];
     self.navigationItem.title = [NSString stringWithFormat:@"Days Sober: %@", user.daysInARow];
-    [self.emailSwitch setOn:[user.emailsOn boolValue]];
     [self.notificationsSwitch setOn:[user.notificationsOn boolValue]];
 }
 
@@ -50,23 +49,6 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
-- (IBAction)emailValueChanged:(id)sender {
-    // TODO: toggle email on server on/off
-    User *user = [User MR_findFirst];
-    user.emailsOn = [NSNumber numberWithBool:self.emailSwitch.isOn];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    
-    if (user.emailsOn && user.email.length <= 0) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please Enter Email" message:@"To receive emails, please enter your email address." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-        });
-        
-        [self.emailSwitch setOn:NO];
-    }
-}
-
 - (IBAction)homeButtonPressed:(id)sender {
     [self.slidingViewController resetTopView];
 }
@@ -79,23 +61,6 @@
 -(void)specializedPush:(UIViewController*)viewController {
     [self.slidingViewController resetTopView];
     [(UINavigationController*)self.slidingViewController.topViewController pushViewController:viewController animated:YES];
-}
-
-#pragma mark - UITextFieldDelegate methods
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return NO;
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    if (textField.text.length > 3) {
-        User *user = [User MR_findFirst];
-        user.email = textField.text;
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-
-        // TODO: upload new email to server
-    }
 }
 
 

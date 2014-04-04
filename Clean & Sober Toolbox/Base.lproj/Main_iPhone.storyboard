@@ -54,14 +54,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="describe your issue or feelings" id="2g6-Ru-ZOU">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="5Eg-OZ-E1U">
                                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="5m6-TB-DkH" id="CyV-nf-Fnb"/>
-                                    </connections>
-                                </searchBar>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="describe your issue or feelings" translatesAutoresizingMaskIntoConstraints="NO" id="2g6-Ru-ZOU">
+                                            <rect key="frame" x="0.0" y="0.0" width="278" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="5m6-TB-DkH" id="CyV-nf-Fnb"/>
+                                            </connections>
+                                        </searchBar>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaP-N7-eMk">
+                                            <rect key="frame" x="278" y="0.0" width="42" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="?  ">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="helpButtonPressed:" destination="5m6-TB-DkH" eventType="touchUpInside" id="o4C-PH-iur"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="category_cell" rowHeight="61" id="FVS-Kd-Eop">
                                         <rect key="frame" x="0.0" y="130" width="320" height="61"/>
@@ -109,11 +126,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="6tn-i7-Fod">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="tNZ-Gh-wx1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LCG-3L-rEe">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LCG-3L-rEe">
                                 <rect key="frame" x="264" y="5" width="40" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title=" | | |">
+                                <state key="normal" title="   | | |">
                                     <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -124,6 +141,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="helpButton" destination="jaP-N7-eMk" id="O2W-rk-KeZ"/>
                         <outlet property="searchBar" destination="2g6-Ru-ZOU" id="0Bv-1i-Ixo"/>
                         <outlet property="tableView" destination="6au-Gp-SXq" id="SxA-im-3hR"/>
                     </connections>
