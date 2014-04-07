@@ -36,6 +36,14 @@
 		1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */; };
 		1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */; };
 		1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */; };
+		1EF1FD4118F31AF1003DA04C /* CSRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */; };
+		1EF1FD4A18F33753003DA04C /* coinyear.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4318F33753003DA04C /* coinyear.png */; };
+		1EF1FD4B18F33753003DA04C /* coin9month.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4418F33753003DA04C /* coin9month.png */; };
+		1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4518F33753003DA04C /* coin6month.png */; };
+		1EF1FD4D18F33753003DA04C /* coin90.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4618F33753003DA04C /* coin90.png */; };
+		1EF1FD4E18F33753003DA04C /* coin60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4718F33753003DA04C /* coin60.png */; };
+		1EF1FD4F18F33753003DA04C /* coin30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4818F33753003DA04C /* coin30.png */; };
+		1EF1FD5018F33753003DA04C /* coin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4918F33753003DA04C /* coin7.png */; };
 		DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +112,15 @@
 		1EDE80A318E7A83100A93FBB /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
 		1EDE80A418E7A83100A93FBB /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
 		1EDE80A518E7A83100A93FBB /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
+		1EF1FD3F18F31AF1003DA04C /* CSRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRewardsViewController.h; sourceTree = "<group>"; };
+		1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRewardsViewController.m; sourceTree = "<group>"; };
+		1EF1FD4318F33753003DA04C /* coinyear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinyear.png; sourceTree = "<group>"; };
+		1EF1FD4418F33753003DA04C /* coin9month.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin9month.png; sourceTree = "<group>"; };
+		1EF1FD4518F33753003DA04C /* coin6month.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin6month.png; sourceTree = "<group>"; };
+		1EF1FD4618F33753003DA04C /* coin90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin90.png; sourceTree = "<group>"; };
+		1EF1FD4718F33753003DA04C /* coin60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin60.png; sourceTree = "<group>"; };
+		1EF1FD4818F33753003DA04C /* coin30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin30.png; sourceTree = "<group>"; };
+		1EF1FD4918F33753003DA04C /* coin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin7.png; sourceTree = "<group>"; };
 		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +153,7 @@
 		1E04D3A418ADC63D00BC81FC /* static content */ = {
 			isa = PBXGroup;
 			children = (
+				1EF1FD4218F3374C003DA04C /* art */,
 				1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */,
 				1EA41E5A18C5402A00FCE832 /* Florida_2014 */,
 			);
@@ -273,6 +291,8 @@
 				1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */,
 				1EDC5FDF18B9BFAC00826A52 /* CSDisclaimerViewController.h */,
 				1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */,
+				1EF1FD3F18F31AF1003DA04C /* CSRewardsViewController.h */,
+				1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -288,6 +308,20 @@
 				1EDE80A518E7A83100A93FBB /* PayPalPaymentViewController.h */,
 			);
 			path = PayPalMobile;
+			sourceTree = "<group>";
+		};
+		1EF1FD4218F3374C003DA04C /* art */ = {
+			isa = PBXGroup;
+			children = (
+				1EF1FD4318F33753003DA04C /* coinyear.png */,
+				1EF1FD4418F33753003DA04C /* coin9month.png */,
+				1EF1FD4518F33753003DA04C /* coin6month.png */,
+				1EF1FD4618F33753003DA04C /* coin90.png */,
+				1EF1FD4718F33753003DA04C /* coin60.png */,
+				1EF1FD4818F33753003DA04C /* coin30.png */,
+				1EF1FD4918F33753003DA04C /* coin7.png */,
+			);
+			name = art;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,11 +403,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF1FD4E18F33753003DA04C /* coin60.png in Resources */,
+				1EF1FD4F18F33753003DA04C /* coin30.png in Resources */,
+				1EF1FD5018F33753003DA04C /* coin7.png in Resources */,
 				1E58AFA418A540A300E28EAA /* Main_iPad.storyboard in Resources */,
+				1EF1FD4B18F33753003DA04C /* coin9month.png in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
+				1EF1FD4A18F33753003DA04C /* coinyear.png in Resources */,
 				1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */,
+				1EF1FD4D18F33753003DA04C /* coin90.png in Resources */,
 				1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */,
 				1E58AFA118A540A300E28EAA /* Main_iPhone.storyboard in Resources */,
+				1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +480,7 @@
 				1E58AF9A18A540A300E28EAA /* main.m in Sources */,
 				1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */,
 				1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */,
+				1EF1FD4118F31AF1003DA04C /* CSRewardsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

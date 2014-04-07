@@ -101,7 +101,8 @@
 }
 
 -(void)sendToRewards {
-    
+    UIViewController *rewards = [self.storyboard instantiateViewControllerWithIdentifier:@"rewards"];
+    [self specializedPush:rewards];
 }
 
 #pragma mark - UITableView methods
