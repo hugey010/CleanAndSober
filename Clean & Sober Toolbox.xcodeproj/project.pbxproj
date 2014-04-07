@@ -42,7 +42,7 @@
 		1EF1FD4E18F33753003DA04C /* coin60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4718F33753003DA04C /* coin60.png */; };
 		1EF1FD4F18F33753003DA04C /* coin30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4818F33753003DA04C /* coin30.png */; };
 		1EF1FD5018F33753003DA04C /* coin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4918F33753003DA04C /* coin7.png */; };
-		1EF1FD5318F34EB3003DA04C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1FD5218F34EB3003DA04C /* User.m */; };
+		1EF1FD5618F351DF003DA04C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1FD5518F351DF003DA04C /* User.m */; };
 		DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -118,8 +118,8 @@
 		1EF1FD4718F33753003DA04C /* coin60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin60.png; sourceTree = "<group>"; };
 		1EF1FD4818F33753003DA04C /* coin30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin30.png; sourceTree = "<group>"; };
 		1EF1FD4918F33753003DA04C /* coin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin7.png; sourceTree = "<group>"; };
-		1EF1FD5118F34EB3003DA04C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		1EF1FD5218F34EB3003DA04C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1EF1FD5418F351DF003DA04C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1EF1FD5518F351DF003DA04C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,9 +184,9 @@
 		1E04D3BF18ADDAAF00BC81FC /* CoreData Stuff */ = {
 			isa = PBXGroup;
 			children = (
+				1EF1FD5418F351DF003DA04C /* User.h */,
+				1EF1FD5518F351DF003DA04C /* User.m */,
 				1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */,
-				1EF1FD5118F34EB3003DA04C /* User.h */,
-				1EF1FD5218F34EB3003DA04C /* User.m */,
 				1ED8216E18BFAEA500EFB474 /* CSContent.h */,
 				1ED8216F18BFAEA500EFB474 /* CSContent.m */,
 				1ED8216B18BFAEA500EFB474 /* CSCategory.h */,
@@ -474,7 +474,7 @@
 				1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */,
 				1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */,
 				1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */,
-				1EF1FD5318F34EB3003DA04C /* User.m in Sources */,
+				1EF1FD5618F351DF003DA04C /* User.m in Sources */,
 				1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */,
 				1E58AF9A18A540A300E28EAA /* main.m in Sources */,
 				1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */,

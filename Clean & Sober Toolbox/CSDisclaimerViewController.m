@@ -8,6 +8,7 @@
 
 #import "CSDisclaimerViewController.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
+#import "User.h"
 
 @interface CSDisclaimerViewController ()
 
@@ -19,6 +20,13 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"Disclaimer";
+    
+    User *user = [User MR_findFirst];
+    if (user.disclaimerMessage) {
+        self.textview.text = user.disclaimerMessage;
+    } else {
+        self.textview.text = kDisclaimerMessage;
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

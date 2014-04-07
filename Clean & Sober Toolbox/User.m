@@ -21,5 +21,7 @@
 @dynamic helpMessageOne;
 @dynamic helpMessageTwo;
 @dynamic helpMessage3;
+@dynamic psychologyMessage;
+@dynamic disclaimerMessage;
 
 @end

@@ -20,6 +20,7 @@
         <attribute name="authtoken" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dailyNotificationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="daysInARow" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="disclaimerMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="emailsOn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="helpMessage3" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,10 +28,11 @@
         <attribute name="helpMessageTwo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastLoginDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="psychologyMessage" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="CSCategory" positionX="187" positionY="180" width="128" height="133"/>
         <element name="CSContent" positionX="27" positionY="-18" width="128" height="133"/>
-        <element name="User" positionX="252" positionY="-54" width="128" height="195"/>
+        <element name="User" positionX="252" positionY="-54" width="128" height="223"/>
     </elements>
 </model>

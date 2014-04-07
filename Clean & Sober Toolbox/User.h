@@ -22,5 +22,7 @@
 @property (nonatomic, retain) NSString * helpMessageOne;
 @property (nonatomic, retain) NSString * helpMessageTwo;
 @property (nonatomic, retain) NSString * helpMessage3;
+@property (nonatomic, retain) NSString * psychologyMessage;
+@property (nonatomic, retain) NSString * disclaimerMessage;
 
 @end

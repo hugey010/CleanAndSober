@@ -8,6 +8,7 @@
 
 #import "CSPsychologyViewController.h"
 #import <ECSlidingViewController/ECSlidingViewController.h>
+#import "User.h"
 
 @interface CSPsychologyViewController ()
 
@@ -20,6 +21,13 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"Psychology";
+    
+    User *user = [User MR_findFirst];
+    if (user.psychologyMessage) {
+        self.textview.text = user.psychologyMessage;
+    } else {
+        self.textview.text = kPsychologyMessage;
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
