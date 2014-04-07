@@ -12,6 +12,7 @@
 #import "CSCategoryListController.h"
 #import "CSMenuViewController.h"
 #import "User.h"
+#import "CSContent.h"
 
 @implementation CSAppDelegate
 
@@ -77,7 +78,7 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    [self checkNotification:notification application:application];
+    [self checkNotification:notification application:application];    
 }
 
 -(void)checkNotification:(UILocalNotification*)notification application:(UIApplication*)application {
@@ -89,9 +90,8 @@
             [self.menuVC sendToRewards];
             
         } else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {
-            [self.initialCatList navigateToContentWithId:[notification.userInfo objectForKey:kDailyMessageNotificationKey]];
-            User *user = [User MR_findFirst];
-            user.dailyNotificationDate = [CSUtilities dateInFutureAfterDays:1 fromDate:user.dailyNotificationDate];
+            CSContent *content = [CSUtilities randomContent];
+            [self.initialCatList navigateToContentWithId:content.identifier];
         }
     }
 }
@@ -122,7 +122,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    //[MagicalRecord cleanUp];
+    [MagicalRecord cleanUp];
 }
 
 @end

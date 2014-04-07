@@ -185,6 +185,8 @@
     }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    [CSUtilities scheduleDailyMessageNotification:YES];
 }
 
 +(NSString*)coinMessage:(int)days {
@@ -252,27 +254,41 @@
     return [date dateByAddingTimeInterval:60*60*24*days];
 }
 
+// this gets called a lot
 +(void)scheduleDailyMessageNotification:(BOOL)on {
     User *user = [User MR_findFirst];
     
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSData *notifData = [def objectForKey:kDailyMessageDefaultsKey];
     UILocalNotification *notif = [NSKeyedUnarchiver unarchiveObjectWithData:notifData];
-    if (notif) {
-        [[UIApplication sharedApplication] cancelLocalNotification:notif];
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    }
-    if (!on) {
+    // check if the date is in the future. if
+    if (!on || !user.dailyNotificationDate) {
         user.dailyNotificationDate = nil;
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         return;
     }
+    if ([notif.fireDate timeIntervalSince1970] >= [[NSDate date] timeIntervalSince1970]) {
+        return;
+    }
+    
+    // cancel previous repeating notification
+    if (notif) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notif];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    }
+    
+    // make sure to update date for scheduled notification in future. increment by 1 day
+    NSTimeInterval oldstamp = [user.dailyNotificationDate timeIntervalSince1970];
+    while (oldstamp < [[NSDate date] timeIntervalSince1970]) {
+        user.dailyNotificationDate = [CSUtilities dateInFutureAfterDays:1 fromDate:user.dailyNotificationDate];
+        oldstamp = [user.dailyNotificationDate timeIntervalSince1970];
+    }
     
     notif = [[UILocalNotification alloc] init];
     notif.fireDate = user.dailyNotificationDate;
-    CSContent *content = [CSUtilities randomContent];
-    notif.alertBody = [NSString stringWithFormat:@"Daily Message: %@", content.title];
-    notif.userInfo = @{kDailyMessageNotificationKey : content.identifier};
+    notif.repeatInterval = NSCalendarUnitDay;
+    notif.alertBody = [NSString stringWithFormat:@"View your daily message. %@", ENTER_APP_MESSAGE];
+    notif.userInfo = @{kDailyMessageNotificationKey : @1};
     [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     
     notifData = [NSKeyedArchiver archivedDataWithRootObject:notif];

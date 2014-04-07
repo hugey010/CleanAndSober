@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CSContent;
+
 /**
  * Static class - don't instantiate it, jerk.
  */
@@ -23,5 +25,6 @@
 + (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 +(NSDate*)dateInFutureAfterDays:(int)days fromDate:(NSDate*)date;
 +(void)scheduleDailyMessageNotification:(BOOL)on;
++(CSContent*)randomContent;
 
 @end
