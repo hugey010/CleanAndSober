@@ -162,20 +162,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the help text about something you might want to know about this app." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="cVQ-xb-VtX">
-                                <rect key="frame" x="15" y="0.0" width="290" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRc-us-vbT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is the help text about something you might want to know about this app." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="257" translatesAutoresizingMaskIntoConstraints="NO" id="cVQ-xb-VtX">
+                                        <rect key="frame" x="32" y="0.0" width="257" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cVQ-xb-VtX" firstAttribute="leading" secondItem="sRc-us-vbT" secondAttribute="leading" constant="32" id="RFf-D5-1gO"/>
+                                    <constraint firstAttribute="bottom" secondItem="cVQ-xb-VtX" secondAttribute="bottom" id="gar-fS-qSY"/>
+                                    <constraint firstItem="cVQ-xb-VtX" firstAttribute="top" secondItem="sRc-us-vbT" secondAttribute="top" id="jYN-Rx-WVE"/>
+                                    <constraint firstAttribute="trailing" secondItem="cVQ-xb-VtX" secondAttribute="trailing" constant="31" id="rD8-kT-Edm"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cVQ-xb-VtX" secondAttribute="trailing" constant="15" id="0Ob-4G-kSk"/>
-                            <constraint firstItem="cVQ-xb-VtX" firstAttribute="top" secondItem="LTR-Qt-S5Y" secondAttribute="top" id="0xf-rR-Tf1"/>
-                            <constraint firstItem="Pez-X6-4cK" firstAttribute="top" secondItem="cVQ-xb-VtX" secondAttribute="bottom" id="IZ5-eV-Muz"/>
-                            <constraint firstItem="cVQ-xb-VtX" firstAttribute="leading" secondItem="LTR-Qt-S5Y" secondAttribute="leading" constant="15" id="Yp3-Tg-JeT"/>
+                            <constraint firstItem="sRc-us-vbT" firstAttribute="top" secondItem="LTR-Qt-S5Y" secondAttribute="top" id="7hX-e3-KYd"/>
+                            <constraint firstItem="sRc-us-vbT" firstAttribute="leading" secondItem="LTR-Qt-S5Y" secondAttribute="leading" id="iq5-3h-LVc"/>
+                            <constraint firstAttribute="trailing" secondItem="sRc-us-vbT" secondAttribute="trailing" id="lZl-7e-Itc"/>
+                            <constraint firstItem="Pez-X6-4cK" firstAttribute="top" secondItem="sRc-us-vbT" secondAttribute="bottom" id="sU4-Az-qel"/>
                         </constraints>
                     </view>
                 </viewController>

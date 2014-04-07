@@ -11,6 +11,7 @@
 #import "CSCategory.h"
 #import "CSContent.h"
 #import "CSContentViewController.h"
+#import "User.h"
 
 #define kFirstHelpLoad @"first_help_load"
 
@@ -74,18 +75,48 @@
 }
 
 - (IBAction)helpButtonPressed:(id)sender {
-    // show popover
+    
+    User *user = [User MR_findFirst];
+    
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
+    UILabel *label = (UILabel*)[helpVC.view viewWithTag:21];
+    
+    int stacksize = [self.navigationController.viewControllers count];
+    if (stacksize == 1) {
+        // top level
+        if (user.helpMessageOne) {
+            label.text = user.helpMessageOne;
+        } else {
+            label.text = kHelpMessage1;
+        }
+        
+    } else if (stacksize == 2) {
+        if (user.helpMessageTwo) {
+            label.text = user.helpMessageTwo;
+        } else {
+            label.text = kHelpMessage2;
+        }
+        
+    } else {
+        if (user.helpMessage3) {
+            label.text = user.helpMessage3;
+        } else {
+            label.text = kHelpMessage3;
+        }
+    }
+    
+    // show popover
     self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
     self.popover.tint = FPPopoverRedTint;
     //self.popover.alpha = 0.85;
     //self.popover.arrowDirection = ;
-    self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 50, 300);
+    self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 10, 300);
 
     
     [self.popover presentPopoverFromView:sender];
-    //[self.popover presentPopoverFromPoint:CGPointMake(self.helpButton.frame.origin.x + 50, 70)];
-    //[self.popover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width / 4.0, self.view.frame.size.height / 2.0)];
+    
+    
+
 }
 
 -(void)searchAllContent:(NSString*)search {
@@ -107,12 +138,9 @@
 -(void)navigateToContentWithId:(NSNumber*)identifier {
     [self.slidingViewController resetTopView];
     
-    NSLog(@"nagivateToContentWithId: %@", identifier);
     [self.navigationController popToRootViewControllerAnimated:NO];
     CSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"content"];
-    NSLog(@"self.navg = %@", self.navigationController);
     [self.navigationController pushViewController:contentVC animated:NO];
-    
     
     CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:identifier];
     [contentVC setupWithContent:content];
