@@ -27,7 +27,7 @@
     
     // Set up payPalConfig
     _payPalConfig = [[PayPalConfiguration alloc] init];
-    _payPalConfig.acceptCreditCards = YES;
+    _payPalConfig.acceptCreditCards = NO;
     _payPalConfig.languageOrLocale = @"en";
     _payPalConfig.merchantName = @"Clean and Sober Toolbox";
     _payPalConfig.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/privacy-full"];
