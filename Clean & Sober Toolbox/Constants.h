@@ -9,8 +9,9 @@
 #ifndef Clean___Sober_Toolbox_Constants_h
 #define Clean___Sober_Toolbox_Constants_h
 
-
 #define kAppTitle @"Clean & Sober Toolbox"
+
+#define kUrlBase @"http://www.cleanandsobertoolbox.com/"
 
 // colors
 #define kCOLOR_RED [UIColor colorWithRed:178.0/255.0 green:34.0/255.0 blue:34.0/255.0 alpha:1.0]

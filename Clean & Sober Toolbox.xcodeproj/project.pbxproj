@@ -108,12 +108,6 @@
 		1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1EDE809918E7A5D600A93FBB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		1EDE80A018E7A83100A93FBB /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
-		1EDE80A118E7A83100A93FBB /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
-		1EDE80A218E7A83100A93FBB /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
-		1EDE80A318E7A83100A93FBB /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
-		1EDE80A418E7A83100A93FBB /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
-		1EDE80A518E7A83100A93FBB /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
 		1EF1FD3F18F31AF1003DA04C /* CSRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRewardsViewController.h; sourceTree = "<group>"; };
 		1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRewardsViewController.m; sourceTree = "<group>"; };
 		1EF1FD4318F33753003DA04C /* coinyear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinyear.png; sourceTree = "<group>"; };
@@ -236,7 +230,6 @@
 			children = (
 				1EF1FD5718F37676003DA04C /* PayPalMobile */,
 				1ED3137B18EC833D00C4A6A1 /* iAd.framework */,
-				1EDE809F18E7A83100A93FBB /* PayPalMobile */,
 				1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */,
 				1EDE809918E7A5D600A93FBB /* MessageUI.framework */,
 				1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */,
@@ -311,19 +304,6 @@
 				1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */,
 			);
 			name = Menu;
-			sourceTree = "<group>";
-		};
-		1EDE809F18E7A83100A93FBB /* PayPalMobile */ = {
-			isa = PBXGroup;
-			children = (
-				1EDE80A018E7A83100A93FBB /* libPayPalMobile.a */,
-				1EDE80A118E7A83100A93FBB /* PayPalConfiguration.h */,
-				1EDE80A218E7A83100A93FBB /* PayPalFuturePaymentViewController.h */,
-				1EDE80A318E7A83100A93FBB /* PayPalMobile.h */,
-				1EDE80A418E7A83100A93FBB /* PayPalPayment.h */,
-				1EDE80A518E7A83100A93FBB /* PayPalPaymentViewController.h */,
-			);
-			path = PayPalMobile;
 			sourceTree = "<group>";
 		};
 		1EF1FD4218F3374C003DA04C /* art */ = {

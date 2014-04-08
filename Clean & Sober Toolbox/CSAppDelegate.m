@@ -28,6 +28,7 @@
     
     [CSUtilities updateUser];
     
+
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"AXputRBJLZnwcRnuIXkjgLde3hWk_DeC54PlR2X11TxcWeF0MY6AcA4NP7R6",
                                                            PayPalEnvironmentSandbox : @"AbsS7xCV4p_NtQnEUs07SSxR8sz5g2ad7HT9Sbwi7AQh4UHD4QnqE8yXs3fK"}];
 
@@ -62,8 +63,25 @@
     
     UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     [self checkNotification:notification application:application];
+    
+    // stuff for updates
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+        [CSUtilities checkVersionAndDownload];
+    });
 
     return YES;
+}
+
+-(void)updatedData {
+    [self performSelector:@selector(resetTopViews) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];\
+}
+
+-(void)resetTopViews {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.slidingVC resetTopViewWithAnimations:nil onComplete:nil];
+        [self.initialCatList.navigationController popToRootViewControllerAnimated:NO];
+    });
 }
 
 -(void)style {

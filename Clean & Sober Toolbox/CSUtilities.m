@@ -12,6 +12,7 @@
 #import "User.h"
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
+#define kVersionKey @"version_defaults_key"
 #define kLastVersionKey @"last_version"
 #define kCSContentType @"content"
 #define kCSCategoryType @"category"
@@ -328,6 +329,56 @@
     
     CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:resultNumber];
     return content;
+}
+
++(void)checkVersionAndDownload {
+    
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    
+    // check version
+    NSNumber *version = [def objectForKey:kVersionKey];
+    NSString *urlString = [NSString stringWithFormat:@"%@version.json", kUrlBase];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    requestError = nil;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    NSNumber *serverVersion = result[@"version"];
+    
+    if (YES || [serverVersion intValue] != [version intValue]) {
+        // update everything
+        [CSUtilities updateHelp];
+        [CSUtilities updateMessages];
+        [CSUtilities updateStructure];
+        
+        [def setObject:serverVersion forKey:kVersionKey];
+        [def synchronize];
+        
+        
+        // todo update persistent store
+        
+        //[[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+    }
+}
+
++(void)updateHelp {
+    
+}
+
++(void)updateMessages {
+    
+}
+
++(void)updateStructure {
+    
 }
 
 @end
