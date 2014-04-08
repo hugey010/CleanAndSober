@@ -54,12 +54,9 @@
 
 -(void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 -(void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
-    
-    NSLog(@"paypal payment dict = %@", completedPayment.paymentDetails);
     
     [self dismissViewControllerAnimated:YES completion:nil];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thank you for your donation!" message:completedPayment.shortDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
@@ -81,7 +78,8 @@
                                                               initWithPayment:payment
                                                               configuration:self.payPalConfig
                                                               delegate:self];
-        [self presentViewController:paymentViewController animated:YES completion:nil];
+        [self.navigationController presentViewController:paymentViewController animated:YES completion:nil];
+        [self.slidingViewController resetTopView];
     }
 }
 
