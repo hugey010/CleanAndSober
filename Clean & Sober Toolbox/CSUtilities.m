@@ -13,7 +13,6 @@
 #import <NSPersistentStore+MagicalRecord.h>
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
-#define kVersionKey @"version_defaults_key"
 #define kLastVersionKey @"last_version"
 #define kCSContentType @"content"
 #define kCSCategoryType @"category"
@@ -334,27 +333,25 @@
 
 +(void)checkVersionAndDownload {
     
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    
     // check version
-    NSNumber *version = [def objectForKey:kVersionKey];
-    NSString *urlString = [NSString stringWithFormat:@"%@version.json", kUrlBase];
+    NSNumber *version = [NSNumber numberWithInteger:[CSUtilities lastVersion]];
     
-    
+    NSString *urlString = [NSString stringWithFormat:@"%@version", kUrlBase];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
-    
     [request setHTTPMethod: @"GET"];
     
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     requestError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-    NSNumber *serverVersion = result[@"version"];
+    NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *result = [f numberFromString:responseString];
     
-    if (YES || [serverVersion intValue] != [version intValue]) {
+    if ([result integerValue] != [version integerValue]) {
         
         NSManagedObjectContext *context = [NSManagedObjectContext MR_context];
         
@@ -365,13 +362,14 @@
         [CSUtilities updateDisclaimer];
         [CSUtilities updatePsychology];
         
-        [def setObject:serverVersion forKey:kVersionKey];
-        [def synchronize];
         
         [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
         [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
         
         [context MR_saveToPersistentStoreAndWait];
+        
+        // once all that is done, update the version as everything must have gone well.
+        [CSUtilities setLastVersion:[result integerValue]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
             
@@ -380,12 +378,9 @@
 
 +(void)updateHelp {
     NSString *urlString = [NSString stringWithFormat:@"%@help.json", kUrlBase];
-    
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
-    
     [request setHTTPMethod: @"GET"];
     
     NSError *requestError;
@@ -398,14 +393,10 @@
 }
 
 +(void)updateMessages:(NSManagedObjectContext*)context {
-    
     NSString *urlString = [NSString stringWithFormat:@"%@messages.json", kUrlBase];
-    
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
-    
     [request setHTTPMethod: @"GET"];
     
     NSError *requestError;
@@ -426,12 +417,9 @@
 
 +(void)updateStructure:(NSManagedObjectContext*)context {
     NSString *urlString = [NSString stringWithFormat:@"%@categories.json", kUrlBase];
-    
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
-    
     [request setHTTPMethod: @"GET"];
     
     NSError *requestError;
@@ -474,21 +462,18 @@
 
 +(void)updateDisclaimer {
     NSString *urlString = [NSString stringWithFormat:@"%@disclaimer.json", kUrlBase];
-    
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
-    
     [request setHTTPMethod: @"GET"];
     
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     requestError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
     
-    NSLog(@"disclaimer json = %@", result);
+    //NSLog(@"disclaimer json = %@", result);
 }
 
 +(void)updatePsychology {
@@ -505,9 +490,9 @@
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     requestError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
     
-    NSLog(@"psychology json = %@", result);
+    //NSLog(@"psychology json = %@", result);
 }
 
 @end
