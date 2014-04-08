@@ -10,6 +10,7 @@
 #import "CSContent.h"
 #import "CSCategory.h"
 #import "User.h"
+#import <NSPersistentStore+MagicalRecord.h>
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
 #define kVersionKey @"version_defaults_key"
@@ -354,31 +355,159 @@
     NSNumber *serverVersion = result[@"version"];
     
     if (YES || [serverVersion intValue] != [version intValue]) {
+        
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_context];
+        
         // update everything
         [CSUtilities updateHelp];
-        [CSUtilities updateMessages];
-        [CSUtilities updateStructure];
+        [CSUtilities updateMessages:context];
+        [CSUtilities updateStructure:context];
+        [CSUtilities updateDisclaimer];
+        [CSUtilities updatePsychology];
         
         [def setObject:serverVersion forKey:kVersionKey];
         [def synchronize];
         
+        [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+        [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
         
-        // todo update persistent store
+        [context MR_saveToPersistentStoreAndWait];
         
-        //[[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+            
     }
 }
 
 +(void)updateHelp {
+    NSString *urlString = [NSString stringWithFormat:@"%@help.json", kUrlBase];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    requestError = nil;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    
+    NSLog(@"help json = %@", result);
+}
+
++(void)updateMessages:(NSManagedObjectContext*)context {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@messages.json", kUrlBase];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    requestError = nil;
+    NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    
+    for (NSDictionary *m in result) {
+        CSContent *content = [CSContent MR_createInContext:context];
+        content.identifier = m[@"id"];
+        content.title = m[@"title"];
+        content.todo = m[@"todo"];
+        content.message = m[@"content"];
+    }
     
 }
 
-+(void)updateMessages {
++(void)updateStructure:(NSManagedObjectContext*)context {
+    NSString *urlString = [NSString stringWithFormat:@"%@categories.json", kUrlBase];
     
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    requestError = nil;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    
+    NSArray *toplevel = result[@"subcategories"];
+    for (NSDictionary *c in toplevel) {
+        [CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:c inCategory:nil withContext:context];
+    }
 }
 
-+(void)updateStructure {
++(CSCategory*)parseCSCategoryFromWebDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat withContext:(NSManagedObjectContext*)context {
+    CSCategory *category = [CSCategory MR_createInContext:context];
+    category.identifier = cc[@"id"];
+    category.type = @"category";
+    category.title = cc[@"title"];
+    category.in_category = incat;
     
+    // recursively add subcategories
+    for (NSDictionary *subcat in cc[@"subcategories"]) {
+            NSMutableOrderedSet *oset = [category.has_categories mutableCopy];
+            [oset addObject:[CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:subcat inCategory:category withContext:context]];
+            category.has_categories = oset;
+    }
+    
+    // iteratively add messages
+    for (NSNumber *messageId in cc[@"messages"]) {
+        CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:messageId inContext:context];
+        [content addIn_categoryObject:category];
+        NSMutableOrderedSet *oset = [category.has_contents mutableCopy];
+        [oset addObject:content];
+        category.has_contents = oset;
+    }
+    
+    return category;
+}
+
++(void)updateDisclaimer {
+    NSString *urlString = [NSString stringWithFormat:@"%@disclaimer.json", kUrlBase];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    requestError = nil;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    
+    NSLog(@"disclaimer json = %@", result);
+}
+
++(void)updatePsychology {
+    NSString *urlString = [NSString stringWithFormat:@"%@psychology.json", kUrlBase];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    
+    [request setHTTPMethod: @"GET"];
+    
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    requestError = nil;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    
+    NSLog(@"psychology json = %@", result);
 }
 
 @end
