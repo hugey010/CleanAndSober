@@ -326,18 +326,81 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="paypal or something!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftB-CM-15K">
-                                <rect key="frame" x="56" y="99" width="209" height="84"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donate with PayPal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftB-CM-15K">
+                                <rect key="frame" x="56" y="0.0" width="209" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0SS-1l-RhF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSX-ZC-kmA">
+                                <rect key="frame" x="174" y="60" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ua1-FJ-xQ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount: $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWD-Tu-fhS">
+                                <rect key="frame" x="71" y="64" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="qJq-JA-sDA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-gr-vEE">
+                                <rect key="frame" x="71" y="179" width="179" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="0U9-Bi-grr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Donate">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="payButtonPressed:" destination="aXa-P8-9ZT" eventType="touchUpInside" id="Pmf-4G-5d5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CsE-gr-vEE" secondAttribute="trailing" constant="70" id="1yi-8r-g6d"/>
+                            <constraint firstItem="XWD-Tu-fhS" firstAttribute="top" secondItem="ftB-CM-15K" secondAttribute="bottom" constant="20" id="4U4-ch-lMK"/>
+                            <constraint firstItem="CsE-gr-vEE" firstAttribute="top" secondItem="xSX-ZC-kmA" secondAttribute="bottom" constant="89" id="98u-5W-gPj"/>
+                            <constraint firstAttribute="trailing" secondItem="xSX-ZC-kmA" secondAttribute="trailing" constant="49" id="NXK-Zs-b4D"/>
+                            <constraint firstAttribute="trailing" secondItem="ftB-CM-15K" secondAttribute="trailing" constant="55" id="SXK-3b-AuG"/>
+                            <constraint firstItem="XWD-Tu-fhS" firstAttribute="leading" secondItem="EYW-uT-ksx" secondAttribute="leading" constant="71" id="gIN-k4-Ugh"/>
+                            <constraint firstItem="xSX-ZC-kmA" firstAttribute="top" secondItem="ftB-CM-15K" secondAttribute="bottom" constant="16" id="hJu-Ru-jh3"/>
+                            <constraint firstItem="CsE-gr-vEE" firstAttribute="leading" secondItem="EYW-uT-ksx" secondAttribute="leading" constant="71" id="jpG-ch-yuj"/>
+                            <constraint firstItem="ftB-CM-15K" firstAttribute="leading" secondItem="EYW-uT-ksx" secondAttribute="leading" constant="56" id="lEX-I3-ZHb"/>
+                            <constraint firstItem="ftB-CM-15K" firstAttribute="top" secondItem="DoA-0f-G7b" secondAttribute="bottom" id="qyu-RE-ccs"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="textfield" destination="xSX-ZC-kmA" id="2Ps-xy-PBb"/>
+                        <outlet property="toolbar" destination="xhr-ES-oO8" id="E9J-ax-Ytt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAA-25-trV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xhr-ES-oO8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem width="245" style="plain" systemItem="fixedSpace" id="e5w-Iy-s6b"/>
+                        <barButtonItem title="Done" id="QM7-po-cm2">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="aXa-P8-9ZT" id="3WR-wA-ET3"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="612" y="557"/>
         </scene>

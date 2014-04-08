@@ -13,6 +13,7 @@
 #import "CSMenuViewController.h"
 #import "User.h"
 #import "CSContent.h"
+#import "PayPalMobile.h"
 
 @implementation CSAppDelegate
 
@@ -26,6 +27,9 @@
     [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
     
     [CSUtilities updateUser];
+    
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"AXputRBJLZnwcRnuIXkjgLde3hWk_DeC54PlR2X11TxcWeF0MY6AcA4NP7R6",
+                                                           PayPalEnvironmentSandbox : @"AbsS7xCV4p_NtQnEUs07SSxR8sz5g2ad7HT9Sbwi7AQh4UHD4QnqE8yXs3fK"}];
 
     
     // detect iphone or ipad
