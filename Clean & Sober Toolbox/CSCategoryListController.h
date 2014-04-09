@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *helpButton;
 @property (nonatomic, strong) FPPopoverController *popover;
+@property (weak, nonatomic) IBOutlet UIView *searchView;
 
 -(void)loadInitialContent;
 -(void)loadListAt:(CSCategory*)cat;

@@ -143,6 +143,7 @@
                     <connections>
                         <outlet property="helpButton" destination="jaP-N7-eMk" id="O2W-rk-KeZ"/>
                         <outlet property="searchBar" destination="2g6-Ru-ZOU" id="0Bv-1i-Ixo"/>
+                        <outlet property="searchView" destination="5Eg-OZ-E1U" id="Qdb-vQ-n9W"/>
                         <outlet property="tableView" destination="6au-Gp-SXq" id="SxA-im-3hR"/>
                     </connections>
                 </viewController>
@@ -508,6 +509,7 @@
                     <size key="freeformSize" width="280" height="400"/>
                     <connections>
                         <outlet property="datePicker" destination="wLb-8B-dvO" id="grC-db-PQa"/>
+                        <outlet property="notificationView" destination="4DT-eV-tGL" id="3ZE-Gl-Ttc"/>
                         <outlet property="notificationsDateField" destination="cah-Tw-egB" id="oWw-t8-BEL"/>
                         <outlet property="notificationsSwitch" destination="RuZ-2D-Acv" id="Ld6-F2-cSY"/>
                         <outlet property="tableView" destination="Ftq-hm-oja" id="ciC-xB-WbV"/>

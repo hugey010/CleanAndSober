@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITextField *notificationsDateField;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIView *notificationView;
 
 - (IBAction)notificationsValueChanged:(id)sender;
 - (IBAction)doneButtonPressed:(id)sender;

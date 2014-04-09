@@ -42,6 +42,8 @@
     
     [self.datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     
+    self.notificationView.backgroundColor = kCOLOR_VIEWS_2;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {

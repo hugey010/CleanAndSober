@@ -16,14 +16,26 @@
 // colors
 #define kCOLOR_RED [UIColor colorWithRed:178.0/255.0 green:34.0/255.0 blue:34.0/255.0 alpha:1.0]
 #define kCOLOR_GREY [UIColor colorWithRed:238.0/255.0 green:233.0/255.0 blue:233.0/255.0 alpha:1.0]
-#define kCOLOR_BLUE [UIColor colorWithRed:176.0/255.0 green:224.0/255.0 blue:255.0/255.0 alpha:0.5]
+#define kCOLOR_BLUE [UIColor colorWithRed:176.0/255.0 green:224.0/255.0 blue:255.0/255.0 alpha:1.0]
+#define kCOLOR_BLUE_TRANSLUCENT [UIColor colorWithRed:176.0/255.0 green:224.0/255.0 blue:255.0/255.0 alpha:0.3]
+#define kCOLOR_GREEN [UIColor colorWithRed:167.0/255.0 green:252.0/0.0 blue:0.0/255.0 alpha:1.0]
+#define kCOLOR_GREEN_TRANSLUCENT [UIColor colorWithRed:167.0/255.0 green:252.0/255.0 blue:0.0/255.0 alpha:0.3]
+
+
+#define kCOLOR_VIKING_BLUE [UIColor colorWithRed:79.0/255.0 green:213.0/255.0 blue:214.0/255.0 alpha:0.3]
+#define kCOLOR_HEATH_RED [UIColor colorWithRed:64.0/255.0 green:13.0/255.0 blue:18.0/255.0 alpha:1.0]
+#define kCOLOR_HEATH_RED_TRANSLUCENT [UIColor colorWithRed:164.0/255.0 green:13.0/255.0 blue:18.0/255.0 alpha:0.3]
+#define kCOLOR_PALE_RED [UIColor colorWithRed:255.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1.0]
 
 // color locations
-#define COLOR_TEXT_CELL kCOLOR_RED
-#define COLOR_BUTTONS kCOLOR_RED
+#define COLOR_TEXT_CELL kCOLOR_HEATH_RED
+#define COLOR_BUTTONS kCOLOR_VIKING_BLUE
 #define COLOR_BACKGROUND kCOLOR_GREY
 #define COLOR_CELL kCOLOR_BLUE
-#define COLOR_SWITCH kCOLOR_RED
+#define COLOR_SWITCH kCOLOR_HEATH_RED
+
+#define kCOLOR_VIEWS_1 kCOLOR_PALE_RED
+#define kCOLOR_VIEWS_2 kCOLOR_VIKING_BLUE
 
 // fonts
 #define FONT_LABELS [UIFont fontWithName:@"Helvetica" size:17]

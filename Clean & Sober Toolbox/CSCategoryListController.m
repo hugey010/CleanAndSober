@@ -39,6 +39,8 @@
     if ([self firstLoad]) {
         [self helpButtonPressed:self.helpButton];
     }
+    
+    self.searchView.backgroundColor = kCOLOR_VIEWS_1;
 }
 
 -(BOOL)firstLoad {
