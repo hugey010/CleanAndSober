@@ -26,6 +26,10 @@
         viewLoaded = YES;
         [self setupWithContent:cscontent];
     }
+    
+    UIBarButtonItem *bbutton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStyleBordered target:self action:@selector(shareButtonPressed)];
+    [bbutton setWidth:bbutton.width + 10];
+    self.navigationItem.rightBarButtonItem = bbutton;
 
     // load random background image
     /*
@@ -46,6 +50,27 @@
     [self.webview loadHTMLString:[NSString stringWithFormat:@"%@<br><br>%@", content.message, content.todo] baseURL:nil];
     [self.webview setBackgroundColor:[UIColor clearColor]];
     [self.webview setOpaque:NO];
+}
+
+-(void)shareButtonPressed {
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
+        mailVC.mailComposeDelegate = self;
+        [mailVC setSubject:cscontent.title];
+        NSString *message = [NSString stringWithFormat:@"%@<br><br>Sent from Clean & Sober Toolbox mobile app.", cscontent.message];
+        [mailVC setMessageBody:message isHTML:YES];
+        [self presentViewController:mailVC animated:YES completion:nil];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable To Share" message:nil delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate methods
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
