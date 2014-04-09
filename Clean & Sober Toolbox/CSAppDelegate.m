@@ -102,13 +102,15 @@
                                 COLOR_BUTTONS ,UITextAttributeTextColor,
                                 nil];
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    //[[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
+    [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
     [[UINavigationBar appearance] setBackgroundColor:kCOLOR_HEATH_RED];
     
-    [[UITableView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
+    [[UITableView appearance] setBackgroundColor:[UIColor clearColor]];
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
     
-    [[ADBannerView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
+    [[ADBannerView appearance] setBackgroundColor:[UIColor clearColor]];
+    
+    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor blackColor]];
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {

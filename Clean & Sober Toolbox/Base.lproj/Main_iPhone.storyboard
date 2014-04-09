@@ -47,15 +47,19 @@
                         <viewControllerLayoutGuide type="bottom" id="s28-q8-Fu3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SEx-VB-LB5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6au-Gp-SXq" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1gA-L7-Z7h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6au-Gp-SXq" customClass="TPKeyboardAvoidingTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="5Eg-OZ-E1U">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="describe your issue or feelings" translatesAutoresizingMaskIntoConstraints="NO" id="2g6-Ru-ZOU">
@@ -81,7 +85,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="category_cell" rowHeight="61" id="FVS-Kd-Eop">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="61"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FVS-Kd-Eop" id="bdz-Er-nTB">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
@@ -104,7 +108,7 @@
                                 </connections>
                             </tableView>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="W7o-3W-Qwx">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="454" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6hd-Ou-wn0"/>
@@ -115,13 +119,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="W7o-3W-Qwx" secondAttribute="trailing" id="3Fv-7W-haN"/>
-                            <constraint firstItem="6au-Gp-SXq" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="8gy-0k-4wR"/>
-                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="fLA-0J-fuC"/>
-                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="fzO-m6-egz"/>
+                            <constraint firstItem="6au-Gp-SXq" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="ANx-RY-9Uc"/>
+                            <constraint firstItem="1gA-L7-Z7h" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="HCX-Vd-mEv"/>
+                            <constraint firstAttribute="trailing" secondItem="6au-Gp-SXq" secondAttribute="trailing" id="HYL-Sd-3CE"/>
+                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="Hd8-jF-OrW"/>
                             <constraint firstItem="W7o-3W-Qwx" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="hbQ-C5-l17"/>
                             <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="W7o-3W-Qwx" secondAttribute="bottom" id="l0a-f6-Hcn"/>
-                            <constraint firstItem="6au-Gp-SXq" firstAttribute="top" secondItem="SEx-VB-LB5" secondAttribute="top" id="osc-YY-Wms"/>
-                            <constraint firstAttribute="trailing" secondItem="6au-Gp-SXq" secondAttribute="trailing" id="viD-Nx-gxG"/>
+                            <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="1gA-L7-Z7h" secondAttribute="bottom" id="mPu-wN-OWI"/>
+                            <constraint firstItem="1gA-L7-Z7h" firstAttribute="top" secondItem="SEx-VB-LB5" secondAttribute="top" id="upP-AQ-inY"/>
+                            <constraint firstAttribute="trailing" secondItem="1gA-L7-Z7h" secondAttribute="trailing" id="xsg-ph-Ilz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6tn-i7-Fod">
@@ -140,7 +146,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="1gA-L7-Z7h" id="bVu-Zi-uQc"/>
                         <outlet property="helpButton" destination="jaP-N7-eMk" id="O2W-rk-KeZ"/>
                         <outlet property="searchBar" destination="2g6-Ru-ZOU" id="0Bv-1i-Ixo"/>
                         <outlet property="searchView" destination="5Eg-OZ-E1U" id="Qdb-vQ-n9W"/>

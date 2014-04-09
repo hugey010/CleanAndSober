@@ -40,7 +40,12 @@
         [self helpButtonPressed:self.helpButton];
     }
     
-    self.searchView.backgroundColor = kCOLOR_VIEWS_1;
+    self.searchView.backgroundColor = [UIColor clearColor];
+    
+    NSArray *backgroundImagePaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:@"Florida_2014"];
+    NSUInteger randomIndex = arc4random() % [backgroundImagePaths count];
+    UIImage *image = [UIImage imageWithContentsOfFile:backgroundImagePaths[randomIndex]];
+    self.backgroundImage.image = image;
 }
 
 -(BOOL)firstLoad {
