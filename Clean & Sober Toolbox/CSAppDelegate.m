@@ -14,6 +14,7 @@
 #import "User.h"
 #import "CSContent.h"
 #import "PayPalMobile.h"
+#import <iAd/iAd.h>
 
 @implementation CSAppDelegate
 
@@ -102,6 +103,12 @@
                                 nil];
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
+    
+    [[UITableView appearance] setBackgroundColor:kCOLOR_BLUE];
+    [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
+    
+    [[ADBannerView appearance] setBackgroundColor:kCOLOR_BLUE];    
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {

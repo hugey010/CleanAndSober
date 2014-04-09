@@ -16,12 +16,13 @@
 // colors
 #define kCOLOR_RED [UIColor colorWithRed:178.0/255.0 green:34.0/255.0 blue:34.0/255.0 alpha:1.0]
 #define kCOLOR_GREY [UIColor colorWithRed:238.0/255.0 green:233.0/255.0 blue:233.0/255.0 alpha:1.0]
+#define kCOLOR_BLUE [UIColor colorWithRed:176.0/255.0 green:224.0/255.0 blue:255.0/255.0 alpha:0.5]
 
 // color locations
 #define COLOR_TEXT_CELL kCOLOR_RED
 #define COLOR_BUTTONS kCOLOR_RED
 #define COLOR_BACKGROUND kCOLOR_GREY
-#define COLOR_CELL kCOLOR_GREY
+#define COLOR_CELL kCOLOR_BLUE
 #define COLOR_SWITCH kCOLOR_RED
 
 // fonts
