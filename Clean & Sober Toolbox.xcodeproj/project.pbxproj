@@ -11,6 +11,7 @@
 		1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */; };
 		1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */; };
 		1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3DB18ADECE400BC81FC /* CSContentViewController.m */; };
+		1E2D197918F5D2A600DE24BB /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1FD5818F37676003DA04C /* libPayPalMobile.a */; };
 		1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */; };
 		1E58AF8E18A540A300E28EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8D18A540A300E28EAA /* Foundation.framework */; };
 		1E58AF9018A540A300E28EAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */; };
@@ -43,7 +44,6 @@
 		1EF1FD4F18F33753003DA04C /* coin30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4818F33753003DA04C /* coin30.png */; };
 		1EF1FD5018F33753003DA04C /* coin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4918F33753003DA04C /* coin7.png */; };
 		1EF1FD5618F351DF003DA04C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1FD5518F351DF003DA04C /* User.m */; };
-		1EF1FD5E18F37676003DA04C /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1FD5818F37676003DA04C /* libPayPalMobile.a */; };
 		1EF1FD5F18F4675F003DA04C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809518E7A5C900A93FBB /* AVFoundation.framework */; };
 		1EF1FD6018F46767003DA04C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */; };
 		1EF1FD6118F46771003DA04C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809918E7A5D600A93FBB /* MessageUI.framework */; };
@@ -137,11 +137,11 @@
 				1EF1FD6118F46771003DA04C /* MessageUI.framework in Frameworks */,
 				1EF1FD6018F46767003DA04C /* SystemConfiguration.framework in Frameworks */,
 				1EF1FD5F18F4675F003DA04C /* AVFoundation.framework in Frameworks */,
-				1EF1FD5E18F37676003DA04C /* libPayPalMobile.a in Frameworks */,
 				1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */,
 				1E58AF9018A540A300E28EAA /* CoreGraphics.framework in Frameworks */,
 				1E58AF9218A540A300E28EAA /* UIKit.framework in Frameworks */,
 				1E58AF8E18A540A300E28EAA /* Foundation.framework in Frameworks */,
+				1E2D197918F5D2A600DE24BB /* libPayPalMobile.a in Frameworks */,
 				DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +637,10 @@
 					"&",
 					Sober,
 					Toolbox/PayPalMobile,
+					"$(PROJECT_DIR)/Clean",
+					"&",
+					Sober,
+					Toolbox/PayPalMobile,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -672,6 +676,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
+					"$(PROJECT_DIR)/Clean",
+					"&",
+					Sober,
+					Toolbox/PayPalMobile,
 					"$(PROJECT_DIR)/Clean",
 					"&",
 					Sober,

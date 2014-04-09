@@ -28,10 +28,11 @@
     df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"hh:mm aa"];
     
+    User *user = [User MR_findFirst];
+    
+
     self.notificationsDateField.inputView = self.datePicker;
     self.notificationsDateField.inputAccessoryView = self.toolbar;
-    
-    User *user = [User MR_findFirst];
     if (user.dailyNotificationDate) {
         self.notificationsDateField.text = [df stringFromDate:user.dailyNotificationDate];
         [self.notificationsSwitch setOn:YES];

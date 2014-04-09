@@ -351,6 +351,9 @@
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     NSNumber *result = [f numberFromString:responseString];
     
+    
+    NSLog(@"Version Check. Local: %@, Server: %@.", version, result);
+    
     if ([result integerValue] != [version integerValue]) {
         
         NSManagedObjectContext *context = [NSManagedObjectContext MR_context];
