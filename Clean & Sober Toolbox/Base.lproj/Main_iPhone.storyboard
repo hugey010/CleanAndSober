@@ -117,24 +117,37 @@
                                     <outlet property="delegate" destination="5m6-TB-DkH" id="kr6-nv-fgR"/>
                                 </connections>
                             </tableView>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="W7o-3W-Qwx">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-EZ-0a2">
                                 <rect key="frame" x="0.0" y="454" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="W7o-3W-Qwx">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="5m6-TB-DkH" id="LaO-YU-6wi"/>
+                                        </connections>
+                                    </adBannerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6hd-Ou-wn0"/>
-                                    <constraint firstAttribute="width" constant="320" id="oPJ-Kn-qrQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="W7o-3W-Qwx" secondAttribute="trailing" id="8ci-d0-YcB"/>
+                                    <constraint firstAttribute="bottom" secondItem="W7o-3W-Qwx" secondAttribute="bottom" id="Ews-NT-Lzx"/>
+                                    <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="uXu-EZ-0a2" secondAttribute="top" id="Jyi-SN-YL2"/>
+                                    <constraint firstAttribute="height" constant="50" id="b6g-5D-wrM"/>
+                                    <constraint firstItem="W7o-3W-Qwx" firstAttribute="leading" secondItem="uXu-EZ-0a2" secondAttribute="leading" id="gc7-Vo-UIh"/>
                                 </constraints>
-                            </adBannerView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="W7o-3W-Qwx" secondAttribute="trailing" id="3Fv-7W-haN"/>
+                            <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="uXu-EZ-0a2" secondAttribute="bottom" id="K4W-ei-zMr"/>
                             <constraint firstItem="6au-Gp-SXq" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="c5c-WS-fFH"/>
-                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="c8b-iT-bF2"/>
+                            <constraint firstItem="uXu-EZ-0a2" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="fgb-eq-Ssp"/>
+                            <constraint firstAttribute="trailing" secondItem="uXu-EZ-0a2" secondAttribute="trailing" id="g7S-Fz-tQk"/>
                             <constraint firstItem="6au-Gp-SXq" firstAttribute="top" secondItem="8bu-iN-3zp" secondAttribute="top" id="gs9-qV-kZp"/>
-                            <constraint firstItem="W7o-3W-Qwx" firstAttribute="leading" secondItem="SEx-VB-LB5" secondAttribute="leading" id="hbQ-C5-l17"/>
                             <constraint firstAttribute="trailing" secondItem="6au-Gp-SXq" secondAttribute="trailing" id="jSf-IO-AWZ"/>
-                            <constraint firstItem="s28-q8-Fu3" firstAttribute="top" secondItem="W7o-3W-Qwx" secondAttribute="bottom" id="l0a-f6-Hcn"/>
+                            <constraint firstItem="uXu-EZ-0a2" firstAttribute="top" secondItem="6au-Gp-SXq" secondAttribute="bottom" id="wte-fd-Dbt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6tn-i7-Fod">
@@ -155,6 +168,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="adBackgroundView" destination="uXu-EZ-0a2" id="Hwf-Gh-BOQ"/>
                         <outlet property="helpButton" destination="jaP-N7-eMk" id="O2W-rk-KeZ"/>
                         <outlet property="searchView" destination="5Eg-OZ-E1U" id="Qdb-vQ-n9W"/>
                         <outlet property="tableView" destination="6au-Gp-SXq" id="SxA-im-3hR"/>

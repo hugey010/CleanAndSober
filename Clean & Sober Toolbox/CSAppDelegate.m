@@ -108,7 +108,7 @@
     [[UITableView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
     
-    [[ADBannerView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
+    [[ADBannerView appearance] setBackgroundColor:[UIColor clearColor]];
     
     [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor blackColor]];
     

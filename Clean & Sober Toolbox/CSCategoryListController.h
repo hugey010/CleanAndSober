@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
+#import <iAd/iAd.h>
 
 @class CSCategory;
 
-@interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate, ADBannerViewDelegate>
 
 - (IBAction)menuButtonPressed:(id)sender;
 - (IBAction)helpButtonPressed:(id)sender;
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *helpButton;
 @property (nonatomic, strong) FPPopoverController *popover;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (weak, nonatomic) IBOutlet UIView *adBackgroundView;
 
 -(void)loadInitialContent;
 -(void)loadListAt:(CSCategory*)cat;

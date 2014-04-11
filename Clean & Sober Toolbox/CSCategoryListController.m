@@ -41,6 +41,7 @@
     }
     
     self.searchView.backgroundColor = [UIColor clearColor];
+    self.adBackgroundView.backgroundColor = kCOLOR_VIEWS_2;
 }
 
 -(BOOL)firstLoad {
@@ -83,7 +84,7 @@
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
     UILabel *label = (UILabel*)[helpVC.view viewWithTag:21];
     
-    int stacksize = [self.navigationController.viewControllers count];
+    int stacksize = (int)[self.navigationController.viewControllers count];
     if (stacksize == 1) {
         // top level
         if (user.helpMessageOne) {
@@ -213,6 +214,16 @@
         CSCategory *category = categories[indexPath.row];
         [listVC loadListAt:category];
     }
+}
+
+#pragma mark - ADBannerViewDelegate methods
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    [banner setHidden:NO];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    [banner setHidden:YES];
 }
 
 @end
