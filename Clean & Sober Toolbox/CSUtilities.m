@@ -163,7 +163,9 @@
 
 +(void)updateUser {
     User *user = [User MR_findFirst];
+    BOOL firstUser = NO;
     if (!user) {
+        firstUser = YES;
         user = [User MR_createEntity];
         user.daysInARow = [NSNumber numberWithInt:1];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -187,7 +189,10 @@
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
-    [CSUtilities scheduleDailyMessageNotification:YES];
+    if (firstUser) {
+        user.dailyNotificationDate = [NSDate date];
+        [CSUtilities scheduleDailyMessageNotification:YES];
+    }
 }
 
 +(NSString*)coinMessage:(int)days {
