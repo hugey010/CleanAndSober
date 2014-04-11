@@ -10,6 +10,7 @@
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import "User.h"
 #import "CSUtilities.h"
+#import "CSCategoryListController.h"
 
 @interface CSMenuViewController () {
     NSDateFormatter *df;
@@ -167,6 +168,28 @@
             break;
         }
     }
+}
+
+#pragma mark - UISearchBar methods
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    UINavigationController *nav = (UINavigationController*)self.slidingViewController.topViewController;
+    CSCategoryListController *listvc = (CSCategoryListController*)nav.viewControllers[0];
+    [listvc searchAllContent:searchBar.text];
+    [self.slidingViewController resetTopView];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    UINavigationController *nav = (UINavigationController*)self.slidingViewController.topViewController;
+    CSCategoryListController *listvc = (CSCategoryListController*)nav.viewControllers[0];
+    
+    [listvc loadPreviousContent];
 }
 
 @end

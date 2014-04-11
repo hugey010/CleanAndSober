@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface CSMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *notificationsSwitch;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *notificationsDateField;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIView *notificationView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)notificationsValueChanged:(id)sender;
 - (IBAction)doneButtonPressed:(id)sender;

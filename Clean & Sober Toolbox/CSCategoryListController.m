@@ -153,6 +153,19 @@
     [contentVC setupWithContent:content];
 }
 
+- (IBAction)rewardsButtonPressed:(id)sender {
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"rewards"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)loadPreviousContent {
+    if (originCategory) {
+        [self loadListAt:originCategory];
+    } else {
+        [self loadInitialContent];
+    }
+}
+
 #pragma mark - UITableView methods
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -204,30 +217,6 @@
         [self.navigationController pushViewController:listVC animated:YES];
         CSCategory *category = categories[indexPath.row];
         [listVC loadListAt:category];
-    }
-}
-
-#pragma mark - UISearchBar methods
-
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES];
-}
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    [self searchAllContent:searchBar.text];
-}
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self searchAllContent:searchText];
-}
-
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    if (originCategory) {
-        [self loadListAt:originCategory];
-    } else {
-        [self loadInitialContent];
     }
 }
 

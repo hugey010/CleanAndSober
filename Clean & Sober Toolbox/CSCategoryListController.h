@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
-#imp
 
 @class CSCategory;
 
-@interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface CSCategoryListController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (IBAction)menuButtonPressed:(id)sender;
 - (IBAction)helpButtonPressed:(id)sender;
+- (IBAction)rewardsButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -27,5 +27,7 @@
 -(void)loadInitialContent;
 -(void)loadListAt:(CSCategory*)cat;
 -(void)navigateToContentWithId:(NSNumber*)identifier;
+-(void)searchAllContent:(NSString*)search;
+-(void)loadPreviousContent;
 
 @end
