@@ -22,8 +22,9 @@
 {
     [super viewDidLoad];
     
-
     user = [User MR_findFirst];
+    
+    [self.rewardsButton setBackgroundColor:kCOLOR_VIEWS_2];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

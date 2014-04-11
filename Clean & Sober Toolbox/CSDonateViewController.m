@@ -36,6 +36,8 @@
     
     self.environment = PayPalEnvironmentProduction;
     //self.environment = PayPalEnvironmentSandbox;
+    
+    [self.backgroundView setBackgroundColor:kCOLOR_VIEWS_2];
 
 }
 

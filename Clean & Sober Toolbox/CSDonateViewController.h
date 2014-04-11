@@ -14,6 +14,7 @@
 @property(nonatomic, strong, readwrite) NSString *environment;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UITextField *textfield;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
 
 - (IBAction)payButtonPressed:(id)sender;
 - (IBAction)doneButtonPressed:(id)sender;
