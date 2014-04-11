@@ -61,6 +61,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaP-N7-eMk">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="2Jp-H6-Hs7"/>
                                                 <constraint firstAttribute="width" constant="160" id="zC3-gU-xO3"/>
@@ -75,6 +76,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-xf-0tt">
                                             <rect key="frame" x="160" y="0.0" width="160" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="160" id="i5W-86-Npg"/>
                                                 <constraint firstAttribute="height" constant="44" id="m3T-J8-iw7"/>
@@ -481,7 +483,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="443"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableFooterView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Describe how you feel" id="Nxk-lS-WbE">
+                                <searchBar key="tableFooterView" contentMode="redraw" text="" placeholder="Describe how you feel" id="Nxk-lS-WbE">
                                     <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
