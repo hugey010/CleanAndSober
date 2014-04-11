@@ -360,14 +360,17 @@
         
         // update everything
         [CSUtilities updateHelp];
-        [CSUtilities updateMessages:context];
-        [CSUtilities updateStructure:context];
         [CSUtilities updateDisclaimer];
         [CSUtilities updatePsychology];
         
+        [CSUtilities updateMessages:context];
+        [CSUtilities updateStructure:context];
         
-        [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-        [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+        
+        if (context.hasChanges) {
+            [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+            [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+        }
         
         [context MR_saveToPersistentStoreAndWait];
         
@@ -389,10 +392,15 @@
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    requestError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-    
-    NSLog(@"help json = %@", result);
+    if (!requestError) {
+        requestError = nil;
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+        
+        NSLog(@"help json = %@", result);
+    } else {
+        NSLog(@"Update help error: %@", [requestError description]);
+    }
+
 }
 
 +(void)updateMessages:(NSManagedObjectContext*)context {
@@ -405,17 +413,19 @@
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    requestError = nil;
-    NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-    
-    for (NSDictionary *m in result) {
-        CSContent *content = [CSContent MR_createInContext:context];
-        content.identifier = m[@"id"];
-        content.title = m[@"title"];
-        content.todo = m[@"todo"];
-        content.message = m[@"content"];
+    if (!requestError) {
+        requestError = nil;
+        NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+        for (NSDictionary *m in result) {
+            CSContent *content = [CSContent MR_createInContext:context];
+            content.identifier = m[@"id"];
+            content.title = m[@"title"];
+            content.todo = m[@"todo"];
+            content.message = m[@"content"];
+        }
+    } else {
+        NSLog(@"Update messages error: %@", [requestError description]);
     }
-    
 }
 
 +(void)updateStructure:(NSManagedObjectContext*)context {
@@ -428,12 +438,15 @@
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    requestError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-    
-    NSArray *toplevel = result[@"subcategories"];
-    for (NSDictionary *c in toplevel) {
-        [CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:c inCategory:nil withContext:context];
+    if (!requestError) {
+        requestError = nil;
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+        NSArray *toplevel = result[@"subcategories"];
+        for (NSDictionary *c in toplevel) {
+            [CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:c inCategory:nil withContext:context];
+        }
+    } else {
+        NSLog(@"Update structure error: %@", [requestError description]);
     }
 }
 
@@ -473,10 +486,14 @@
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    requestError = nil;
-    //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+    if (!requestError) {
+        requestError = nil;
+        //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
+        //NSLog(@"disclaimer json = %@", result);
+    } else {
+        NSLog(@"Update structure error: %@", [requestError description]);
+    }
     
-    //NSLog(@"disclaimer json = %@", result);
 }
 
 +(void)updatePsychology {

@@ -132,9 +132,9 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[cd] %@ OR todo CONTAINS[cd] %@", search, search, search];
     contents = [CSContent MR_findAllWithPredicate:predicate inContext:context];
-    predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", search];
-    categories = [CSCategory MR_findAllWithPredicate:predicate inContext:context];
-    
+    //predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", search];
+    //categories = [CSCategory MR_findAllWithPredicate:predicate inContext:context];
+    categories = nil;
     [self.tableView reloadData];
 }
 
