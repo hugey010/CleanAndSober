@@ -41,11 +41,6 @@
     }
     
     self.searchView.backgroundColor = [UIColor clearColor];
-    
-    NSArray *backgroundImagePaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:@"Florida_2014"];
-    NSUInteger randomIndex = arc4random() % [backgroundImagePaths count];
-    UIImage *image = [UIImage imageWithContentsOfFile:backgroundImagePaths[randomIndex]];
-    self.backgroundImage.image = image;
 }
 
 -(BOOL)firstLoad {
@@ -114,7 +109,7 @@
     
     // show popover
     self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
-    self.popover.tint = FPPopoverRedTint;
+    self.popover.tint = FPPopoverBlackTint;
     //self.popover.alpha = 0.85;
     //self.popover.arrowDirection = ;
     self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 10, 300);

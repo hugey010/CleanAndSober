@@ -121,7 +121,7 @@
     
     switch (indexPath.row) {
         case 0 : {
-            cell.textLabel.text = @"Psychology Behind App";
+            cell.textLabel.text = @"About";
             break;
         }
         case 1 : {

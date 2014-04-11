@@ -103,16 +103,17 @@
                                 nil];
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
-    [[UINavigationBar appearance] setBackgroundColor:kCOLOR_HEATH_RED];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
     
-    [[UITableView appearance] setBackgroundColor:[UIColor clearColor]];
+    [[UITableView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
     
-    [[ADBannerView appearance] setBackgroundColor:[UIColor clearColor]];
+    [[ADBannerView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
     
     [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor blackColor]];
     
     [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setFont:[UIFont fontWithName:@"Helvetica" size:15]];
+    
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {

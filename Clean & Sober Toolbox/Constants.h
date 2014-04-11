@@ -28,8 +28,10 @@
 #define kCOLOR_PALE_RED [UIColor colorWithRed:255.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1.0]
 
 // color locations
-#define COLOR_TEXT_CELL kCOLOR_HEATH_RED
-#define COLOR_BUTTONS kCOLOR_HEATH_RED
+#define COLOR_TEXT_CELL [UIColor blackColor]
+//kCOLOR_HEATH_RED
+#define COLOR_BUTTONS [UIColor blackColor]
+//kCOLOR_HEATH_RED
 #define COLOR_BACKGROUND kCOLOR_GREY
 #define COLOR_CELL kCOLOR_BLUE
 #define COLOR_SWITCH kCOLOR_HEATH_RED
