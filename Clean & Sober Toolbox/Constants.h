@@ -37,7 +37,7 @@
 #define COLOR_SWITCH kCOLOR_HEATH_RED
 
 #define kCOLOR_VIEWS_1 kCOLOR_PALE_RED
-#define kCOLOR_VIEWS_2 kCOLOR_VIKING_BLUE
+#define kCOLOR_VIEWS_2 kCOLOR_BLUE_TRANSLUCENT
 
 // fonts
 #define FONT_LABELS [UIFont fontWithName:@"Helvetica" size:17]

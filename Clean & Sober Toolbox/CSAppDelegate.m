@@ -105,7 +105,7 @@
     [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
     
-    [[UITableView appearance] setBackgroundColor:kCOLOR_VIKING_BLUE];
+    [[UITableView appearance] setBackgroundColor:kCOLOR_BLUE_TRANSLUCENT];
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
     
     [[ADBannerView appearance] setBackgroundColor:[UIColor clearColor]];
