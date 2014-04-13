@@ -22,9 +22,7 @@
 {
     [super viewDidLoad];
     
-    user = [User MR_findFirst];
-    
-    [self.rewardsButton setBackgroundColor:kCOLOR_VIEWS_2];
+    user = [User MR_findFirst];    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -108,5 +106,17 @@
     user = [User MR_findFirst];
     self.navigationItem.title = [NSString stringWithFormat:@"App Days: %@", user.daysInARow];
     [self.tableView reloadData];
+}
+
+- (IBAction)instructionsButtonPressed:(id)sender {
+    UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
+    UILabel *label = (UILabel*)[helpVC.view viewWithTag:21];
+    label.text = kHelpRewards;
+    
+    // show popover
+    self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
+    self.popover.tint = FPPopoverBlackTint;
+    self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 10, 250);
+    [self.popover presentPopoverFromView:sender];
 }
 @end

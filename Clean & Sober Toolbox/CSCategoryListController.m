@@ -118,7 +118,7 @@
     CGSize boxSize = CGSizeMake(self.view.frame.size.width - 10, self.view.frame.size.height - 100);
     CGRect textRect = [calculationView.text boundingRectWithSize:boxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:ctx];
     
-    self.popover.contentSize = CGSizeMake(textRect.size.width, textRect.size.height + 80);//CGSizeMake(self.view.frame.size.width - 10, 300);
+    self.popover.contentSize = CGSizeMake(textRect.size.width, textRect.size.height + 80);
 
     [self.popover presentPopoverFromView:sender];
 }
