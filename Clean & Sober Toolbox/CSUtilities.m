@@ -56,9 +56,6 @@
         [CSUtilities parseJSONDictionaryIntoDatabase:result];
         [CSUtilities setHasLoadedJson:YES];
     }
-    
-    // perform version check and update data if necessary
-    
 }
 
 +(void)parseJSONDictionaryIntoDatabase:(NSDictionary *)json {
@@ -375,15 +372,16 @@
         if (context.hasChanges) {
             [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
             [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-        }
-        
-        [context MR_saveToPersistentStoreAndWait];
-        
-        // once all that is done, update the version as everything must have gone well.
-        [CSUtilities setLastVersion:[result integerValue]];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
             
+            [context MR_saveToPersistentStoreAndWait];
+            
+            // once all that is done, update the version as everything must have gone well.
+            [CSUtilities setLastVersion:[result integerValue]];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+        } else {
+            NSLog(@"No updates are available.");
+        }
     }
 }
 
@@ -492,11 +490,14 @@
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     if (!requestError) {
-        requestError = nil;
-        //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-        //NSLog(@"disclaimer json = %@", result);
+        NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        User *user = [User MR_findFirst];
+        user.disclaimerMessage = responseString;
+ 
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        
     } else {
-        NSLog(@"Update structure error: %@", [requestError description]);
+        NSLog(@"Update disclaimer error: %@", [requestError description]);
     }
     
 }
@@ -514,7 +515,18 @@
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    requestError = nil;
+    
+    if (!requestError) {
+        NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        User *user = [User MR_findFirst];
+        user.psychologyMessage = responseString;
+        
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        
+    } else {
+        NSLog(@"Update psychology error: %@", [requestError description]);
+    }
+    
     //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
     
     //NSLog(@"psychology json = %@", result);
