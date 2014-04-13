@@ -51,7 +51,7 @@
     [super viewWillAppear:animated];
     
     User *user = [User MR_findFirst];
-    self.navigationItem.title = [NSString stringWithFormat:@"Days Sober: %@", user.daysInARow];
+    self.navigationItem.title = [NSString stringWithFormat:@"App Days: %@", user.daysInARow];
 }
 
 -(void)dateChanged:(UIDatePicker*)dp {

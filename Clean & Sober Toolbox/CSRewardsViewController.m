@@ -29,7 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.title = [NSString stringWithFormat:@"Days Sober: %@", user.daysInARow];
+    self.navigationItem.title = [NSString stringWithFormat:@"App Days: %@", user.daysInARow];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -86,6 +86,10 @@
             image = [UIImage imageNamed:@"coinyear.png"];
             break;
         }
+        case 7 : {
+            text = @"1 year cerfiticate";
+            image = [UIImage imageNamed:@"yearcert"];
+        }
     }
     
     iv.image = image;
@@ -102,7 +106,7 @@
     [CSUtilities updateUser];
     
     user = [User MR_findFirst];
-    self.navigationItem.title = [NSString stringWithFormat:@"Days Sober: %@", user.daysInARow];
+    self.navigationItem.title = [NSString stringWithFormat:@"App Days: %@", user.daysInARow];
     [self.tableView reloadData];
 }
 @end
