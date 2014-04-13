@@ -13,6 +13,9 @@
 		1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3DB18ADECE400BC81FC /* CSContentViewController.m */; };
 		1E272A1C18F5FDCC00D766B0 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E272A1618F5FDCC00D766B0 /* libPayPalMobile.a */; };
 		1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */; };
+		1E3F34C218FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E82540D18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite */; };
+		1E3F34C318FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1E82540E18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-shm */; };
+		1E3F34C418FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1E82540F18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-wal */; };
 		1E563F5D18FACFF2009644E5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5A18FACFF2009644E5 /* Default.png */; };
 		1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5B18FACFF2009644E5 /* Default~iphone.png */; };
 		1E563F5F18FACFF2009644E5 /* cs_splash640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5C18FACFF2009644E5 /* cs_splash640x1136.png */; };
@@ -22,8 +25,6 @@
 		1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AF9618A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AF9A18A540A300E28EAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AF9918A540A300E28EAA /* main.m */; };
 		1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AF9D18A540A300E28EAA /* CSAppDelegate.m */; };
-		1E58AFA118A540A300E28EAA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AF9F18A540A300E28EAA /* Main_iPhone.storyboard */; };
-		1E58AFA418A540A300E28EAA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFA218A540A300E28EAA /* Main_iPad.storyboard */; };
 		1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFA818A540A300E28EAA /* Images.xcassets */; };
 		1E58AFB018A540A300E28EAA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AFAF18A540A300E28EAA /* XCTest.framework */; };
 		1E58AFB118A540A300E28EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8D18A540A300E28EAA /* Foundation.framework */; };
@@ -111,6 +112,9 @@
 		1E58AFB718A540A300E28EAA /* Clean & Sober ToolboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clean & Sober ToolboxTests-Info.plist"; sourceTree = "<group>"; };
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
+		1E82540D18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite"; sourceTree = "<group>"; };
+		1E82540E18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-shm"; sourceTree = "<group>"; };
+		1E82540F18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-wal"; sourceTree = "<group>"; };
 		1EA131E318F9EC56000B3C94 /* appicon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon57.png; sourceTree = "<group>"; };
 		1EA131E418F9EC56000B3C94 /* appicon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon72.png; sourceTree = "<group>"; };
 		1EA131E518F9EC56000B3C94 /* appicon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon76.png; sourceTree = "<group>"; };
@@ -184,6 +188,9 @@
 		1E04D3A418ADC63D00BC81FC /* static content */ = {
 			isa = PBXGroup;
 			children = (
+				1E82540D18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite */,
+				1E82540E18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-shm */,
+				1E82540F18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-wal */,
 				1EF1FD4218F3374C003DA04C /* art */,
 				1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */,
 				1EA41E5A18C5402A00FCE832 /* Florida_2014 */,
@@ -468,7 +475,6 @@
 				1EF1FD5018F33753003DA04C /* coin7.png in Resources */,
 				1EA131EE18F9EC56000B3C94 /* appicon120.png in Resources */,
 				1EA131EB18F9EC56000B3C94 /* appicon72.png in Resources */,
-				1E58AFA418A540A300E28EAA /* Main_iPad.storyboard in Resources */,
 				1EF1FD4B18F33753003DA04C /* coin9month.png in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
 				1EA131EC18F9EC56000B3C94 /* appicon76.png in Resources */,
@@ -479,12 +485,14 @@
 				1EA41E5B18C5402A00FCE832 /* Florida_2014 in Resources */,
 				1EF1FD4D18F33753003DA04C /* coin90.png in Resources */,
 				1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */,
-				1E58AFA118A540A300E28EAA /* Main_iPhone.storyboard in Resources */,
 				1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */,
 				1EA131EA18F9EC56000B3C94 /* appicon57.png in Resources */,
 				1E563F5F18FACFF2009644E5 /* cs_splash640x1136.png in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
 				1EA131F018F9EC56000B3C94 /* appicon152.png in Resources */,
+				1E3F34C218FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite in Resources */,
+				1E3F34C318FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
+				1E3F34C418FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +691,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A25E65CA4C74E41A76F468B /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Paul Caimi (43243LS7SC)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
@@ -717,7 +725,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C2BA32F5-2602-4B60-B3FF-EEC3E924089C";
+				PROVISIONING_PROFILE = "7C62B748-AC0F-45F8-933A-E086FF5FF1E6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -760,7 +768,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C2BA32F5-2602-4B60-B3FF-EEC3E924089C";
+				PROVISIONING_PROFILE = "7C62B748-AC0F-45F8-933A-E086FF5FF1E6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

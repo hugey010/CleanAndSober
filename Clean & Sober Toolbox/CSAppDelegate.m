@@ -24,8 +24,8 @@
 {
     
     // setup coredata stack
-    //[CSUtilities loadFromPremadeDatabase];
-    [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+    [CSUtilities loadFromPremadeDatabase];
+    //[CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
     
     [CSUtilities updateUser];
     
