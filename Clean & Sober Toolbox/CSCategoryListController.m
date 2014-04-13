@@ -115,21 +115,24 @@
     //self.popover.arrowDirection = ;
     self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 10, 300);
 
-    
     [self.popover presentPopoverFromView:sender];
-    
-    
-
 }
 
 -(void)searchAllContent:(NSString*)search {
     
-    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[cd] %@ OR todo CONTAINS[cd] %@", search, search, search];
-    contents = [CSContent MR_findAllWithPredicate:predicate inContext:context];
-    //predicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", search];
-    //categories = [CSCategory MR_findAllWithPredicate:predicate inContext:context];
+    NSArray *array = [search componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+    
+    NSMutableSet *newContent = [NSMutableSet set];
+    for (NSString *keyword in array) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR message CONTAINS[cd] %@ OR todo CONTAINS[cd] %@", keyword, keyword, keyword];
+        
+        [newContent addObjectsFromArray:[CSContent MR_findAllWithPredicate:predicate]];
+    }
+    
+    contents = [newContent allObjects];
+    
     categories = nil;
     [self.tableView reloadData];
 }
