@@ -111,9 +111,14 @@
     // show popover
     self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
     self.popover.tint = FPPopoverBlackTint;
-    //self.popover.alpha = 0.85;
-    //self.popover.arrowDirection = ;
-    self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 10, 300);
+    NSStringDrawingContext *ctx = [NSStringDrawingContext new];
+    NSAttributedString *aString = [[NSAttributedString alloc] initWithString:label.text];
+    UITextView *calculationView = [[UITextView alloc] init];
+    [calculationView setAttributedText:aString];
+    CGSize boxSize = CGSizeMake(self.view.frame.size.width - 10, self.view.frame.size.height - 100);
+    CGRect textRect = [calculationView.text boundingRectWithSize:boxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:ctx];
+    
+    self.popover.contentSize = CGSizeMake(textRect.size.width, textRect.size.height + 80);//CGSizeMake(self.view.frame.size.width - 10, 300);
 
     [self.popover presentPopoverFromView:sender];
 }
