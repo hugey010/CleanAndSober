@@ -14,6 +14,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>appicon_crop_120</string>
+				<string>appicon_crop_114</string>
+				<string>appicon_crop_57</string>
 				<string>appicon120</string>
 				<string>appicon114</string>
 				<string>appicon72</string>
@@ -27,6 +30,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>appicon_crop_152</string>
+				<string>appicon_crop_76</string>
+				<string>appicon_crop_144</string>
+				<string>appicon_crop_72</string>
 				<string>appicon152</string>
 				<string>appicon76</string>
 				<string>appicon144</string>
