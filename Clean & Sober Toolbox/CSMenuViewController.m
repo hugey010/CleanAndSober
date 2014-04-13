@@ -91,6 +91,10 @@
 }
 
 -(void)sendHome {
+    UINavigationController *nav = (UINavigationController*)self.slidingViewController.topViewController;
+    [nav popToRootViewControllerAnimated:NO];
+    CSCategoryListController *listvc = (CSCategoryListController*)nav.viewControllers[0];
+    [listvc loadInitialContent];
     [self.slidingViewController resetTopView];
 }
 
