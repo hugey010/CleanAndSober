@@ -358,10 +358,10 @@
     
     if ([result integerValue] != [version integerValue]) {
         
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_context];
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
         
         // update everything
-        [CSUtilities updateHelp];
+        //[CSUtilities updateHelp];
         [CSUtilities updateDisclaimer];
         [CSUtilities updatePsychology];
         
@@ -370,8 +370,11 @@
         
         
         if (context.hasChanges) {
-            [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-            [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+                [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+            });
+
             
             [context MR_saveToPersistentStoreAndWait];
             
@@ -491,10 +494,9 @@
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     if (!requestError) {
         NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        
         User *user = [User MR_findFirst];
         user.disclaimerMessage = responseString;
- 
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
     } else {
         NSLog(@"Update disclaimer error: %@", [requestError description]);
@@ -520,8 +522,6 @@
         NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         User *user = [User MR_findFirst];
         user.psychologyMessage = responseString;
-        
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
     } else {
         NSLog(@"Update psychology error: %@", [requestError description]);
