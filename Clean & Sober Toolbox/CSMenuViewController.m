@@ -11,6 +11,7 @@
 #import "User.h"
 #import "CSUtilities.h"
 #import "CSCategoryListController.h"
+#import "CSContentViewController.h"
 
 @interface CSMenuViewController () {
     NSDateFormatter *df;
@@ -113,10 +114,16 @@
     [self specializedPush:rewards];
 }
 
+-(void)sendToRandomMessage {
+    CSContentViewController *content = [self.storyboard instantiateViewControllerWithIdentifier:@"content"];
+    [self specializedPush:content];
+    [content setupWithContent:[CSUtilities randomContent]];    
+}
+
 #pragma mark - UITableView methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,6 +151,10 @@
             cell.textLabel.text = @"Home";
             break;
         }
+        case 5 : {
+            cell.textLabel.text = @"Random Message";
+            break;
+        }
     }
     
     return cell;
@@ -169,6 +180,10 @@
         }
         case 4 : {
             [self sendHome];
+            break;
+        }
+        case 5 : {
+            [self sendToRandomMessage];
             break;
         }
     }

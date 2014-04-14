@@ -526,10 +526,6 @@
     } else {
         NSLog(@"Update psychology error: %@", [requestError description]);
     }
-    
-    //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-    
-    //NSLog(@"psychology json = %@", result);
 }
 
 @end
