@@ -125,6 +125,7 @@
 
 -(void)searchAllContent:(NSString*)search {
     
+    [self.navigationController popToRootViewControllerAnimated:NO];
     
     NSArray *array = [search componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];

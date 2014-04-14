@@ -738,7 +738,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A25E65CA4C74E41A76F468B /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Paul Caimi (43243LS7SC)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
