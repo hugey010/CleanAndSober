@@ -10,6 +10,6 @@
 
 @interface CSDisclaimerViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *textview;
+@property (weak, nonatomic) IBOutlet UIWebView *webview;
 
 @end

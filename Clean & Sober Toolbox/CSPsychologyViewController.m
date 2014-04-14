@@ -24,9 +24,9 @@
     
     User *user = [User MR_findFirst];
     if (user.psychologyMessage) {
-        self.textview.text = user.psychologyMessage;
+        [self.webview loadHTMLString:user.psychologyMessage baseURL:nil];
     } else {
-        self.textview.text = kPsychologyMessage;
+        [self.webview loadHTMLString:kPsychologyMessage baseURL:nil];
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CvM-4C-cpN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CvM-4C-cpN">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -648,25 +648,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdr-Jt-kYi">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-cL-gMQ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Vdr-Jt-kYi" firstAttribute="leading" secondItem="lKZ-Ha-XPE" secondAttribute="leading" id="U56-Yj-61N"/>
-                            <constraint firstAttribute="trailing" secondItem="Vdr-Jt-kYi" secondAttribute="trailing" id="exs-is-hdb"/>
-                            <constraint firstItem="Vdr-Jt-kYi" firstAttribute="top" secondItem="Woc-8m-WQQ" secondAttribute="top" id="j3f-Gz-R7d"/>
-                            <constraint firstItem="zEX-Vt-4dk" firstAttribute="top" secondItem="Vdr-Jt-kYi" secondAttribute="bottom" id="oLY-VG-jxd"/>
+                            <constraint firstAttribute="trailing" secondItem="Vp9-cL-gMQ" secondAttribute="trailing" id="0WR-G9-zMQ"/>
+                            <constraint firstItem="zEX-Vt-4dk" firstAttribute="top" secondItem="Vp9-cL-gMQ" secondAttribute="bottom" id="8Lu-GG-NJm"/>
+                            <constraint firstItem="Vp9-cL-gMQ" firstAttribute="top" secondItem="lKZ-Ha-XPE" secondAttribute="top" id="GU2-aY-aD9"/>
+                            <constraint firstItem="Vp9-cL-gMQ" firstAttribute="leading" secondItem="lKZ-Ha-XPE" secondAttribute="leading" id="R2j-DF-EC3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textview" destination="Vdr-Jt-kYi" id="WzK-xG-6qP"/>
+                        <outlet property="webview" destination="Vp9-cL-gMQ" id="9hk-r1-0e1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgM-M0-0N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -682,29 +679,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <viewControllerLayoutGuide type="bottom" id="4VR-Rl-7u2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nhJ-Hj-d58">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFj-Wo-dhH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0Z-dc-8ii">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xFj-Wo-dhH" firstAttribute="top" secondItem="QBd-nS-Yck" secondAttribute="top" id="3vx-7f-Acu"/>
-                            <constraint firstItem="4VR-Rl-7u2" firstAttribute="top" secondItem="xFj-Wo-dhH" secondAttribute="bottom" id="Fyf-7i-1jY"/>
-                            <constraint firstAttribute="trailing" secondItem="xFj-Wo-dhH" secondAttribute="trailing" id="Ke4-KQ-Xmk"/>
-                            <constraint firstItem="xFj-Wo-dhH" firstAttribute="leading" secondItem="nhJ-Hj-d58" secondAttribute="leading" id="l2C-GW-IDR"/>
+                            <constraint firstAttribute="trailing" secondItem="x0Z-dc-8ii" secondAttribute="trailing" id="3ya-Bu-Sk6"/>
+                            <constraint firstItem="4VR-Rl-7u2" firstAttribute="top" secondItem="x0Z-dc-8ii" secondAttribute="bottom" id="AwC-d0-aDT"/>
+                            <constraint firstItem="x0Z-dc-8ii" firstAttribute="leading" secondItem="nhJ-Hj-d58" secondAttribute="leading" id="aUf-7J-Zsa"/>
+                            <constraint firstItem="x0Z-dc-8ii" firstAttribute="top" secondItem="nhJ-Hj-d58" secondAttribute="top" id="i64-sl-V7y"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="textview" destination="xFj-Wo-dhH" id="2By-wO-k6X"/>
+                        <outlet property="webview" destination="x0Z-dc-8ii" id="MQf-nx-3Gy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUy-cO-4Xx" userLabel="First Responder" sceneMemberID="firstResponder"/>

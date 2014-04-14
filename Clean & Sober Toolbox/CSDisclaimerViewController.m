@@ -23,9 +23,9 @@
     
     User *user = [User MR_findFirst];
     if (user.disclaimerMessage) {
-        self.textview.text = user.disclaimerMessage;
+        [self.webview loadHTMLString:user.disclaimerMessage baseURL:nil];
     } else {
-        self.textview.text = kDisclaimerMessage;
+        [self.webview loadHTMLString:kDisclaimerMessage baseURL:nil];
     }
 }
 
