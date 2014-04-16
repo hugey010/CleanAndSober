@@ -24,9 +24,11 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
     
-    // setup coredata stack
+#ifdef DEBUG
+    [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+#else
     [CSUtilities loadFromPremadeDatabase];
-    //[CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+#endif
     
     [CSUtilities updateUser];
     

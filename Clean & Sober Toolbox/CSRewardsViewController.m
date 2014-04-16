@@ -50,37 +50,37 @@
     
     switch (indexPath.row) {
         case 0 : {
-            text = @"7 days of sobreity";
+            text = @"7 days of sobriety";
             image = [UIImage imageNamed:@"coin7.png"];
             break;
         }
         case 1 : {
-            text = @"30 days of sobreity";
+            text = @"30 days of sobriety";
             image = [UIImage imageNamed:@"coin30.png"];
             break;
         }
         case 2 : {
-            text = @"60 days of sobreity";
+            text = @"60 days of sobriety";
             image = [UIImage imageNamed:@"coin60.png"];
             break;
         }
         case 3 : {
-            text = @"90 days of sobreity";
+            text = @"90 days of sobriety";
             image = [UIImage imageNamed:@"coin90.png"];
             break;
         }
         case 4 : {
-            text = @"6 months of sobreity";
+            text = @"6 months of sobriety";
             image = [UIImage imageNamed:@"coin6month.png"];
             break;
         }
         case 5 : {
-            text = @"9 months of sobreity";
+            text = @"9 months of sobriety";
             image = [UIImage imageNamed:@"coin9month.png"];
             break;
         }
         case 6 : {
-            text = @"1 year of sobreity";
+            text = @"1 year of sobriety";
             image = [UIImage imageNamed:@"coinyear.png"];
             break;
         }

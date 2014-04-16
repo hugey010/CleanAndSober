@@ -205,25 +205,25 @@
     
     switch (days) {
         case 6: {
-            return [NSString stringWithFormat:@"You have earned a coin for 7 days of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 7 days of sobriety! %@", ENTER_APP_MESSAGE];
         }
         case 29 : {
-            return [NSString stringWithFormat:@"You have earned a coin for 30 days of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 30 days of sobriety! %@", ENTER_APP_MESSAGE];
         }
         case 59 : {
-            return [NSString stringWithFormat:@"You have earned a coin for 60 days of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 60 days of sobriety! %@", ENTER_APP_MESSAGE];
         }
         case 89 : {
-            return [NSString stringWithFormat:@"You have earned a coin for 90 days of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 90 days of sobriety! %@", ENTER_APP_MESSAGE];
         }
         case 182 : {
-            return [NSString stringWithFormat:@"You have earned a coin for 6 months of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 6 months of sobriety! %@", ENTER_APP_MESSAGE];
         }
         case 273 : {
-            return [NSString stringWithFormat:@"You have earned a coin for 9 months of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 9 months of sobriety! %@", ENTER_APP_MESSAGE];
         }
         case 364 : {
-            return [NSString stringWithFormat:@"You have earned a coin for 1 year of sobreity! %@", ENTER_APP_MESSAGE];
+            return [NSString stringWithFormat:@"You have earned a coin for 1 year of sobriety! %@", ENTER_APP_MESSAGE];
         }
     }
     
