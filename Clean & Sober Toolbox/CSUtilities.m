@@ -514,7 +514,7 @@
 }
 
 +(void)updatePsychology {
-    NSString *urlString = [NSString stringWithFormat:@"%@psychology.json", kUrlBase];
+    NSString *urlString = [NSString stringWithFormat:@"%@about.json", kUrlBase];
     
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
