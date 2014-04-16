@@ -25,6 +25,7 @@
 		1E3F34D318FB400700CA61A8 /* appicon_crop_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F34CC18FB400700CA61A8 /* appicon_crop_120.png */; };
 		1E3F34D418FB400700CA61A8 /* appicon_crop_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F34CD18FB400700CA61A8 /* appicon_crop_144.png */; };
 		1E3F34D518FB400700CA61A8 /* appicon_crop_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F34CE18FB400700CA61A8 /* appicon_crop_152.png */; };
+		1E4C461118FE04D30074850E /* NSDictionary+NotNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4C461018FE04D30074850E /* NSDictionary+NotNull.m */; };
 		1E563F5D18FACFF2009644E5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5A18FACFF2009644E5 /* Default.png */; };
 		1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5B18FACFF2009644E5 /* Default~iphone.png */; };
 		1E563F5F18FACFF2009644E5 /* cs_splash640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5C18FACFF2009644E5 /* cs_splash640x1136.png */; };
@@ -99,6 +100,8 @@
 		1E3F34CC18FB400700CA61A8 /* appicon_crop_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_crop_120.png; sourceTree = "<group>"; };
 		1E3F34CD18FB400700CA61A8 /* appicon_crop_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_crop_144.png; sourceTree = "<group>"; };
 		1E3F34CE18FB400700CA61A8 /* appicon_crop_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_crop_152.png; sourceTree = "<group>"; };
+		1E4C460F18FE04D30074850E /* NSDictionary+NotNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NotNull.h"; sourceTree = "<group>"; };
+		1E4C461018FE04D30074850E /* NSDictionary+NotNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NotNull.m"; sourceTree = "<group>"; };
 		1E563F5A18FACFF2009644E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1E563F5B18FACFF2009644E5 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		1E563F5C18FACFF2009644E5 /* cs_splash640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs_splash640x1136.png; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				1E04D3A818ADCBC200BC81FC /* CSUtilities.h */,
 				1E04D3A918ADCBC200BC81FC /* CSUtilities.m */,
 				1E04D3AE18ADD4B300BC81FC /* Constants.h */,
+				1E4C460F18FE04D30074850E /* NSDictionary+NotNull.h */,
+				1E4C461018FE04D30074850E /* NSDictionary+NotNull.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				1E58AF9A18A540A300E28EAA /* main.m in Sources */,
 				1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */,
 				1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */,
+				1E4C461118FE04D30074850E /* NSDictionary+NotNull.m in Sources */,
 				1EF1FD4118F31AF1003DA04C /* CSRewardsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

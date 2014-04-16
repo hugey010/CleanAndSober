@@ -11,6 +11,7 @@
 #import "CSCategory.h"
 #import "User.h"
 #import <NSPersistentStore+MagicalRecord.h>
+#import "NSDictionary+NotNull.h"
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
 #define kLastVersionKey @"last_version"
@@ -424,10 +425,10 @@
         NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         for (NSDictionary *m in result) {
             CSContent *content = [CSContent MR_createInContext:context];
-            content.identifier = m[@"id"];
-            content.title = m[@"title"];
-            content.todo = m[@"todo"];
-            content.message = m[@"content"];
+            content.identifier = [m objectForKeyNotNull:@"id"];
+            content.title = [m objectForKeyNotNull:@"title"];
+            content.todo = [m objectForKeyNotNull:@"todo"];
+            content.message = [m objectForKeyNotNull:@"content"];
         }
     } else {
         NSLog(@"Update messages error: %@", [requestError description]);
@@ -458,20 +459,20 @@
 
 +(CSCategory*)parseCSCategoryFromWebDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat withContext:(NSManagedObjectContext*)context {
     CSCategory *category = [CSCategory MR_createInContext:context];
-    category.identifier = cc[@"id"];
+    category.identifier = [cc objectForKeyNotNull:@"id"];
     category.type = @"category";
-    category.title = cc[@"title"];
+    category.title = [cc objectForKeyNotNull:@"title"];
     category.in_category = incat;
     
     // recursively add subcategories
-    for (NSDictionary *subcat in cc[@"subcategories"]) {
+    for (NSDictionary *subcat in [cc objectForKeyNotNull:@"subcategories"]) {
             NSMutableOrderedSet *oset = [category.has_categories mutableCopy];
             [oset addObject:[CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:subcat inCategory:category withContext:context]];
             category.has_categories = oset;
     }
     
     // iteratively add messages
-    for (NSNumber *messageId in cc[@"messages"]) {
+    for (NSNumber *messageId in [cc objectForKeyNotNull:@"messages"]) {
         CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:messageId inContext:context];
         [content addIn_categoryObject:category];
         NSMutableOrderedSet *oset = [category.has_contents mutableCopy];
