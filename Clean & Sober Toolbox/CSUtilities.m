@@ -168,8 +168,11 @@
         user.daysInARow = [NSNumber numberWithInt:1];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        user.lastLoginDate = [NSDate date];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+            [CSUtilities checkVersionAndDownload];
+        });
     }
-    user.lastLoginDate = [NSDate date];
     if ([CSUtilities date:user.lastLoginDate isDifferentDay:[NSDate date]]) {
         user.daysInARow = [NSNumber numberWithInt:[user.daysInARow integerValue] + 1.0];
         
@@ -183,6 +186,11 @@
             not.userInfo = @{kCoinNotificationKey : @1};
             [[UIApplication sharedApplication] scheduleLocalNotification:not];
         }
+        
+        user.lastLoginDate = [NSDate date];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+            [CSUtilities checkVersionAndDownload];
+        });
     }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
