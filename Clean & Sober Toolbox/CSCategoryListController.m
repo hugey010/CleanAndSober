@@ -82,41 +82,42 @@
     User *user = [User MR_findFirst];
     
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
-    UILabel *label = (UILabel*)[helpVC.view viewWithTag:21];
-    
+    UIWebView *webview = (UIWebView*)[helpVC.view viewWithTag:21];
+    NSString *html = @"";
     int stacksize = (int)[self.navigationController.viewControllers count];
     if (stacksize == 1) {
         // top level
         if (user.helpMessageOne) {
-            label.text = user.helpMessageOne;
+            html = user.helpMessageOne;
         } else {
-            label.text = kHelpMessage1;
+            html = kHelpMessage1;
         }
         
     } else if (stacksize == 2) {
         if (user.helpMessageTwo) {
-            label.text = user.helpMessageTwo;
+            html = user.helpMessageTwo;
         } else {
-            label.text = kHelpMessage2;
+            html = kHelpMessage2;
         }
         
     } else {
         if (user.helpMessage3) {
-            label.text = user.helpMessage3;
+            html = user.helpMessage3;
         } else {
-            label.text = kHelpMessage3;
+            html = kHelpMessage3;
         }
     }
+    [webview loadHTMLString:html baseURL:nil];
     
     // show popover
     self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];
     self.popover.tint = FPPopoverBlackTint;
     NSStringDrawingContext *ctx = [NSStringDrawingContext new];
-    NSAttributedString *aString = [[NSAttributedString alloc] initWithString:label.text];
+    NSAttributedString *aString = [[NSAttributedString alloc] initWithString:html];
     UITextView *calculationView = [[UITextView alloc] init];
     [calculationView setAttributedText:aString];
     CGSize boxSize = CGSizeMake(self.view.frame.size.width - 10, self.view.frame.size.height - 100);
-    CGRect textRect = [calculationView.text boundingRectWithSize:boxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:ctx];
+    CGRect textRect = [calculationView.text boundingRectWithSize:boxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:FONT_LABELS} context:ctx];
     
     self.popover.contentSize = CGSizeMake(textRect.size.width, textRect.size.height + 80);
 

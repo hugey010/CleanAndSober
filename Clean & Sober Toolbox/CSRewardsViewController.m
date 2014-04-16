@@ -110,8 +110,8 @@
 
 - (IBAction)instructionsButtonPressed:(id)sender {
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
-    UILabel *label = (UILabel*)[helpVC.view viewWithTag:21];
-    label.text = kHelpRewards;
+    UIWebView *webview = (UIWebView*)[helpVC.view viewWithTag:21];
+    [webview loadHTMLString:kHelpRewards baseURL:nil];
     
     // show popover
     self.popover = [[FPPopoverController alloc] initWithViewController:helpVC];

@@ -370,7 +370,7 @@
         NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
         
         // update everything
-        //[CSUtilities updateHelp];
+        [CSUtilities updateHelp];
         [CSUtilities updateDisclaimer];
         [CSUtilities updatePsychology];
         
@@ -411,7 +411,11 @@
         requestError = nil;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         
-        NSLog(@"help json = %@", result);
+        User *user = [User MR_findFirst];
+        user.helpMessageOne = [result objectForKeyNotNull:@"help1"];
+        user.helpMessageTwo = [result objectForKeyNotNull:@"help2"];
+        user.helpMessage3 = [result objectForKeyNotNull:@"help3"];
+
     } else {
         NSLog(@"Update help error: %@", [requestError description]);
     }

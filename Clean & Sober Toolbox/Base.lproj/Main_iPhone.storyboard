@@ -192,23 +192,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRc-us-vbT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sRc-us-vbT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is the help text about something you might want to know about this app." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="257" translatesAutoresizingMaskIntoConstraints="NO" id="cVQ-xb-VtX">
-                                        <rect key="frame" x="32" y="0.0" width="257" height="568"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <webView tag="21" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjD-NG-uF9">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </webView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cVQ-xb-VtX" firstAttribute="leading" secondItem="sRc-us-vbT" secondAttribute="leading" constant="32" id="RFf-D5-1gO"/>
-                                    <constraint firstAttribute="bottom" secondItem="cVQ-xb-VtX" secondAttribute="bottom" id="gar-fS-qSY"/>
-                                    <constraint firstItem="cVQ-xb-VtX" firstAttribute="top" secondItem="sRc-us-vbT" secondAttribute="top" id="jYN-Rx-WVE"/>
-                                    <constraint firstAttribute="trailing" secondItem="cVQ-xb-VtX" secondAttribute="trailing" constant="31" id="rD8-kT-Edm"/>
+                                    <constraint firstItem="jjD-NG-uF9" firstAttribute="top" secondItem="sRc-us-vbT" secondAttribute="top" id="4io-w7-gsC"/>
+                                    <constraint firstItem="jjD-NG-uF9" firstAttribute="leading" secondItem="sRc-us-vbT" secondAttribute="leading" id="Otg-N0-3Nz"/>
+                                    <constraint firstAttribute="bottom" secondItem="jjD-NG-uF9" secondAttribute="bottom" id="VN3-60-XjH"/>
+                                    <constraint firstAttribute="trailing" secondItem="jjD-NG-uF9" secondAttribute="trailing" id="xqk-Rh-CCv"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
