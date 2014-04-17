@@ -11,7 +11,7 @@
 
 #define kAppTitle @"Sober Tool"
 
-#define kUrlBase @"http://www.cleanandsobertoolbox.com/"
+#define kUrlBase @"http://www.sobertool.com/"
 
 // colors
 #define kCOLOR_RED [UIColor colorWithRed:178.0/255.0 green:34.0/255.0 blue:34.0/255.0 alpha:1.0]

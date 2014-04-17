@@ -30,14 +30,6 @@
     UIBarButtonItem *bbutton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStyleBordered target:self action:@selector(shareButtonPressed)];
     [bbutton setWidth:bbutton.width + 10];
     self.navigationItem.rightBarButtonItem = bbutton;
-
-    // load random background image
-    /*
-    NSArray *backgroundImagePaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:@"Florida_2014"];
-    NSUInteger randomIndex = arc4random() % [backgroundImagePaths count];
-    UIImage *image = [UIImage imageWithContentsOfFile:backgroundImagePaths[randomIndex]];
-    self.backgroundImage.image = image;
-     */
 }
 
 -(void)setupWithContent:(CSContent*)content {
