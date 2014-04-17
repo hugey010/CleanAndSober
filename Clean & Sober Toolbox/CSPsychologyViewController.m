@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"Psychology";
+    self.navigationItem.title = @"About";
     
     User *user = [User MR_findFirst];
     if (user.psychologyMessage) {
