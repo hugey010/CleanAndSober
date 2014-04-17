@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FPPopover/FPPopoverController.h>
 
-@interface CSRewardsViewController : UIViewController <UITableViewDataSource>
+@interface CSRewardsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *rewardsButton;

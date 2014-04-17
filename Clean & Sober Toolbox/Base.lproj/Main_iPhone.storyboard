@@ -306,6 +306,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="icU-nl-BmS" id="0tg-tr-QO0"/>
+                                    <outlet property="delegate" destination="icU-nl-BmS" id="D92-ei-VkZ"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywi-L1-Ylx">
@@ -362,6 +363,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZc-8n-gMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="205" y="858"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QYX-pH-Plr">
+            <objects>
+                <viewController storyboardIdentifier="RewardDetail" id="yuW-L3-wEi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nxP-M7-H9K"/>
+                        <viewControllerLayoutGuide type="bottom" id="diZ-4s-Yzp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WPH-k8-bdU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView multipleTouchEnabled="YES" tag="21" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aci-Hz-r8V">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Aci-Hz-r8V" firstAttribute="top" secondItem="WPH-k8-bdU" secondAttribute="top" id="9XM-co-jUu"/>
+                            <constraint firstAttribute="trailing" secondItem="Aci-Hz-r8V" secondAttribute="trailing" id="Qq9-a0-IoG"/>
+                            <constraint firstItem="Aci-Hz-r8V" firstAttribute="leading" secondItem="WPH-k8-bdU" secondAttribute="leading" id="TAB-fE-H1p"/>
+                            <constraint firstItem="diZ-4s-Yzp" firstAttribute="top" secondItem="Aci-Hz-r8V" secondAttribute="bottom" id="g35-pM-983"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccF-9O-W9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="1279"/>
         </scene>
         <!--Donate View Controller-->
         <scene sceneID="Haj-T8-Fde">

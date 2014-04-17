@@ -92,7 +92,7 @@
     
     iv.image = image;
     label.text = text;
-    cell.userInteractionEnabled = NO;
+    cell.userInteractionEnabled = enabled;
     label.enabled = enabled;
     iv.alpha = enabled ? 1.0 : 0.5;
     
@@ -118,5 +118,59 @@
     self.popover.tint = FPPopoverBlackTint;
     self.popover.contentSize = CGSizeMake(self.view.frame.size.width - 10, 250);
     [self.popover presentPopoverFromView:sender];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *rewardDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDetail"];
+    [self.navigationController pushViewController:rewardDetail animated:YES];
+    UIImageView *imageview = (UIImageView*)[rewardDetail.view viewWithTag:21];
+    NSString *text = @"";
+    UIImage *image;
+    
+    switch (indexPath.row) {
+        case 0 : {
+            text = @"7 days of sobriety";
+            image = [UIImage imageNamed:@"coin7.png"];
+            break;
+        }
+        case 1 : {
+            text = @"30 days of sobriety";
+            image = [UIImage imageNamed:@"coin30.png"];
+            break;
+        }
+        case 2 : {
+            text = @"60 days of sobriety";
+            image = [UIImage imageNamed:@"coin60.png"];
+            break;
+        }
+        case 3 : {
+            text = @"90 days of sobriety";
+            image = [UIImage imageNamed:@"coin90.png"];
+            break;
+        }
+        case 4 : {
+            text = @"6 months of sobriety";
+            image = [UIImage imageNamed:@"coin6month.png"];
+            break;
+        }
+        case 5 : {
+            text = @"9 months of sobriety";
+            image = [UIImage imageNamed:@"coin9month.png"];
+            break;
+        }
+        case 6 : {
+            text = @"1 year of sobriety";
+            image = [UIImage imageNamed:@"coinyear.png"];
+            break;
+        }
+        case 7 : {
+            text = @"1 year cerfiticate";
+            image = [UIImage imageNamed:@"yearcert"];
+        }
+    }
+    
+    [imageview setImage:image];
+    rewardDetail.navigationItem.title = text;
+    
 }
 @end
