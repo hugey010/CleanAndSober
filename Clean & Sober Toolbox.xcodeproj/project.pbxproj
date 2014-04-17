@@ -13,9 +13,6 @@
 		1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3DB18ADECE400BC81FC /* CSContentViewController.m */; };
 		1E272A1C18F5FDCC00D766B0 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E272A1618F5FDCC00D766B0 /* libPayPalMobile.a */; };
 		1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */; };
-		1E3F34C218FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E82540D18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite */; };
-		1E3F34C318FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1E82540E18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-shm */; };
-		1E3F34C418FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1E82540F18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-wal */; };
 		1E3F34C518FAEA0000CA61A8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AF9F18A540A300E28EAA /* Main_iPhone.storyboard */; };
 		1E3F34CF18FB400700CA61A8 /* appicon_crop_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F34C818FB400700CA61A8 /* appicon_crop_57.png */; };
 		1E3F34D018FB400700CA61A8 /* appicon_crop_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F34C918FB400700CA61A8 /* appicon_crop_72.png */; };
@@ -41,6 +38,9 @@
 		1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFB818A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
 		1EA131F218FA4E48000B3C94 /* yearcert.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA131F118FA4E48000B3C94 /* yearcert.png */; };
+		1EA93D3918FF8437004B3D03 /* Sober Tool.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1EA93D3518FF83DE004B3D03 /* Sober Tool.sqlite */; };
+		1EA93D3A18FF8439004B3D03 /* Sober Tool.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1EA93D3618FF83DE004B3D03 /* Sober Tool.sqlite-shm */; };
+		1EA93D3B18FF843B004B3D03 /* Sober Tool.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1EA93D3718FF83DE004B3D03 /* Sober Tool.sqlite-wal */; };
 		1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED3137B18EC833D00C4A6A1 /* iAd.framework */; };
 		1ED8216D18BFAEA500EFB474 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216C18BFAEA500EFB474 /* CSCategory.m */; };
 		1ED8217018BFAEA500EFB474 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8216F18BFAEA500EFB474 /* CSContent.m */; };
@@ -121,10 +121,10 @@
 		1E58AFB718A540A300E28EAA /* Clean & Sober ToolboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clean & Sober ToolboxTests-Info.plist"; sourceTree = "<group>"; };
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
-		1E82540D18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite"; sourceTree = "<group>"; };
-		1E82540E18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-shm"; sourceTree = "<group>"; };
-		1E82540F18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Clean & Sober Toolbox.sqlite-wal"; sourceTree = "<group>"; };
 		1EA131F118FA4E48000B3C94 /* yearcert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yearcert.png; sourceTree = "<group>"; };
+		1EA93D3518FF83DE004B3D03 /* Sober Tool.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite"; sourceTree = "<group>"; };
+		1EA93D3618FF83DE004B3D03 /* Sober Tool.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-shm"; sourceTree = "<group>"; };
+		1EA93D3718FF83DE004B3D03 /* Sober Tool.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-wal"; sourceTree = "<group>"; };
 		1ED3137B18EC833D00C4A6A1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1ED8216B18BFAEA500EFB474 /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
 		1ED8216C18BFAEA500EFB474 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
@@ -189,9 +189,7 @@
 		1E04D3A418ADC63D00BC81FC /* static content */ = {
 			isa = PBXGroup;
 			children = (
-				1E82540D18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite */,
-				1E82540E18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-shm */,
-				1E82540F18FAD91200DFBFB6 /* Clean & Sober Toolbox.sqlite-wal */,
+				1EA93D3818FF83E3004B3D03 /* Database */,
 				1EF1FD4218F3374C003DA04C /* art */,
 				1EDE809118E79C6D00A93FBB /* newest_cleaned_data.json */,
 			);
@@ -356,6 +354,16 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
+		1EA93D3818FF83E3004B3D03 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1EA93D3518FF83DE004B3D03 /* Sober Tool.sqlite */,
+				1EA93D3618FF83DE004B3D03 /* Sober Tool.sqlite-shm */,
+				1EA93D3718FF83DE004B3D03 /* Sober Tool.sqlite-wal */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		1EDC5FE218B9C06600826A52 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,9 +401,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1E58AF8918A540A300E28EAA /* Clean & Sober Toolbox */ = {
+		1E58AF8918A540A300E28EAA /* Sober Tool */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E58AFBF18A540A300E28EAA /* Build configuration list for PBXNativeTarget "Clean & Sober Toolbox" */;
+			buildConfigurationList = 1E58AFBF18A540A300E28EAA /* Build configuration list for PBXNativeTarget "Sober Tool" */;
 			buildPhases = (
 				EF8B9DB67F444F5592930D30 /* Check Pods Manifest.lock */,
 				1E58AF8618A540A300E28EAA /* Sources */,
@@ -407,7 +415,7 @@
 			);
 			dependencies = (
 			);
-			name = "Clean & Sober Toolbox";
+			name = "Sober Tool";
 			productName = "Clean & Sober Toolbox";
 			productReference = 1E58AF8A18A540A300E28EAA /* Clean & Sober Toolbox.app */;
 			productType = "com.apple.product-type.application";
@@ -458,7 +466,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1E58AF8918A540A300E28EAA /* Clean & Sober Toolbox */,
+				1E58AF8918A540A300E28EAA /* Sober Tool */,
 				1E58AFAD18A540A300E28EAA /* Clean & Sober ToolboxTests */,
 			);
 		};
@@ -470,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF1FD4E18F33753003DA04C /* coin60.png in Resources */,
+				1EA93D3B18FF843B004B3D03 /* Sober Tool.sqlite-wal in Resources */,
 				1E563F5D18FACFF2009644E5 /* Default.png in Resources */,
 				1EF1FD4F18F33753003DA04C /* coin30.png in Resources */,
 				1EF1FD5018F33753003DA04C /* coin7.png in Resources */,
@@ -480,18 +489,17 @@
 				1EF1FD4A18F33753003DA04C /* coinyear.png in Resources */,
 				1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */,
 				1EF1FD4D18F33753003DA04C /* coin90.png in Resources */,
+				1EA93D3A18FF8439004B3D03 /* Sober Tool.sqlite-shm in Resources */,
 				1EDE809218E79C6D00A93FBB /* newest_cleaned_data.json in Resources */,
 				1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */,
 				1E563F5F18FACFF2009644E5 /* cs_splash640x1136.png in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
-				1E3F34C218FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite in Resources */,
 				1E3F34D218FB400700CA61A8 /* appicon_crop_114.png in Resources */,
-				1E3F34C318FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-shm in Resources */,
-				1E3F34C418FADCCB00CA61A8 /* Clean & Sober Toolbox.sqlite-wal in Resources */,
 				1E3F34D518FB400700CA61A8 /* appicon_crop_152.png in Resources */,
 				1E3F34D418FB400700CA61A8 /* appicon_crop_144.png in Resources */,
 				1E3F34D318FB400700CA61A8 /* appicon_crop_120.png in Resources */,
 				1E3F34D118FB400700CA61A8 /* appicon_crop_76.png in Resources */,
+				1EA93D3918FF8437004B3D03 /* Sober Tool.sqlite in Resources */,
 				1E3F34C518FAEA0000CA61A8 /* Main_iPhone.storyboard in Resources */,
 				1E3F34CF18FB400700CA61A8 /* appicon_crop_57.png in Resources */,
 			);
@@ -576,7 +584,7 @@
 /* Begin PBXTargetDependency section */
 		1E58AFB418A540A300E28EAA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1E58AF8918A540A300E28EAA /* Clean & Sober Toolbox */;
+			target = 1E58AF8918A540A300E28EAA /* Sober Tool */;
 			targetProxy = 1E58AFB318A540A300E28EAA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -641,7 +649,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -674,7 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -821,7 +829,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E58AFBF18A540A300E28EAA /* Build configuration list for PBXNativeTarget "Clean & Sober Toolbox" */ = {
+		1E58AFBF18A540A300E28EAA /* Build configuration list for PBXNativeTarget "Sober Tool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E58AFC018A540A300E28EAA /* Debug */,

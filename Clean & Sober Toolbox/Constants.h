@@ -9,7 +9,7 @@
 #ifndef Clean___Sober_Toolbox_Constants_h
 #define Clean___Sober_Toolbox_Constants_h
 
-#define kAppTitle @"Clean & Sober Toolbox"
+#define kAppTitle @"Sober Tool"
 
 #define kUrlBase @"http://www.cleanandsobertoolbox.com/"
 

@@ -116,9 +116,9 @@
     defaultStorePath = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:[MagicalRecord defaultStoreName]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL firstLaunch = NO;
     if (![fileManager fileExistsAtPath:[defaultStorePath path]]) {
-        NSURL *seedPath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite"]];
-
+        NSURL *seedPath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite"]];
 
         NSLog(@"Core data store does not yet exist at: %@. Attempting to copy from seed db %@.", [defaultStorePath path], [seedPath path]);
         
@@ -130,24 +130,29 @@
             NSLog(@"Could not copy seed data 0. error: %@", err);
         }
         
-        NSURL *seedPath1 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite-wal"]];
-        NSURL *destPathWAL = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Clean & Sober Toolbox.sqlite-wal"];
+        NSURL *seedPath1 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite-wal"]];
+        NSURL *destPathWAL = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Sober Tool.sqlite-wal"];
         err = nil;
         if (![fileManager copyItemAtURL:seedPath1 toURL:destPathWAL error:&err]) {
             NSLog(@"Could not copy seed data 1. error: %@", err);
         }
         
-        NSURL *seedPath2 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Clean & Sober Toolbox" ofType:@"sqlite-shm"]];
-        NSURL *destPathSHM = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Clean & Sober Toolbox.sqlite-shm"];
+        NSURL *seedPath2 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite-shm"]];
+        NSURL *destPathSHM = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Sober Tool.sqlite-shm"];
         err = nil;
         if (![fileManager copyItemAtURL:seedPath2 toURL:destPathSHM error:&err]) {
             NSLog(@"Could not copy seed data 2. error: %@", err);
         }
         err = nil;
         
+        firstLaunch = YES;
     }
     
     [MagicalRecord setupAutoMigratingCoreDataStack];
+    
+    if (firstLaunch) {
+        [User MR_truncateAll];
+    }
 }
 
 // This method is copied from one of MR's categories

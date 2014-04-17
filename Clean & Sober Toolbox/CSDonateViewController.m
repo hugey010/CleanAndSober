@@ -69,7 +69,7 @@
     PayPalPayment *payment = [[PayPalPayment alloc] init];
     payment.amount = [[NSDecimalNumber alloc] initWithString:self.textfield.text];
     payment.currencyCode = @"USD";
-    payment.shortDescription = @"Clean & Sober Toolbox Donation";
+    payment.shortDescription = [NSString stringWithFormat:@"%@ Donation", kAppTitle];
     
     if (!payment.processable) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Payment Amount" message:@"Please enter a valid payment amount." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];

@@ -57,7 +57,7 @@
         MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
         mailVC.mailComposeDelegate = self;
         [mailVC setSubject:cscontent.title];
-        NSString *message = [NSString stringWithFormat:@"%@<br><br>Sent from Clean & Sober Toolbox mobile app.", cscontent.message];
+        NSString *message = [NSString stringWithFormat:@"%@<br><br>Sent from %@ mobile app.", cscontent.message, kAppTitle];
         [mailVC setMessageBody:message isHTML:YES];
         [self presentViewController:mailVC animated:YES completion:nil];
         
