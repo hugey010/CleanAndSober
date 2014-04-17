@@ -22,11 +22,15 @@
     self.navigationItem.title = @"Disclaimer";
     
     User *user = [User MR_findFirst];
+    NSMutableString *html = [kScaleMeta mutableCopy];
     if (user.disclaimerMessage) {
-        [self.webview loadHTMLString:user.disclaimerMessage baseURL:nil];
+        [html appendString:user.disclaimerMessage];
     } else {
-        [self.webview loadHTMLString:kDisclaimerMessage baseURL:nil];
+        [html appendString:kDisclaimerMessage];
     }
+    
+    [self.webview loadHTMLString:html baseURL:nil];
+    self.webview.scalesPageToFit = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

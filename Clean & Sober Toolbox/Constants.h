@@ -42,6 +42,9 @@
 // fonts
 #define FONT_LABELS [UIFont fontWithName:@"Helvetica" size:17]
 
+// webview scaling html meta tag
+#define kScaleMeta @"<meta name='viewport' content='initial-scale=1.0,maximum-scale=10.0'/>"
+
 
 // notifications (coins and such)
 #define ENTER_APP_MESSAGE @"Tap to enter."

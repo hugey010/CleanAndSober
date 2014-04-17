@@ -46,10 +46,10 @@
         return;
     }
     self.navigationItem.title = @"Message";//content.title;
-    
-    [self.webview loadHTMLString:[NSString stringWithFormat:@"%@<br><br>%@", content.message, content.todo] baseURL:nil];
+    [self.webview loadHTMLString:[NSString stringWithFormat:@"%@%@<br><br>%@", kScaleMeta, content.message, content.todo] baseURL:nil];
     [self.webview setBackgroundColor:[UIColor clearColor]];
     [self.webview setOpaque:NO];
+    self.webview.scalesPageToFit = YES;
 }
 
 -(void)shareButtonPressed {

@@ -23,11 +23,15 @@
     self.navigationItem.title = @"About";
     
     User *user = [User MR_findFirst];
+    NSMutableString *html = [kScaleMeta mutableCopy];
     if (user.psychologyMessage) {
-        [self.webview loadHTMLString:user.psychologyMessage baseURL:nil];
+        [html appendString:user.psychologyMessage];
     } else {
-        [self.webview loadHTMLString:kPsychologyMessage baseURL:nil];
+        [html appendString:kPsychologyMessage];
     }
+
+    [self.webview loadHTMLString:html baseURL:nil];
+    [self.webview setScalesPageToFit:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
