@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E58AF8918A540A300E28EAA"
-               BuildableName = "Clean &amp; Sober Toolbox.app"
+               BuildableName = "Sober Tool.app"
                BlueprintName = "Sober Tool"
                ReferencedContainer = "container:Clean &amp; Sober Toolbox.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E58AF8918A540A300E28EAA"
-            BuildableName = "Clean &amp; Sober Toolbox.app"
+            BuildableName = "Sober Tool.app"
             BlueprintName = "Sober Tool"
             ReferencedContainer = "container:Clean &amp; Sober Toolbox.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E58AF8918A540A300E28EAA"
-            BuildableName = "Clean &amp; Sober Toolbox.app"
+            BuildableName = "Sober Tool.app"
             BlueprintName = "Sober Tool"
             ReferencedContainer = "container:Clean &amp; Sober Toolbox.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E58AF8918A540A300E28EAA"
-            BuildableName = "Clean &amp; Sober Toolbox.app"
+            BuildableName = "Sober Tool.app"
             BlueprintName = "Sober Tool"
             ReferencedContainer = "container:Clean &amp; Sober Toolbox.xcodeproj">
          </BuildableReference>

@@ -2,7 +2,7 @@
 //  CSContent.h
 //  Clean & Sober Toolbox
 //
-//  Created by Hugey on 2/27/14.
+//  Created by Hugey on 4/19/14.
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * todo;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * rank;
 @property (nonatomic, retain) NSSet *in_category;
 @end
 

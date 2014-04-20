@@ -178,6 +178,7 @@
             [CSUtilities checkVersionAndDownload];
         });
     }
+    user.daysInARow = @365;
     if ([CSUtilities date:user.lastLoginDate isDifferentDay:[NSDate date]]) {
         user.daysInARow = [NSNumber numberWithInt:[user.daysInARow integerValue] + 1.0];
         
@@ -367,7 +368,6 @@
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     NSNumber *result = [f numberFromString:responseString];
     
-    
     NSLog(@"Version Check. Local: %@, Server: %@.", version, result);
     
     if ([result integerValue] != [version integerValue]) {
@@ -446,6 +446,7 @@
             content.title = [m objectForKeyNotNull:@"title"];
             content.todo = [m objectForKeyNotNull:@"todo"];
             content.message = [m objectForKeyNotNull:@"content"];
+            content.rank = [m objectForKeyNotNull:@"rank"];
         }
     } else {
         NSLog(@"Update messages error: %@", [requestError description]);
@@ -479,6 +480,7 @@
     category.identifier = [cc objectForKeyNotNull:@"id"];
     category.type = @"category";
     category.title = [cc objectForKeyNotNull:@"title"];
+    category.rank = [cc objectForKeyNotNull:@"rank"];
     category.in_category = incat;
     
     // recursively add subcategories

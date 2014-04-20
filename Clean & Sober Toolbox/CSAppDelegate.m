@@ -24,7 +24,8 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
     
-    [CSUtilities loadFromPremadeDatabase];
+    [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+    //[CSUtilities loadFromPremadeDatabase];
     [CSUtilities updateUser];
 
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"AXputRBJLZnwcRnuIXkjgLde3hWk_DeC54PlR2X11TxcWeF0MY6AcA4NP7R6",
@@ -61,6 +62,10 @@
     
     UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     [self checkNotification:notification application:application];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+        [CSUtilities checkVersionAndDownload];
+    });
 
     return YES;
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CSCategory" representedClassName="CSCategory" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="has_categories" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CSCategory" inverseName="in_category" inverseEntity="CSCategory" syncable="YES"/>
@@ -11,6 +12,7 @@
     <entity name="CSContent" representedClassName="CSContent" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="todo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,8 +33,8 @@
         <attribute name="psychologyMessage" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CSCategory" positionX="187" positionY="180" width="128" height="133"/>
-        <element name="CSContent" positionX="27" positionY="-18" width="128" height="133"/>
+        <element name="CSCategory" positionX="205" positionY="209" width="128" height="148"/>
+        <element name="CSContent" positionX="27" positionY="-18" width="128" height="148"/>
         <element name="User" positionX="252" positionY="-54" width="128" height="223"/>
     </elements>
 </model>

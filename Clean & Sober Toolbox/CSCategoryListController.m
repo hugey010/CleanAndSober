@@ -58,7 +58,7 @@
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category = nil"];
-    categories = [[CSCategory MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
+    categories = [[CSCategory MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
     contents = nil;
     
     [self.tableView reloadData];
@@ -72,6 +72,7 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY in_category.identifier = %d", [cat.identifier integerValue]];
     categories = [[CSCategory MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
+    categories = [CSCategory MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate];
     contents = [[CSContent MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
     
     [self.tableView reloadData];
@@ -205,7 +206,6 @@
     } else {
         CSCategory *category = categories[indexPath.row];
         titleLabel.text = category.title;
-        
     }
     
     return cell;
