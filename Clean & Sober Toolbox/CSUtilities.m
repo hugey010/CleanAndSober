@@ -412,6 +412,10 @@
         user.helpMessageTwo = [result objectForKeyNotNull:@"help2"];
         user.helpMessage3 = [result objectForKeyNotNull:@"help3"];
 
+        //NSLog(@"help 1: %@", user.helpMessageOne);
+        //NSLog(@"help 2: %@", user.helpMessageTwo);
+        //NSLog(@"help 3: %@", user.helpMessage3);
+
     } else {
         NSLog(@"Update help error: %@", [requestError description]);
     }
@@ -509,6 +513,8 @@
         User *user = [User MR_findFirst];
         user.disclaimerMessage = responseString;
         
+        //NSLog(@"disclaimer: %@", user.disclaimerMessage);
+        
     } else {
         NSLog(@"Update disclaimer error: %@", [requestError description]);
     }
@@ -533,6 +539,8 @@
         NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         User *user = [User MR_findFirst];
         user.psychologyMessage = responseString;
+        
+        //NSLog(@"psychology: %@", user.psychologyMessage);
         
     } else {
         NSLog(@"Update psychology error: %@", [requestError description]);
