@@ -24,7 +24,12 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
     
+    // you could technically use this if you had a json file with the proper format.
+    // which you probably dont. so yeah.
     //[CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+    
+    // prepackaged a sqlite database with the project. swaps it to the runtime magicalrecord
+    // location on first launch. for some static data. Constants.h contains others.
     [CSUtilities loadFromPremadeDatabase];
     [CSUtilities updateUser];
 
@@ -114,17 +119,18 @@
 }
 
 -(void)checkNotification:(UILocalNotification*)notification application:(UIApplication*)application {
+    application.applicationIconBadgeNumber = 0;
+
     if (notification) {
-        if ([notification.userInfo objectForKey:kCoinNotificationKey]) {
-            application.applicationIconBadgeNumber = 0;
+        //if ([notification.userInfo objectForKey:kCoinNotificationKey]) {
             // send to coin screen
             [self.slidingVC anchorTopViewTo:ECLeft];
             [self.menuVC sendToRewards];
             
-        } else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {
-            CSContent *content = [CSUtilities randomContent];
-            [self.initialCatList navigateToContentWithId:content.identifier];
-        }
+        //} else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {
+         //   CSContent *content = [CSUtilities randomContent];
+         //   [self.initialCatList navigateToContentWithId:content.identifier];
+        //}
     }
 }
 

@@ -17,10 +17,10 @@
 /**
  * Static class - don't instantiate it, jerk.
  */
-@interface CSUtilities : NSObject
+@interface CSUtilities : NSObject <NSURLConnectionDataDelegate>
 
-+(void)parseJSONDictionaryIntoDatabase:(NSDictionary*)json;
-+(void)checkAndLoadInitialJSONFileIntoDatabase;
+//+(void)parseJSONDictionaryIntoDatabase:(NSDictionary*)json;
+//+(void)checkAndLoadInitialJSONFileIntoDatabase;
 +(void)loadFromPremadeDatabase;
 
 +(void)updateUser;

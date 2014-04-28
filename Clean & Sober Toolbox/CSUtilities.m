@@ -20,6 +20,8 @@
 
 @implementation CSUtilities
 
+static NSMutableSet *webRequests;
+
 +(BOOL)hasLoadedJson {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     return [def boolForKey:kHasFirstLoadedDataKey];
@@ -42,6 +44,7 @@
     [def synchronize];
 }
 
+/*
 +(void)checkAndLoadInitialJSONFileIntoDatabase {
     [MagicalRecord setupAutoMigratingCoreDataStack];
 
@@ -108,6 +111,7 @@
     
     return category;
 }
+*/
 
 +(void)loadFromPremadeDatabase {
     
@@ -344,6 +348,10 @@
 
 +(void)checkVersionAndDownload {
     
+    //if ([CSUtilities hasLoadedJson]) {
+    //    return;
+    //}
+    
     // check version
     NSNumber *version = [NSNumber numberWithInteger:[CSUtilities lastVersion]];
     
@@ -366,6 +374,9 @@
     
     if ([result integerValue] != [version integerValue]) {
         
+        [CSUtilities setLastVersion:[result integerValue]];
+
+        
         NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
         
         // update everything
@@ -385,9 +396,9 @@
 
             
             [context MR_saveToPersistentStoreAndWait];
+            //[CSUtilities setHasLoadedJson:NO];
             
             // once all that is done, update the version as everything must have gone well.
-            [CSUtilities setLastVersion:[result integerValue]];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
         } else {
@@ -548,6 +559,12 @@
     } else {
         NSLog(@"Update psychology error: %@", [requestError description]);
     }
+}
+
+#pragma mark - NSURLConnectionDataDelegate methods
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSLog(@"connection url = %@", connection.originalRequest.URL.lastPathComponent);
 }
 
 @end
