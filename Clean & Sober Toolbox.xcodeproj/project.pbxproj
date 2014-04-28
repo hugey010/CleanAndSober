@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E038142190EE4FD0083E1FA /* Sober Tool.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E03813F190EE4FB0083E1FA /* Sober Tool.sqlite */; };
+		1E038143190EE5000083E1FA /* Sober Tool.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1E038140190EE4FB0083E1FA /* Sober Tool.sqlite-shm */; };
+		1E038144190EE5030083E1FA /* Sober Tool.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1E038141190EE4FB0083E1FA /* Sober Tool.sqlite-wal */; };
 		1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3A918ADCBC200BC81FC /* CSUtilities.m */; };
 		1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */; };
 		1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */; };
@@ -77,6 +80,9 @@
 
 /* Begin PBXFileReference section */
 		0A25E65CA4C74E41A76F468B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		1E03813F190EE4FB0083E1FA /* Sober Tool.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite"; sourceTree = "<group>"; };
+		1E038140190EE4FB0083E1FA /* Sober Tool.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-shm"; sourceTree = "<group>"; };
+		1E038141190EE4FB0083E1FA /* Sober Tool.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-wal"; sourceTree = "<group>"; };
 		1E04D3A818ADCBC200BC81FC /* CSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSUtilities.h; sourceTree = "<group>"; };
 		1E04D3A918ADCBC200BC81FC /* CSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSUtilities.m; sourceTree = "<group>"; };
 		1E04D3AC18ADD15000BC81FC /* ContentModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentModel.xcdatamodel; sourceTree = "<group>"; };
@@ -363,6 +369,9 @@
 		1EA93D3818FF83E3004B3D03 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				1E03813F190EE4FB0083E1FA /* Sober Tool.sqlite */,
+				1E038140190EE4FB0083E1FA /* Sober Tool.sqlite-shm */,
+				1E038141190EE4FB0083E1FA /* Sober Tool.sqlite-wal */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -489,11 +498,14 @@
 				1EF1FD4B18F33753003DA04C /* coin9month.png in Resources */,
 				1E3F34D018FB400700CA61A8 /* appicon_crop_72.png in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
+				1E038144190EE5030083E1FA /* Sober Tool.sqlite-wal in Resources */,
 				1EA131F218FA4E48000B3C94 /* yearcert.png in Resources */,
 				1EF1FD4A18F33753003DA04C /* coinyear.png in Resources */,
+				1E038143190EE5000083E1FA /* Sober Tool.sqlite-shm in Resources */,
 				1E41CBA919002D0B00945BE0 /* appicon_crop_58.png in Resources */,
 				1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */,
 				1EF1FD4D18F33753003DA04C /* coin90.png in Resources */,
+				1E038142190EE4FD0083E1FA /* Sober Tool.sqlite in Resources */,
 				1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */,
 				1E563F5F18FACFF2009644E5 /* Default-568h@2x.png in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
@@ -733,7 +745,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F9638F05-A269-499E-AB78-00E62B3BDEB7";
+				PROVISIONING_PROFILE = "7C62B748-AC0F-45F8-933A-E086FF5FF1E6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -745,7 +757,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Paul Caimi (43243LS7SC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Hugenberg (6662XTG44V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
@@ -779,7 +791,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F9638F05-A269-499E-AB78-00E62B3BDEB7";
+				PROVISIONING_PROFILE = "7C62B748-AC0F-45F8-933A-E086FF5FF1E6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

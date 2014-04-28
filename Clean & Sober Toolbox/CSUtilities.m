@@ -117,8 +117,11 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL firstLaunch = NO;
-    if (![fileManager fileExistsAtPath:[defaultStorePath path]]) {
+    
+    if (![fileManager fileExistsAtPath:[defaultStorePath path]] && [[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite"]) {
+        
         NSURL *seedPath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite"]];
+
 
         NSLog(@"Core data store does not yet exist at: %@. Attempting to copy from seed db %@.", [defaultStorePath path], [seedPath path]);
         

@@ -24,8 +24,8 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
     
-    [CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
-    //[CSUtilities loadFromPremadeDatabase];
+    //[CSUtilities checkAndLoadInitialJSONFileIntoDatabase];
+    [CSUtilities loadFromPremadeDatabase];
     [CSUtilities updateUser];
 
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"AXputRBJLZnwcRnuIXkjgLde3hWk_DeC54PlR2X11TxcWeF0MY6AcA4NP7R6",
