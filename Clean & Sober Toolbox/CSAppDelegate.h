@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <ECSlidingViewController/ECSlidingViewController.h>
-#import "CSMenuViewController.h"
 #import "CSCategoryListController.h"
 
 @interface CSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) ECSlidingViewController *slidingVC;
-@property (nonatomic, strong) CSMenuViewController *menuVC;
+@property (nonatomic, strong) UINavigationController *menuNav;
 @property (nonatomic, strong) CSCategoryListController *initialCatList;
 @end

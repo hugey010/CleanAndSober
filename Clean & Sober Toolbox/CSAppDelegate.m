@@ -15,6 +15,7 @@
 #import "CSContent.h"
 #import "PayPalMobile.h"
 #import <iAd/iAd.h>
+#import "CSMenuViewController.h"
 
 @implementation CSAppDelegate
 
@@ -55,10 +56,10 @@
     categoryNav.view.layer.shadowRadius = 10.0f;
     categoryNav.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-    self.menuVC = [sb instantiateViewControllerWithIdentifier:@"menu"];
+    self.menuNav = [sb instantiateViewControllerWithIdentifier:@"menu"];
     
     [self.slidingVC setTopViewController:categoryNav];
-    [self.slidingVC setUnderRightViewController:self.menuVC];
+    [self.slidingVC setUnderRightViewController:self.menuNav];
     [self.slidingVC setAnchorLeftRevealAmount:MENU_PEEK_AMOUNT];
     [self.slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
     self.slidingVC.underRightWidthLayout = ECFixedRevealWidth;
@@ -122,15 +123,15 @@
     application.applicationIconBadgeNumber = 0;
 
     if (notification) {
-        //if ([notification.userInfo objectForKey:kCoinNotificationKey]) {
+        if ([notification.userInfo objectForKey:kCoinNotificationKey]) {
             // send to coin screen
-            [self.slidingVC anchorTopViewTo:ECLeft];
-            [self.menuVC sendToRewards];
-            
-        //} else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {
-         //   CSContent *content = [CSUtilities randomContent];
-         //   [self.initialCatList navigateToContentWithId:content.identifier];
-        //}
+            [self.slidingVC anchorTopViewTo:ECRight];
+            [(CSMenuViewController*)self.menuNav.viewControllers[0] sendToRewards];
+        
+        } else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {
+            CSContent *content = [CSUtilities randomContent];
+            [self.initialCatList navigateToContentWithId:content.identifier];
+        }
     }
 }
 

@@ -274,6 +274,7 @@ static NSMutableSet *webRequests;
 +(void)scheduleDailyMessageNotification:(BOOL)on {
     User *user = [User MR_findFirst];
     
+    /*
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSData *notifData = [def objectForKey:kDailyMessageDefaultsKey];
     UILocalNotification *notif = [NSKeyedUnarchiver unarchiveObjectWithData:notifData];
@@ -289,9 +290,10 @@ static NSMutableSet *webRequests;
     
     // cancel previous repeating notification
     if (notif) {
-        [[UIApplication sharedApplication] cancelLocalNotification:notif];
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    }
+     */
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    //}
     
     // make sure to update date for scheduled notification in future. increment by 1 day
     NSTimeInterval oldstamp = [user.dailyNotificationDate timeIntervalSince1970];
@@ -300,16 +302,18 @@ static NSMutableSet *webRequests;
         oldstamp = [user.dailyNotificationDate timeIntervalSince1970];
     }
     
-    notif = [[UILocalNotification alloc] init];
+    UILocalNotification *notif = [[UILocalNotification alloc] init];
     notif.fireDate = user.dailyNotificationDate;
     notif.repeatInterval = NSCalendarUnitDay;
     notif.alertBody = [NSString stringWithFormat:@"View your daily message. %@", ENTER_APP_MESSAGE];
     notif.userInfo = @{kDailyMessageNotificationKey : @1};
     [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     
-    notifData = [NSKeyedArchiver archivedDataWithRootObject:notif];
-    [def setObject:notifData forKey:kDailyMessageDefaultsKey];
-    [def synchronize];
+    //NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notif];
+    
+    //NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    //[def setObject:notifData forKey:kDailyMessageDefaultsKey];
+    //[def synchronize];
 }
 
 +(NSSet*)setOfUnusedContentIdentifiers {
