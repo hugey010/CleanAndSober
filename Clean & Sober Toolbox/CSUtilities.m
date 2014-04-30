@@ -316,6 +316,15 @@ static NSMutableSet *webRequests;
     //[def synchronize];
 }
 
++(void)resetRandomContent {
+    NSSet *emptySet = [NSSet set];
+    NSData *setData = [NSKeyedArchiver archivedDataWithRootObject:emptySet];
+
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setObject:setData forKey:kUnusedContentIdentifiersDefaultsKey];
+    [def synchronize];
+}
+
 +(NSSet*)setOfUnusedContentIdentifiers {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSData *setData = [def objectForKey:kUnusedContentIdentifiersDefaultsKey];
@@ -400,6 +409,7 @@ static NSMutableSet *webRequests;
 
             
             [context MR_saveToPersistentStoreAndWait];
+            [CSUtilities resetRandomContent];
             //[CSUtilities setHasLoadedJson:NO];
             
             // once all that is done, update the version as everything must have gone well.
