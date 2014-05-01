@@ -715,7 +715,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
@@ -761,7 +761,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
