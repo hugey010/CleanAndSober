@@ -173,6 +173,7 @@ static NSMutableSet *webRequests;
 }
 
 +(void)updateUser {
+    
     User *user = [User MR_findFirst];
     BOOL firstUser = NO;
     if (!user) {
@@ -182,6 +183,10 @@ static NSMutableSet *webRequests;
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         user.lastLoginDate = [NSDate date];
+        
+        user.helpMessageOne = kHelpMessage1;
+        user.helpMessageTwo = kHelpMessage2;
+        user.helpMessage3 = kHelpMessage3;
     }
     if ([CSUtilities date:user.lastLoginDate isDifferentDay:[NSDate date]]) {
         user.daysInARow = [NSNumber numberWithInt:[user.daysInARow integerValue] + 1.0];
@@ -450,13 +455,17 @@ static NSMutableSet *webRequests;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         
         User *user = [User MR_findFirst];
-        user.helpMessageOne = [result objectForKeyNotNull:@"help1"];
-        user.helpMessageTwo = [result objectForKeyNotNull:@"help2"];
-        user.helpMessage3 = [result objectForKeyNotNull:@"help3"];
+        user.helpMessageOne = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help1"]];
+        user.helpMessageTwo = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help2"]];
+        user.helpMessage3 = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help3"]];
+        
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
 
+        
         //NSLog(@"help 1: %@", user.helpMessageOne);
         //NSLog(@"help 2: %@", user.helpMessageTwo);
         //NSLog(@"help 3: %@", user.helpMessage3);
+        
 
     } else {
         NSLog(@"Update help error: %@", [requestError description]);

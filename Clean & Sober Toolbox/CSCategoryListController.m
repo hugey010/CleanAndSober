@@ -12,6 +12,7 @@
 #import "CSContent.h"
 #import "CSContentViewController.h"
 #import "User.h"
+#import "CSUtilities.h"
 
 #define kFirstHelpLoad @"first_help_load"
 
@@ -31,6 +32,8 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
+    
     containsContent = NO;
     self.navigationItem.title = kAppTitle;
 
@@ -44,6 +47,10 @@
     
     self.searchView.backgroundColor = [UIColor clearColor];
     self.adBackgroundView.backgroundColor = kCOLOR_VIEWS_2;
+}
+
+-(void)updatedData {
+    [self.popover dismissPopoverAnimated:NO];
 }
 
 /*
@@ -85,32 +92,20 @@
 - (IBAction)helpButtonPressed:(id)sender {
     
     User *user = [User MR_findFirst];
-    
+        
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];
     UIWebView *webview = (UIWebView*)[helpVC.view viewWithTag:21];
     NSString *html = @"";
     int stacksize = (int)[self.navigationController.viewControllers count];
     if (stacksize == 1) {
         // top level
-        if (user.helpMessageOne) {
-            html = user.helpMessageOne;
-        } else {
-            html = kHelpMessage1;
-        }
+        html = user.helpMessageOne;
         
     } else if (stacksize == 2) {
-        if (user.helpMessageTwo) {
-            html = user.helpMessageTwo;
-        } else {
-            html = kHelpMessage2;
-        }
+        html = user.helpMessageTwo;
         
     } else {
-        if (user.helpMessage3) {
-            html = user.helpMessage3;
-        } else {
-            html = kHelpMessage3;
-        }
+        html = user.helpMessage3;
     }
     [webview loadHTMLString:html baseURL:nil];
     
@@ -121,7 +116,7 @@
     NSAttributedString *aString = [[NSAttributedString alloc] initWithString:html];
     UITextView *calculationView = [[UITextView alloc] init];
     [calculationView setAttributedText:aString];
-    CGSize boxSize = CGSizeMake(self.view.frame.size.width - 10, self.view.frame.size.height - 100);
+    CGSize boxSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 100);
     CGRect textRect = [calculationView.text boundingRectWithSize:boxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:FONT_LABELS} context:ctx];
     
     self.popover.contentSize = CGSizeMake(textRect.size.width, textRect.size.height + 80);
@@ -238,6 +233,10 @@
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
     [banner setHidden:YES];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
