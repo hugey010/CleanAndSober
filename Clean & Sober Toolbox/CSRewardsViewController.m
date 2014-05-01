@@ -50,37 +50,37 @@
     
     switch (indexPath.row) {
         case 0 : {
-            text = @"7 days of sobriety";
+            text = @"7 days";
             image = [UIImage imageNamed:@"coin7.png"];
             break;
         }
         case 1 : {
-            text = @"30 days of sobriety";
+            text = @"30 days";
             image = [UIImage imageNamed:@"coin30.png"];
             break;
         }
         case 2 : {
-            text = @"60 days of sobriety";
+            text = @"60 days";
             image = [UIImage imageNamed:@"coin60.png"];
             break;
         }
         case 3 : {
-            text = @"90 days of sobriety";
+            text = @"90 days";
             image = [UIImage imageNamed:@"coin90.png"];
             break;
         }
         case 4 : {
-            text = @"6 months of sobriety";
+            text = @"6 months";
             image = [UIImage imageNamed:@"coin6month.png"];
             break;
         }
         case 5 : {
-            text = @"9 months of sobriety";
+            text = @"9 months";
             image = [UIImage imageNamed:@"coin9month.png"];
             break;
         }
         case 6 : {
-            text = @"1 year of sobriety";
+            text = @"1 year";
             image = [UIImage imageNamed:@"coinyear.png"];
             break;
         }
@@ -131,37 +131,37 @@
     
     switch (indexPath.row) {
         case 0 : {
-            text = @"7 days of sobriety";
+            text = @"7 days";
             image = [UIImage imageNamed:@"coin7.png"];
             break;
         }
         case 1 : {
-            text = @"30 days of sobriety";
+            text = @"30 days";
             image = [UIImage imageNamed:@"coin30.png"];
             break;
         }
         case 2 : {
-            text = @"60 days of sobriety";
+            text = @"60 days";
             image = [UIImage imageNamed:@"coin60.png"];
             break;
         }
         case 3 : {
-            text = @"90 days of sobriety";
+            text = @"90 days";
             image = [UIImage imageNamed:@"coin90.png"];
             break;
         }
         case 4 : {
-            text = @"6 months of sobriety";
+            text = @"6 months";
             image = [UIImage imageNamed:@"coin6month.png"];
             break;
         }
         case 5 : {
-            text = @"9 months of sobriety";
+            text = @"9 months";
             image = [UIImage imageNamed:@"coin9month.png"];
             break;
         }
         case 6 : {
-            text = @"1 year of sobriety";
+            text = @"1 year";
             image = [UIImage imageNamed:@"coinyear.png"];
             break;
         }
