@@ -85,7 +85,7 @@
             break;
         }
         case 7 : {
-            text = @"One Year Cerfiticate";
+            text = @"One Year Certificate";
             image = [UIImage imageNamed:@"yearcert"];
         }
     }
@@ -166,7 +166,7 @@
             break;
         }
         case 7 : {
-            text = @"One Year Cerfiticate";
+            text = @"One Year Certificate";
             image = [UIImage imageNamed:@"yearcert"];
         }
     }
