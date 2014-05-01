@@ -64,7 +64,6 @@
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="2Jp-H6-Hs7"/>
-                                                <constraint firstAttribute="width" constant="160" id="zC3-gU-xO3"/>
                                             </constraints>
                                             <state key="normal" title="Help">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,7 +77,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="160" id="i5W-86-Npg"/>
                                                 <constraint firstAttribute="height" constant="44" id="m3T-J8-iw7"/>
                                             </constraints>
                                             <state key="normal" title="Rewards"/>
@@ -92,7 +90,9 @@
                                         <constraint firstItem="jaP-N7-eMk" firstAttribute="leading" secondItem="5Eg-OZ-E1U" secondAttribute="leading" id="DlP-zK-HVG"/>
                                         <constraint firstItem="jaP-N7-eMk" firstAttribute="top" secondItem="5Eg-OZ-E1U" secondAttribute="top" id="J9V-Ty-WSD"/>
                                         <constraint firstItem="JYh-xf-0tt" firstAttribute="top" secondItem="5Eg-OZ-E1U" secondAttribute="top" id="KNW-ER-o8p"/>
+                                        <constraint firstAttribute="trailing" secondItem="JYh-xf-0tt" secondAttribute="trailing" id="a14-2F-F8a"/>
                                         <constraint firstItem="JYh-xf-0tt" firstAttribute="leading" secondItem="jaP-N7-eMk" secondAttribute="trailing" id="qch-PN-PZZ"/>
+                                        <constraint firstItem="JYh-xf-0tt" firstAttribute="width" secondItem="jaP-N7-eMk" secondAttribute="width" id="xoQ-f2-Z2A"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -103,14 +103,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="kKn-Yw-xkz">
-                                                    <rect key="frame" x="15" y="4" width="280" height="52"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="277" translatesAutoresizingMaskIntoConstraints="NO" id="kKn-Yw-xkz">
+                                                    <rect key="frame" x="10" y="4" width="277" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="kKn-Yw-xkz" secondAttribute="trailing" id="4UF-xs-snl"/>
+                                                <constraint firstItem="kKn-Yw-xkz" firstAttribute="leading" secondItem="bdz-Er-nTB" secondAttribute="leading" constant="10" id="oLW-de-0kc"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
