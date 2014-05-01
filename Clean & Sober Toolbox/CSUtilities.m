@@ -12,6 +12,7 @@
 #import "User.h"
 #import <NSPersistentStore+MagicalRecord.h>
 #import "NSDictionary+NotNull.h"
+#import <NSManagedObjectContext+MagicalRecord.h>
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
 #define kLastVersionKey @"last_version"
@@ -390,7 +391,7 @@ static NSMutableSet *webRequests;
         [CSUtilities setLastVersion:[result integerValue]];
 
         
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_context];
         
         // update everything
         [CSUtilities updateHelp];
@@ -398,23 +399,36 @@ static NSMutableSet *webRequests;
         [CSUtilities updatePsychology];
         
         [CSUtilities updateMessages:context];
+        //[CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+
         [CSUtilities updateStructure:context];
+        //[CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+
         
+
         
-        if (context.hasChanges) {
+        if (context.hasChanges) {            
+
             dispatch_async(dispatch_get_main_queue(), ^{
-                [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-                [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+
+                
+                [NSManagedObjectContext MR_setDefaultContext:context];
+                //[context MR_saveToPersistentStoreAndWait];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                
+                [CSUtilities resetRandomContent];
+
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+
             });
 
             
-            [context MR_saveToPersistentStoreAndWait];
-            [CSUtilities resetRandomContent];
+
             //[CSUtilities setHasLoadedJson:NO];
             
             // once all that is done, update the version as everything must have gone well.
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
         } else {
             NSLog(@"No updates are available.");
         }
@@ -464,7 +478,10 @@ static NSMutableSet *webRequests;
         requestError = nil;
         NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         for (NSDictionary *m in result) {
-            CSContent *content = [CSContent MR_createInContext:context];
+            CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:[m objectForKeyNotNull:@"id"] inContext:context];
+            if (!content) {
+                content = [CSContent MR_createInContext:context];
+            }
             content.identifier = [m objectForKeyNotNull:@"id"];
             content.title = [m objectForKeyNotNull:@"title"];
             content.todo = [m objectForKeyNotNull:@"todo"];
@@ -499,7 +516,10 @@ static NSMutableSet *webRequests;
 }
 
 +(CSCategory*)parseCSCategoryFromWebDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat withContext:(NSManagedObjectContext*)context {
-    CSCategory *category = [CSCategory MR_createInContext:context];
+    CSCategory *category = [CSCategory MR_findFirstByAttribute:@"identifier" withValue:[cc objectForKeyNotNull:@"id"] inContext:context];
+    if (!category) {
+        category = [CSCategory MR_createInContext:context];
+    }
     category.identifier = [cc objectForKeyNotNull:@"id"];
     category.type = @"category";
     category.title = [cc objectForKeyNotNull:@"title"];
@@ -509,6 +529,7 @@ static NSMutableSet *webRequests;
     // recursively add subcategories
     for (NSDictionary *subcat in [cc objectForKeyNotNull:@"subcategories"]) {
             NSMutableOrderedSet *oset = [category.has_categories mutableCopy];
+            assert(oset);
             [oset addObject:[CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:subcat inCategory:category withContext:context]];
             category.has_categories = oset;
     }
@@ -518,6 +539,7 @@ static NSMutableSet *webRequests;
         CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:messageId inContext:context];
         [content addIn_categoryObject:category];
         NSMutableOrderedSet *oset = [category.has_contents mutableCopy];
+        assert (oset);
         [oset addObject:content];
         category.has_contents = oset;
     }
