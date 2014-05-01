@@ -49,7 +49,11 @@
         MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
         mailVC.mailComposeDelegate = self;
         [mailVC setSubject:cscontent.title];
-        NSString *message = [NSString stringWithFormat:@"%@<br><br>Sent from %@ mobile app.", cscontent.message, kAppTitle];
+        NSMutableString *message = [cscontent.message mutableCopy];
+        if (cscontent.todo) {
+            [message appendFormat:@"<br><br>%@", cscontent.todo];
+        }
+        [message appendFormat:@"<br><br>Sent from %@ mobile app.", kAppTitle];
         [mailVC setMessageBody:message isHTML:YES];
         [self presentViewController:mailVC animated:YES completion:nil];
         
