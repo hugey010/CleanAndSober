@@ -36,14 +36,17 @@
 
     [self.tableView reloadData];
     
+    /*
     if ([self firstLoad]) {
         [self helpButtonPressed:self.helpButton];
     }
+    */
     
     self.searchView.backgroundColor = [UIColor clearColor];
     self.adBackgroundView.backgroundColor = kCOLOR_VIEWS_2;
 }
 
+/*
 -(BOOL)firstLoad {
     
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
@@ -53,6 +56,7 @@
     
     return !result;
 }
+ */
 
 -(void)loadInitialContent {
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
