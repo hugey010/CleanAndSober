@@ -99,6 +99,7 @@
     return cell;
 }
 
+/*
 - (IBAction)resetButtonPressed:(id)sender {
     [User MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"TRUEPREDICATE"]];
     [CSUtilities updateUser];
@@ -107,6 +108,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"App Days: %@", user.daysInARow];
     [self.tableView reloadData];
 }
+ */
 
 - (IBAction)instructionsButtonPressed:(id)sender {
     UIViewController *helpVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpVC"];

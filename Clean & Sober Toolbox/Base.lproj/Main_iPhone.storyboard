@@ -278,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xYu-y7-FdM">
-                                <rect key="frame" x="0.0" y="54" width="320" height="470"/>
+                                <rect key="frame" x="0.0" y="54" width="320" height="514"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -309,21 +309,6 @@
                                     <outlet property="delegate" destination="icU-nl-BmS" id="D92-ei-VkZ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywi-L1-Ylx">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Snu-xa-d49"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Reset Rewards">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetButtonPressed:" destination="icU-nl-BmS" eventType="touchUpInside" id="giD-Qg-XqC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ9-Bd-IA3">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -342,21 +327,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kbi-rZ-erm" firstAttribute="top" secondItem="Ywi-L1-Ylx" secondAttribute="bottom" id="4Ld-I5-pxK"/>
                             <constraint firstItem="xYu-y7-FdM" firstAttribute="top" secondItem="v1J-tD-gSA" secondAttribute="top" constant="54" id="Dmm-Zw-yML"/>
                             <constraint firstAttribute="trailing" secondItem="wQ9-Bd-IA3" secondAttribute="trailing" id="KWZ-fJ-ldv"/>
                             <constraint firstItem="xYu-y7-FdM" firstAttribute="leading" secondItem="v1J-tD-gSA" secondAttribute="leading" id="NiZ-5k-Mtm"/>
-                            <constraint firstAttribute="trailing" secondItem="Ywi-L1-Ylx" secondAttribute="trailing" id="cOK-bd-b5u"/>
                             <constraint firstItem="wQ9-Bd-IA3" firstAttribute="top" secondItem="DIq-9P-7Nc" secondAttribute="bottom" id="hgZ-RC-kbE"/>
-                            <constraint firstItem="Ywi-L1-Ylx" firstAttribute="top" secondItem="xYu-y7-FdM" secondAttribute="bottom" id="kBF-28-aze"/>
+                            <constraint firstItem="Kbi-rZ-erm" firstAttribute="top" secondItem="xYu-y7-FdM" secondAttribute="bottom" id="iSG-V4-6T3"/>
                             <constraint firstItem="wQ9-Bd-IA3" firstAttribute="leading" secondItem="v1J-tD-gSA" secondAttribute="leading" id="uEw-yD-7L4"/>
-                            <constraint firstItem="Ywi-L1-Ylx" firstAttribute="leading" secondItem="v1J-tD-gSA" secondAttribute="leading" id="vnh-Ai-NRU"/>
                             <constraint firstAttribute="trailing" secondItem="xYu-y7-FdM" secondAttribute="trailing" id="yah-cp-9iQ"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
-                        <outlet property="rewardsButton" destination="Ywi-L1-Ylx" id="sJ6-XW-UmD"/>
                         <outlet property="tableView" destination="xYu-y7-FdM" id="pU0-Fg-DCu"/>
                     </connections>
                 </viewController>

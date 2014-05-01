@@ -12,10 +12,8 @@
 @interface CSRewardsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *rewardsButton;
 @property (nonatomic, strong) FPPopoverController *popover;
 
-- (IBAction)resetButtonPressed:(id)sender;
 - (IBAction)instructionsButtonPressed:(id)sender;
 
 @end
