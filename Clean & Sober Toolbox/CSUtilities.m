@@ -544,20 +544,14 @@ static NSMutableSet *webRequests;
     
     // recursively add subcategories
     for (NSDictionary *subcat in [cc objectForKeyNotNull:@"subcategories"]) {
-            NSMutableOrderedSet *oset = [category.has_categories mutableCopy];
-            assert(oset);
-            [oset addObject:[CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:subcat inCategory:category withContext:context]];
-            category.has_categories = oset;
+        [category addHas_categoriesObject:[CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:subcat inCategory:category withContext:context]];
     }
     
     // iteratively add messages
     for (NSNumber *messageId in [cc objectForKeyNotNull:@"messages"]) {
         CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:messageId inContext:context];
         [content addIn_categoryObject:category];
-        NSMutableOrderedSet *oset = [category.has_contents mutableCopy];
-        assert (oset);
-        [oset addObject:content];
-        category.has_contents = oset;
+        [category addHas_contentsObject:content];
     }
     
     return category;

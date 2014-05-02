@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CSCategory" representedClassName="CSCategory" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="has_categories" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CSCategory" inverseName="in_category" inverseEntity="CSCategory" syncable="YES"/>
-        <relationship name="has_contents" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CSContent" inverseName="in_category" inverseEntity="CSContent" syncable="YES"/>
+        <relationship name="has_categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CSCategory" inverseName="in_category" inverseEntity="CSCategory" syncable="YES"/>
+        <relationship name="has_contents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CSContent" inverseName="in_category" inverseEntity="CSContent" syncable="YES"/>
         <relationship name="in_category" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CSCategory" inverseName="has_categories" inverseEntity="CSCategory" syncable="YES"/>
     </entity>
     <entity name="CSContent" representedClassName="CSContent" syncable="YES">

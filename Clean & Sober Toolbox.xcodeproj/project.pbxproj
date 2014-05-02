@@ -43,11 +43,9 @@
 		1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFB818A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
 		1EA131F218FA4E48000B3C94 /* yearcert.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA131F118FA4E48000B3C94 /* yearcert.png */; };
-		1EBA580A19037B6C0059AC4F /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA580919037B6C0059AC4F /* CSCategory.m */; };
-		1EBA580D19037B6C0059AC4F /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA580C19037B6C0059AC4F /* CSContent.m */; };
-		1ECF7D8F1913FDD600D70F68 /* Sober Tool.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF7D8C1913FDD600D70F68 /* Sober Tool.sqlite */; };
-		1ECF7D901913FDD600D70F68 /* Sober Tool.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF7D8D1913FDD600D70F68 /* Sober Tool.sqlite-shm */; };
-		1ECF7D911913FDD600D70F68 /* Sober Tool.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF7D8E1913FDD600D70F68 /* Sober Tool.sqlite-wal */; };
+		1ECF7D941914115900D70F68 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D931914115900D70F68 /* User.m */; };
+		1ECF7D971914115900D70F68 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D961914115900D70F68 /* CSCategory.m */; };
+		1ECF7D9A1914115A00D70F68 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D991914115A00D70F68 /* CSContent.m */; };
 		1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED3137B18EC833D00C4A6A1 /* iAd.framework */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
 		1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */; };
@@ -60,7 +58,6 @@
 		1EF1FD4E18F33753003DA04C /* coin60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4718F33753003DA04C /* coin60.png */; };
 		1EF1FD4F18F33753003DA04C /* coin30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4818F33753003DA04C /* coin30.png */; };
 		1EF1FD5018F33753003DA04C /* coin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4918F33753003DA04C /* coin7.png */; };
-		1EF1FD5618F351DF003DA04C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1FD5518F351DF003DA04C /* User.m */; };
 		1EF1FD5F18F4675F003DA04C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809518E7A5C900A93FBB /* AVFoundation.framework */; };
 		1EF1FD6018F46767003DA04C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */; };
 		1EF1FD6118F46771003DA04C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809918E7A5D600A93FBB /* MessageUI.framework */; };
@@ -131,13 +128,12 @@
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
 		1EA131F118FA4E48000B3C94 /* yearcert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yearcert.png; sourceTree = "<group>"; };
-		1EBA580819037B6C0059AC4F /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
-		1EBA580919037B6C0059AC4F /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
-		1EBA580B19037B6C0059AC4F /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
-		1EBA580C19037B6C0059AC4F /* CSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSContent.m; sourceTree = "<group>"; };
-		1ECF7D8C1913FDD600D70F68 /* Sober Tool.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite"; sourceTree = "<group>"; };
-		1ECF7D8D1913FDD600D70F68 /* Sober Tool.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-shm"; sourceTree = "<group>"; };
-		1ECF7D8E1913FDD600D70F68 /* Sober Tool.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-wal"; sourceTree = "<group>"; };
+		1ECF7D921914115900D70F68 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1ECF7D931914115900D70F68 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1ECF7D951914115900D70F68 /* CSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategory.h; sourceTree = "<group>"; };
+		1ECF7D961914115900D70F68 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
+		1ECF7D981914115A00D70F68 /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
+		1ECF7D991914115A00D70F68 /* CSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSContent.m; sourceTree = "<group>"; };
 		1ED3137B18EC833D00C4A6A1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1EDC5FD618B9B57600826A52 /* CSDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDonateViewController.h; sourceTree = "<group>"; };
 		1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDonateViewController.m; sourceTree = "<group>"; };
@@ -158,8 +154,6 @@
 		1EF1FD4718F33753003DA04C /* coin60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin60.png; sourceTree = "<group>"; };
 		1EF1FD4818F33753003DA04C /* coin30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin30.png; sourceTree = "<group>"; };
 		1EF1FD4918F33753003DA04C /* coin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin7.png; sourceTree = "<group>"; };
-		1EF1FD5418F351DF003DA04C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		1EF1FD5518F351DF003DA04C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -230,13 +224,13 @@
 		1E04D3BF18ADDAAF00BC81FC /* CoreData Stuff */ = {
 			isa = PBXGroup;
 			children = (
-				1EF1FD5418F351DF003DA04C /* User.h */,
-				1EF1FD5518F351DF003DA04C /* User.m */,
 				1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */,
-				1EBA580819037B6C0059AC4F /* CSCategory.h */,
-				1EBA580919037B6C0059AC4F /* CSCategory.m */,
-				1EBA580B19037B6C0059AC4F /* CSContent.h */,
-				1EBA580C19037B6C0059AC4F /* CSContent.m */,
+				1ECF7D921914115900D70F68 /* User.h */,
+				1ECF7D931914115900D70F68 /* User.m */,
+				1ECF7D951914115900D70F68 /* CSCategory.h */,
+				1ECF7D961914115900D70F68 /* CSCategory.m */,
+				1ECF7D981914115A00D70F68 /* CSContent.h */,
+				1ECF7D991914115A00D70F68 /* CSContent.m */,
 			);
 			name = "CoreData Stuff";
 			sourceTree = "<group>";
@@ -369,9 +363,6 @@
 		1EA93D3818FF83E3004B3D03 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				1ECF7D8C1913FDD600D70F68 /* Sober Tool.sqlite */,
-				1ECF7D8D1913FDD600D70F68 /* Sober Tool.sqlite-shm */,
-				1ECF7D8E1913FDD600D70F68 /* Sober Tool.sqlite-wal */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -498,14 +489,11 @@
 				1EF1FD4B18F33753003DA04C /* coin9month.png in Resources */,
 				1E3F34D018FB400700CA61A8 /* appicon_crop_72.png in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
-				1ECF7D911913FDD600D70F68 /* Sober Tool.sqlite-wal in Resources */,
 				1EA131F218FA4E48000B3C94 /* yearcert.png in Resources */,
 				1EF1FD4A18F33753003DA04C /* coinyear.png in Resources */,
-				1ECF7D901913FDD600D70F68 /* Sober Tool.sqlite-shm in Resources */,
 				1E41CBA919002D0B00945BE0 /* appicon_crop_58.png in Resources */,
 				1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */,
 				1EF1FD4D18F33753003DA04C /* coin90.png in Resources */,
-				1ECF7D8F1913FDD600D70F68 /* Sober Tool.sqlite in Resources */,
 				1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */,
 				1E563F5F18FACFF2009644E5 /* Default-568h@2x.png in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,
@@ -569,19 +557,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EBA580A19037B6C0059AC4F /* CSCategory.m in Sources */,
+				1ECF7D971914115900D70F68 /* CSCategory.m in Sources */,
 				1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */,
 				1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */,
 				1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */,
 				1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */,
+				1ECF7D941914115900D70F68 /* User.m in Sources */,
 				1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */,
 				1E04D3AA18ADCBC200BC81FC /* CSUtilities.m in Sources */,
 				1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */,
-				1EF1FD5618F351DF003DA04C /* User.m in Sources */,
 				1E58AF9A18A540A300E28EAA /* main.m in Sources */,
 				1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */,
 				1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */,
-				1EBA580D19037B6C0059AC4F /* CSContent.m in Sources */,
+				1ECF7D9A1914115A00D70F68 /* CSContent.m in Sources */,
 				1E4C461118FE04D30074850E /* NSDictionary+NotNull.m in Sources */,
 				1EF1FD4118F31AF1003DA04C /* CSRewardsViewController.m in Sources */,
 			);
