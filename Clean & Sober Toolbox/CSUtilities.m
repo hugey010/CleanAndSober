@@ -13,6 +13,7 @@
 #import <NSPersistentStore+MagicalRecord.h>
 #import "NSDictionary+NotNull.h"
 #import <NSManagedObjectContext+MagicalRecord.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
 #define kLastVersionKey @"last_version"
@@ -406,6 +407,8 @@ static NSMutableSet *webRequests;
         [CSUtilities updateMessages:context];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
+            
             [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
         });
         
@@ -416,28 +419,18 @@ static NSMutableSet *webRequests;
             [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
         });
         
-        if (context.hasChanges) {            
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [NSManagedObjectContext MR_setDefaultContext:context];
-                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                
-                [CSUtilities resetRandomContent];
-
-                [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
-
-            });
-
+        dispatch_async(dispatch_get_main_queue(), ^{
             
+            [NSManagedObjectContext MR_setDefaultContext:context];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            [CSUtilities resetRandomContent];
 
-            //[CSUtilities setHasLoadedJson:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
             
-            // once all that is done, update the version as everything must have gone well.
-            
-        } else {
-            NSLog(@"No updates are available.");
-        }
+            [SVProgressHUD dismiss];
+
+        });
     }
 }
 

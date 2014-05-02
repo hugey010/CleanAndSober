@@ -83,8 +83,10 @@
             [self.slidingVC resetTopViewWithAnimations:nil onComplete:^{
                 [self resetFirstView];
 
+                /*
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update Acquired" message:@"Content has updated. Enjoy." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
                 [alert show];
+                 */
             }];
 
         });
