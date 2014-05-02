@@ -37,14 +37,7 @@
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"AXputRBJLZnwcRnuIXkjgLde3hWk_DeC54PlR2X11TxcWeF0MY6AcA4NP7R6",
                                                            PayPalEnvironmentSandbox : @"AbsS7xCV4p_NtQnEUs07SSxR8sz5g2ad7HT9Sbwi7AQh4UHD4QnqE8yXs3fK"}];
 
-    
-    // detect iphone or ipad
-    //UIStoryboard *sb;
-    //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        //sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    //} else if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        //sb = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-    //}
+
     
     [self resetFirstView];
 
@@ -100,7 +93,14 @@
 
 -(void)style {
     [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setTextColor:COLOR_TEXT_CELL];
-    [[UILabel appearance] setFont:FONT_LABELS];
+    
+    // detect iphone or ipad
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [[UILabel appearance] setFont:FONT_LABELS];
+    } else {
+        [[UILabel appearance] setFont:FONT_IPAD_LABELS];
+    }
+
     [[UITextView appearance] setFont:FONT_LABELS];
     [[UIButton appearance] setTitleColor:COLOR_BUTTONS forState:UIControlStateNormal];
     [[UISwitch appearance] setTintColor:COLOR_SWITCH];
@@ -108,7 +108,7 @@
     
     // special for back button appearance
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                COLOR_BUTTONS ,UITextAttributeTextColor,
+                                COLOR_BUTTONS ,NSForegroundColorAttributeName,
                                 nil];
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTintColor:COLOR_BUTTONS];
