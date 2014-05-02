@@ -46,9 +46,9 @@
 		1ECF7D941914115900D70F68 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D931914115900D70F68 /* User.m */; };
 		1ECF7D971914115900D70F68 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D961914115900D70F68 /* CSCategory.m */; };
 		1ECF7D9A1914115A00D70F68 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D991914115A00D70F68 /* CSContent.m */; };
-		1ECF7D9E191422C600D70F68 /* Sober Tool.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF7D9B191422C600D70F68 /* Sober Tool.sqlite */; };
-		1ECF7D9F191422C600D70F68 /* Sober Tool.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF7D9C191422C600D70F68 /* Sober Tool.sqlite-shm */; };
-		1ECF7DA0191422C600D70F68 /* Sober Tool.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF7D9D191422C600D70F68 /* Sober Tool.sqlite-wal */; };
+		1ED242D61914422B00AA3638 /* Sober Tool.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1ED242D31914422B00AA3638 /* Sober Tool.sqlite */; };
+		1ED242D71914422B00AA3638 /* Sober Tool.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 1ED242D41914422B00AA3638 /* Sober Tool.sqlite-shm */; };
+		1ED242D81914422B00AA3638 /* Sober Tool.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 1ED242D51914422B00AA3638 /* Sober Tool.sqlite-wal */; };
 		1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED3137B18EC833D00C4A6A1 /* iAd.framework */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
 		1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */; };
@@ -137,9 +137,9 @@
 		1ECF7D961914115900D70F68 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
 		1ECF7D981914115A00D70F68 /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
 		1ECF7D991914115A00D70F68 /* CSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSContent.m; sourceTree = "<group>"; };
-		1ECF7D9B191422C600D70F68 /* Sober Tool.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite"; sourceTree = "<group>"; };
-		1ECF7D9C191422C600D70F68 /* Sober Tool.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-shm"; sourceTree = "<group>"; };
-		1ECF7D9D191422C600D70F68 /* Sober Tool.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-wal"; sourceTree = "<group>"; };
+		1ED242D31914422B00AA3638 /* Sober Tool.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite"; sourceTree = "<group>"; };
+		1ED242D41914422B00AA3638 /* Sober Tool.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-shm"; sourceTree = "<group>"; };
+		1ED242D51914422B00AA3638 /* Sober Tool.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sober Tool.sqlite-wal"; sourceTree = "<group>"; };
 		1ED3137B18EC833D00C4A6A1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1EDC5FD618B9B57600826A52 /* CSDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDonateViewController.h; sourceTree = "<group>"; };
 		1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDonateViewController.m; sourceTree = "<group>"; };
@@ -369,9 +369,9 @@
 		1EA93D3818FF83E3004B3D03 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				1ECF7D9B191422C600D70F68 /* Sober Tool.sqlite */,
-				1ECF7D9C191422C600D70F68 /* Sober Tool.sqlite-shm */,
-				1ECF7D9D191422C600D70F68 /* Sober Tool.sqlite-wal */,
+				1ED242D31914422B00AA3638 /* Sober Tool.sqlite */,
+				1ED242D41914422B00AA3638 /* Sober Tool.sqlite-shm */,
+				1ED242D51914422B00AA3638 /* Sober Tool.sqlite-wal */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -498,14 +498,14 @@
 				1EF1FD4B18F33753003DA04C /* coin9month.png in Resources */,
 				1E3F34D018FB400700CA61A8 /* appicon_crop_72.png in Resources */,
 				1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */,
-				1ECF7DA0191422C600D70F68 /* Sober Tool.sqlite-wal in Resources */,
+				1ED242D81914422B00AA3638 /* Sober Tool.sqlite-wal in Resources */,
 				1EA131F218FA4E48000B3C94 /* yearcert.png in Resources */,
 				1EF1FD4A18F33753003DA04C /* coinyear.png in Resources */,
-				1ECF7D9F191422C600D70F68 /* Sober Tool.sqlite-shm in Resources */,
+				1ED242D71914422B00AA3638 /* Sober Tool.sqlite-shm in Resources */,
 				1E41CBA919002D0B00945BE0 /* appicon_crop_58.png in Resources */,
 				1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */,
 				1EF1FD4D18F33753003DA04C /* coin90.png in Resources */,
-				1ECF7D9E191422C600D70F68 /* Sober Tool.sqlite in Resources */,
+				1ED242D61914422B00AA3638 /* Sober Tool.sqlite in Resources */,
 				1EF1FD4C18F33753003DA04C /* coin6month.png in Resources */,
 				1E563F5F18FACFF2009644E5 /* Default-568h@2x.png in Resources */,
 				1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */,

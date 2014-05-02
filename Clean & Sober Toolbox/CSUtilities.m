@@ -405,31 +405,26 @@ static NSMutableSet *webRequests;
         
         [CSUtilities updateMessages:context];
         
-        //[CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+        });
+        
         [CSUtilities updateStructure:context];
         
-        //[CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-
-        
-
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+        });
         
         if (context.hasChanges) {            
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-                [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-
-
-                
                 [NSManagedObjectContext MR_setDefaultContext:context];
-                //[context MR_saveToPersistentStoreAndWait];
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
                 
                 [CSUtilities resetRandomContent];
 
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
 
             });
@@ -493,10 +488,7 @@ static NSMutableSet *webRequests;
         requestError = nil;
         NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         for (NSDictionary *m in result) {
-            //CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:[m objectForKeyNotNull:@"id"] inContext:context];
-            //if (!content) {
-                CSContent *content = [CSContent MR_createInContext:context];
-            //}
+            CSContent *content = [CSContent MR_createInContext:context];
             content.identifier = [m objectForKeyNotNull:@"id"];
             content.title = [m objectForKeyNotNull:@"title"];
             content.todo = [m objectForKeyNotNull:@"todo"];
