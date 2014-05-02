@@ -79,12 +79,9 @@
     
     self.navigationItem.title = cat.title;
     
-    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY in_category.identifier = %d", [cat.identifier integerValue]];
-    categories = [[CSCategory MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
     categories = [CSCategory MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate];
-    contents = [[CSContent MR_findAllWithPredicate:predicate inContext:context] mutableCopy];
+    contents = [[CSContent MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate] mutableCopy];
     
     [self.tableView reloadData];
 }

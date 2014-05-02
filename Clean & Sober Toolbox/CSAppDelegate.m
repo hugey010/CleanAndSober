@@ -39,14 +39,32 @@
 
     
     // detect iphone or ipad
-    UIStoryboard *sb;
+    //UIStoryboard *sb;
     //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        //sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     //} else if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //sb = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
     //}
+    
+    [self resetFirstView];
 
+    
+    [self style];
+    
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    [self checkNotification:notification application:application];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+        [CSUtilities checkVersionAndDownload];
+    });
+
+    return YES;
+}
+
+-(void)resetFirstView {
     // setup ecsliding view controller
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    
     self.slidingVC = (ECSlidingViewController*)self.window.rootViewController;
     UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_nav"];
     self.initialCatList = categoryNav.viewControllers[0];
@@ -63,28 +81,19 @@
     [self.slidingVC setAnchorLeftRevealAmount:MENU_PEEK_AMOUNT];
     [self.slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
     self.slidingVC.underRightWidthLayout = ECFixedRevealWidth;
-    
-    [self style];
-    
-    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    [self checkNotification:notification application:application];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
-        [CSUtilities checkVersionAndDownload];
-    });
 
-    return YES;
 }
 
 -(void)updatedData {
     dispatch_async(dispatch_get_main_queue(), ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.slidingVC resetTopViewWithAnimations:nil onComplete:nil];
-            [self.initialCatList.navigationController popToRootViewControllerAnimated:NO];
-            [self.initialCatList loadInitialContent];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update Acquired" message:@"Content has updated. Enjoy." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
+            [self.slidingVC resetTopViewWithAnimations:nil onComplete:^{
+                [self resetFirstView];
+
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update Acquired" message:@"Content has updated. Enjoy." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            }];
+
         });
     });
 }

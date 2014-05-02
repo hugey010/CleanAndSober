@@ -396,7 +396,7 @@ static NSMutableSet *webRequests;
         [CSUtilities setLastVersion:[result integerValue]];
 
         
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_context];
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
         
         // update everything
         [CSUtilities updateHelp];
@@ -404,9 +404,11 @@ static NSMutableSet *webRequests;
         [CSUtilities updatePsychology];
         
         [CSUtilities updateMessages:context];
+        
         //[CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
 
         [CSUtilities updateStructure:context];
+        
         //[CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
 
         
@@ -415,6 +417,10 @@ static NSMutableSet *webRequests;
         if (context.hasChanges) {            
 
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+                [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+
 
                 
                 [NSManagedObjectContext MR_setDefaultContext:context];
@@ -487,15 +493,16 @@ static NSMutableSet *webRequests;
         requestError = nil;
         NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         for (NSDictionary *m in result) {
-            CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:[m objectForKeyNotNull:@"id"] inContext:context];
-            if (!content) {
-                content = [CSContent MR_createInContext:context];
-            }
+            //CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:[m objectForKeyNotNull:@"id"] inContext:context];
+            //if (!content) {
+                CSContent *content = [CSContent MR_createInContext:context];
+            //}
             content.identifier = [m objectForKeyNotNull:@"id"];
             content.title = [m objectForKeyNotNull:@"title"];
             content.todo = [m objectForKeyNotNull:@"todo"];
             content.message = [m objectForKeyNotNull:@"content"];
             content.rank = [m objectForKeyNotNull:@"rank"];
+            
         }
     } else {
         NSLog(@"Update messages error: %@", [requestError description]);
@@ -525,10 +532,10 @@ static NSMutableSet *webRequests;
 }
 
 +(CSCategory*)parseCSCategoryFromWebDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat withContext:(NSManagedObjectContext*)context {
-    CSCategory *category = [CSCategory MR_findFirstByAttribute:@"identifier" withValue:[cc objectForKeyNotNull:@"id"] inContext:context];
-    if (!category) {
-        category = [CSCategory MR_createInContext:context];
-    }
+    //CSCategory *category = [CSCategory MR_findFirstByAttribute:@"identifier" withValue:[cc objectForKeyNotNull:@"id"] inContext:context];
+    //if (!category) {
+        CSCategory *category = [CSCategory MR_createInContext:context];
+    //}
     category.identifier = [cc objectForKeyNotNull:@"id"];
     category.type = @"category";
     category.title = [cc objectForKeyNotNull:@"title"];
@@ -572,6 +579,9 @@ static NSMutableSet *webRequests;
         User *user = [User MR_findFirst];
         user.disclaimerMessage = responseString;
         
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+
+        
         //NSLog(@"disclaimer: %@", user.disclaimerMessage);
         
     } else {
@@ -599,17 +609,13 @@ static NSMutableSet *webRequests;
         User *user = [User MR_findFirst];
         user.psychologyMessage = responseString;
         
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+        
         //NSLog(@"psychology: %@", user.psychologyMessage);
         
     } else {
         NSLog(@"Update psychology error: %@", [requestError description]);
     }
-}
-
-#pragma mark - NSURLConnectionDataDelegate methods
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"connection url = %@", connection.originalRequest.URL.lastPathComponent);
 }
 
 @end

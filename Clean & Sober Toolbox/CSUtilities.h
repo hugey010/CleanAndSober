@@ -17,7 +17,7 @@
 /**
  * Static class - don't instantiate it, jerk.
  */
-@interface CSUtilities : NSObject <NSURLConnectionDataDelegate>
+@interface CSUtilities : NSObject
 
 //+(void)parseJSONDictionaryIntoDatabase:(NSDictionary*)json;
 //+(void)checkAndLoadInitialJSONFileIntoDatabase;
