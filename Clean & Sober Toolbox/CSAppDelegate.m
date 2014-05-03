@@ -122,6 +122,7 @@
     [[ADBannerView appearance] setBackgroundColor:[UIColor clearColor]];
     
     [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor blackColor]];
+    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setFont:[UIFont fontWithName:@"Helvetica" size:15]];
     
     [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setFont:[UIFont fontWithName:@"Helvetica" size:15]];
 }

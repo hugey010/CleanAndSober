@@ -41,7 +41,7 @@
 
 // fonts
 #define FONT_LABELS [UIFont fontWithName:@"Helvetica" size:17]
-#define FONT_IPAD_LABELS [UIFont fontWithName:@"Helvetica" size:22]
+#define FONT_IPAD_LABELS [UIFont fontWithName:@"Helvetica" size:19]
 
 // webview scaling html meta tag
 #define kScaleMeta @"<meta name='viewport' content='initial-scale=1.0,maximum-scale=10.0'/>"
