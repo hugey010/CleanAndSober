@@ -69,7 +69,9 @@
 }
 
 - (void)sendToDonate {
-    UIViewController *donateVC = [self.storyboard instantiateViewControllerWithIdentifier:@"donate"];
+    // had to remove paypal donate, I left in the project because I just don't care. Still in storyboard too.
+    //UIViewController *donateVC = [self.storyboard instantiateViewControllerWithIdentifier:@"donate"];
+    UIViewController *donateVC = [self.storyboard instantiateViewControllerWithIdentifier:@"donate_stupid"];
     [self specializedPush:donateVC];
 }
 

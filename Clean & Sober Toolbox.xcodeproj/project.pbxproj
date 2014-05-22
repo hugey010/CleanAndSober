@@ -64,6 +64,7 @@
 		1EF1FD6018F46767003DA04C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */; };
 		1EF1FD6118F46771003DA04C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809918E7A5D600A93FBB /* MessageUI.framework */; };
 		1EF1FD6218F46778003DA04C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */; };
+		1EF8DF15192D982900ADC204 /* CSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8DF14192D982900ADC204 /* CSWebViewController.m */; };
 		DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +159,8 @@
 		1EF1FD4718F33753003DA04C /* coin60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin60.png; sourceTree = "<group>"; };
 		1EF1FD4818F33753003DA04C /* coin30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin30.png; sourceTree = "<group>"; };
 		1EF1FD4918F33753003DA04C /* coin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin7.png; sourceTree = "<group>"; };
+		1EF8DF13192D982900ADC204 /* CSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWebViewController.h; sourceTree = "<group>"; };
+		1EF8DF14192D982900ADC204 /* CSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWebViewController.m; sourceTree = "<group>"; };
 		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -386,6 +389,8 @@
 				1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */,
 				1EF1FD3F18F31AF1003DA04C /* CSRewardsViewController.h */,
 				1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */,
+				1EF8DF13192D982900ADC204 /* CSWebViewController.h */,
+				1EF8DF14192D982900ADC204 /* CSWebViewController.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				1ECF7D971914115900D70F68 /* CSCategory.m in Sources */,
 				1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */,
 				1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */,
+				1EF8DF15192D982900ADC204 /* CSWebViewController.m in Sources */,
 				1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */,
 				1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */,
 				1ECF7D941914115900D70F68 /* User.m in Sources */,
