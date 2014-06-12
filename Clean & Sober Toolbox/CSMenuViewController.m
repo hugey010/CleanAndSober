@@ -35,7 +35,7 @@
 
     self.notificationsDateField.inputView = self.datePicker;
     self.notificationsDateField.inputAccessoryView = self.toolbar;
-    if (user.dailyNotificationDate) {
+    if ([user.dailyNotificationDate compare:[NSDate dateWithTimeIntervalSince1970:0]] != NSOrderedSame) {
         self.notificationsDateField.text = [df stringFromDate:user.dailyNotificationDate];
         [self.notificationsSwitch setOn:YES];
     } else {
@@ -57,8 +57,11 @@
 
 -(void)dateChanged:(UIDatePicker*)dp {
     User *user = [User MR_findFirst];
+    [self.notificationsSwitch setOn:YES animated:YES];
     user.dailyNotificationDate = dp.date;
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    [CSUtilities scheduleDailyMessageNotification:YES];
 
     self.notificationsDateField.text = [df stringFromDate:dp.date];
 }
@@ -125,7 +128,7 @@
 #pragma mark - UITableView methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 5;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,23 +140,25 @@
             cell.textLabel.text = @"About";
             break;
         }
+        /*
         case 1 : {
             cell.textLabel.text = @"Donate";
             break;
         }
-        case 2 : {
+         */
+        case 1 : {
             cell.textLabel.text = @"Disclaimer";
             break;
         }
-        case 3 : {
+        case 2 : {
             cell.textLabel.text = @"Rewards";
             break;
         }
-        case 4 : {
+        case 3 : {
             cell.textLabel.text = @"Home";
             break;
         }
-        case 5 : {
+        case 4 : {
             cell.textLabel.text = @"Random Message";
             break;
         }
@@ -168,23 +173,25 @@
             [self sendToPsychology];
             break;
         }
+        /*
         case 1 : {
             [self sendToDonate];
             break;
         }
-        case 2 : {
+        */
+        case 1 : {
             [self sendToDisclaimer];
             break;
         }
-        case 3 : {
+        case 2 : {
             [self sendToRewards];
             break;
         }
-        case 4 : {
+        case 3 : {
             [self sendHome];
             break;
         }
-        case 5 : {
+        case 4 : {
             [self sendToRandomMessage];
             break;
         }
