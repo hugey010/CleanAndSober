@@ -112,7 +112,7 @@
 		1E563F5A18FACFF2009644E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1E563F5B18FACFF2009644E5 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		1E563F5C18FACFF2009644E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1E58AF8A18A540A300E28EAA /* Sober Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sober Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E58AF8A18A540A300E28EAA /* Sobertool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sobertool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E58AF8D18A540A300E28EAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1E58AF9118A540A300E28EAA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -281,7 +281,7 @@
 		1E58AF8B18A540A300E28EAA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E58AF8A18A540A300E28EAA /* Sober Tool.app */,
+				1E58AF8A18A540A300E28EAA /* Sobertool.app */,
 				1E58AFAE18A540A300E28EAA /* Clean & Sober ToolboxTests.xctest */,
 			);
 			name = Products;
@@ -431,7 +431,7 @@
 			);
 			name = "Sober Tool";
 			productName = "Clean & Sober Toolbox";
-			productReference = 1E58AF8A18A540A300E28EAA /* Sober Tool.app */;
+			productReference = 1E58AF8A18A540A300E28EAA /* Sobertool.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1E58AFAD18A540A300E28EAA /* Clean & Sober ToolboxTests */ = {
@@ -746,7 +746,7 @@
 					SystemConfiguration,
 					"-lc++",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Sobertool;
 				PROVISIONING_PROFILE = "7C62B748-AC0F-45F8-933A-E086FF5FF1E6";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -792,7 +792,7 @@
 					SystemConfiguration,
 					"-lc++",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Sobertool;
 				PROVISIONING_PROFILE = "91C61B40-6F1D-4754-B527-7B70BD4BCD69";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
