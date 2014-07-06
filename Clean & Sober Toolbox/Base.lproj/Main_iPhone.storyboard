@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CvM-4C-cpN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CvM-4C-cpN">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -96,11 +96,11 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="category_cell" rowHeight="61" id="FVS-Kd-Eop">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="category_cell" rowHeight="61" id="FVS-Kd-Eop">
                                         <rect key="frame" x="0.0" y="66" width="320" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FVS-Kd-Eop" id="bdz-Er-nTB">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="277" translatesAutoresizingMaskIntoConstraints="NO" id="kKn-Yw-xkz">
@@ -110,10 +110,23 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=">" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gb-bs-3Pb">
+                                                    <rect key="frame" x="299" y="7" width="22" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="EAO-uZ-sop"/>
+                                                        <constraint firstAttribute="height" constant="40" id="QFh-fz-d8W"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="30"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="kKn-Yw-xkz" secondAttribute="trailing" id="4UF-xs-snl"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Gb-bs-3Pb" secondAttribute="trailing" constant="-1" id="29s-VG-iGg"/>
                                                 <constraint firstAttribute="bottom" secondItem="kKn-Yw-xkz" secondAttribute="bottom" constant="4" id="BPR-99-MEp"/>
+                                                <constraint firstItem="9Gb-bs-3Pb" firstAttribute="top" secondItem="bdz-Er-nTB" secondAttribute="top" constant="7" id="Ef3-Sy-Bo5"/>
+                                                <constraint firstItem="9Gb-bs-3Pb" firstAttribute="leading" secondItem="kKn-Yw-xkz" secondAttribute="trailing" constant="12" id="huY-A6-BLS"/>
                                                 <constraint firstItem="kKn-Yw-xkz" firstAttribute="leading" secondItem="bdz-Er-nTB" secondAttribute="leading" constant="10" id="oLW-de-0kc"/>
                                                 <constraint firstItem="kKn-Yw-xkz" firstAttribute="top" secondItem="bdz-Er-nTB" secondAttribute="top" constant="4" id="s5c-Y1-OZ1"/>
                                             </constraints>

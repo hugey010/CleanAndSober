@@ -39,14 +39,10 @@
 
     [self.tableView reloadData];
     
-    /*
-    if ([self firstLoad]) {
-        [self helpButtonPressed:self.helpButton];
-    }
-    */
-    
     self.searchView.backgroundColor = [UIColor clearColor];
     self.adBackgroundView.backgroundColor = kCOLOR_VIEWS_2;
+    
+    
 }
 
 -(void)updatedData {
