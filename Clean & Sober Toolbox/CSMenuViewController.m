@@ -215,9 +215,8 @@
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
     UINavigationController *nav = (UINavigationController*)self.slidingViewController.topViewController;
-    CSCategoryListController *listvc = (CSCategoryListController*)nav.viewControllers[0];
-    
-    [listvc loadPreviousContent];
+    [nav popToRootViewControllerAnimated:NO];
+    [self.slidingViewController resetTopView];
 }
 
 @end

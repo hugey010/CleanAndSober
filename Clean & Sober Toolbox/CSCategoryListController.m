@@ -117,10 +117,7 @@
     [self.popover presentPopoverFromView:sender];
 }
 
--(void)searchAllContent:(NSString*)search {
-    
-    [self.navigationController popToRootViewControllerAnimated:NO];
-    
+-(void)loadSearch:(NSString*)search {
     NSArray *array = [search componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
     
@@ -135,6 +132,15 @@
     
     categories = nil;
     [self.tableView reloadData];
+}
+
+-(void)searchAllContent:(NSString*)search {
+    
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    
+    CSCategoryListController *listVC = [self.storyboard instantiateViewControllerWithIdentifier:@"category_list"];
+    [self.navigationController pushViewController:listVC animated:YES];
+    [listVC loadSearch:search];
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
