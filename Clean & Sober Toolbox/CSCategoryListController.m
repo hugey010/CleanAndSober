@@ -41,8 +41,6 @@
     
     self.searchView.backgroundColor = [UIColor clearColor];
     self.adBackgroundView.backgroundColor = kCOLOR_VIEWS_2;
-    
-    
 }
 
 -(void)updatedData {
@@ -67,6 +65,10 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"in_category = nil"];
     categories = [[CSCategory MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
     contents = nil;
+    
+    if (categories.count < 1) {
+        [CSUtilities forceUpdateEverything];
+    }
     
     [self.tableView reloadData];
 }
