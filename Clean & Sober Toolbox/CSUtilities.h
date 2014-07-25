@@ -35,5 +35,6 @@
  * This method is synchronous, so call it off the main thread.
  */
 +(void)checkVersionAndDownload;
++(void)forceUpdateEverything;
 
 @end

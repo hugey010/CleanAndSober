@@ -13,6 +13,8 @@
 
 #define kUrlBase @"http://www.sobertool.com/"
 
+#define TRUE_PREDICATE [NSPredicate predicateWithFormat:@"TRUEPREDICATE"]
+
 // colors
 #define kCOLOR_RED [UIColor colorWithRed:178.0/255.0 green:34.0/255.0 blue:34.0/255.0 alpha:1.0]
 #define kCOLOR_GREY [UIColor colorWithRed:238.0/255.0 green:233.0/255.0 blue:233.0/255.0 alpha:1.0]

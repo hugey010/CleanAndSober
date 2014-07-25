@@ -383,9 +383,6 @@ static NSMutableSet *webRequests;
 
 +(void)checkVersionAndDownload {
     
-    //if ([CSUtilities hasLoadedJson]) {
-    //    return;
-    //}
     
     // check version
     NSNumber *version = [NSNumber numberWithInteger:[CSUtilities lastVersion]];
@@ -408,45 +405,45 @@ static NSMutableSet *webRequests;
     NSLog(@"Version Check. Local: %@, Server: %@.", version, result);
     
     if ([result integerValue] != [version integerValue]) {
-        
+        [CSUtilities forceUpdateEverything];
         [CSUtilities setLastVersion:[result integerValue]];
-
-        
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
-        
-        // update everything
-        [CSUtilities updateHelp];
-        [CSUtilities updateDisclaimer];
-        [CSUtilities updatePsychology];
-        
-        [CSUtilities updateMessages:context];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
-            
-            [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-        });
-        
-        [CSUtilities updateStructure:context];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [CSCategory MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
-        });
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [NSManagedObjectContext MR_setDefaultContext:context];
-            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-            
-            [CSUtilities resetRandomContent];
-
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
-            
-            [SVProgressHUD dismiss];
-
-        });
     }
+}
+
++(void)forceUpdateEverything {
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
+        
+        [CSContent MR_truncateAllInContext:[NSManagedObjectContext MR_defaultContext]];
+    });
+    
+    [CSContent MR_deleteAllMatchingPredicate:TRUE_PREDICATE];
+    [CSCategory MR_deleteAllMatchingPredicate:TRUE_PREDICATE];
+    
+    // update everything
+    [CSUtilities updateHelp];
+    [CSUtilities updateDisclaimer];
+    [CSUtilities updatePsychology];
+    
+    [CSUtilities updateMessages:context];
+    
+    
+    
+    [CSUtilities updateStructure:context];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [NSManagedObjectContext MR_setDefaultContext:context];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        
+        [CSUtilities resetRandomContent];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+        
+        [SVProgressHUD dismiss];
+    });
 }
 
 +(void)updateHelp {
@@ -496,6 +493,7 @@ static NSMutableSet *webRequests;
         requestError = nil;
         NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         for (NSDictionary *m in result) {
+            
             CSContent *content = [CSContent MR_createInContext:context];
             content.identifier = [m objectForKeyNotNull:@"id"];
             content.title = [m objectForKeyNotNull:@"title"];
