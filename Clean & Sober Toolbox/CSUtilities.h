@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 
 #define kUpdatedDataNotification @"updated_data_notification"
+#define kDownloadingDataNotification @"kDownloadingDataNotification"
 
 @class CSContent;
 
@@ -20,7 +21,7 @@
 @interface CSUtilities : NSObject
 
 //+(void)parseJSONDictionaryIntoDatabase:(NSDictionary*)json;
-//+(void)checkAndLoadInitialJSONFileIntoDatabase;
++(void)checkAndLoadInitialJSONFileIntoDatabase;
 +(void)loadFromPremadeDatabase;
 
 +(void)updateUser;

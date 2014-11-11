@@ -23,7 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
     
     // you could technically use this if you had a json file with the proper format.
     // which you probably dont. so yeah.
@@ -40,16 +40,10 @@
 
     
     [self resetFirstView];
-
-    
     [self style];
     
     UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     [self checkNotification:notification application:application];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
-        [CSUtilities checkVersionAndDownload];
-    });
 
     return YES;
 }
@@ -61,7 +55,7 @@
     self.slidingVC = (ECSlidingViewController*)self.window.rootViewController;
     UINavigationController *categoryNav = [sb instantiateViewControllerWithIdentifier:@"category_nav"];
     self.initialCatList = categoryNav.viewControllers[0];
-    [self.initialCatList loadInitialContent];
+    //[self.initialCatList loadInitialContent];
     
     categoryNav.view.layer.shadowOpacity = 0.75;
     categoryNav.view.layer.shadowRadius = 10.0f;
@@ -78,19 +72,33 @@
 }
 
 -(void)updatedData {
+    
+    /*
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resetFirstView];
+    });
+     */
+    /*
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.slidingVC resetTopViewWithAnimations:nil onComplete:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self resetFirstView];
+            });
+        }];
+    });
+     */
+
+     
+        /*
     dispatch_async(dispatch_get_main_queue(), ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.slidingVC resetTopViewWithAnimations:nil onComplete:^{
                 [self resetFirstView];
-
-                /*
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update Acquired" message:@"Content has updated. Enjoy." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                [alert show];
-                 */
             }];
 
         });
     });
+*/
 }
 
 -(void)style {
@@ -162,10 +170,13 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
     [CSUtilities updateUser];
+    /*
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
         [CSUtilities checkVersionAndDownload];
     });
+     */
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

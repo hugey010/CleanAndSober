@@ -2,10 +2,10 @@ PODS:
   - ECSlidingViewController (1.3.3)
   - FPPopover (1.4.1)
   - MagicalRecord (2.2):
-    - MagicalRecord/Core
+    - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - SVProgressHUD (1.0)
-  - TPKeyboardAvoiding (1.2.3)
+  - TPKeyboardAvoiding (1.2.4)
 
 DEPENDENCIES:
   - ECSlidingViewController (~> 1.3)
@@ -15,10 +15,10 @@ DEPENDENCIES:
   - TPKeyboardAvoiding (~> 1.2.3)
 
 SPEC CHECKSUMS:
-  ECSlidingViewController: 3ca3141b843b5425b57c054db09d7dfd04a7ff85
-  FPPopover: 81920e1aef905c329c62bc48fb5a088d17c6bc7d
-  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
-  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
-  TPKeyboardAvoiding: 17995aaa6db26ac2a9fa8714a86509c5888f0392
+  ECSlidingViewController: d69dbb4b70571310672f1ef508a8c8b7c26147c2
+  FPPopover: bbfc452ec8949a2c2f555cf2d8c7236e621811f0
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
+  TPKeyboardAvoiding: 925e1e1912597d1a4956697eec3bd9656552153c
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.35.0.rc1

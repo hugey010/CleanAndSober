@@ -13,6 +13,7 @@
 #import "CSContentViewController.h"
 #import "User.h"
 #import "CSUtilities.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #define kFirstHelpLoad @"first_help_load"
 
@@ -25,27 +26,69 @@
 }
 
 @end
-
 @implementation CSCategoryListController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
+
+    
+    /*
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
+        [self loadInitialContent];
+    });
+     */
+    
+
     
     containsContent = NO;
     self.navigationItem.title = kAppTitle;
-
-    [self.tableView reloadData];
     
     self.searchView.backgroundColor = [UIColor clearColor];
     self.adBackgroundView.backgroundColor = kCOLOR_VIEWS_2;
 }
 
--(void)updatedData {
-    [self.popover dismissPopoverAnimated:NO];
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadingData) name:kDownloadingDataNotification object:nil];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+            [CSUtilities checkVersionAndDownload];
+        });
+    });
 }
+
+-(void)updatedData {
+    __weak CSCategoryListController *weakself = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        //[weakself.slidingViewController resetTopView];
+        [weakself.navigationController popToRootViewControllerAnimated:YES];
+        [weakself loadInitialContent];
+        [SVProgressHUD dismiss];
+        [weakself.popover dismissPopoverAnimated:NO];
+    });
+}
+
+-(void)downloadingData {
+    /*
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
+        [self loadInitialContent];
+    });
+    */
+}
+
 
 /*
 -(BOOL)firstLoad {
@@ -66,16 +109,15 @@
     categories = [[CSCategory MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate inContext:context] mutableCopy];
     contents = nil;
     
-    if (categories.count < 1) {
-        [CSUtilities forceUpdateEverything];
-    }
-    
     [self.tableView reloadData];
+    
+    [SVProgressHUD dismiss];
 }
 
 -(void)loadListAt:(CSCategory*)cat {
     
     self.navigationItem.title = cat.title;
+
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY in_category.identifier = %d", [cat.identifier integerValue]];
     categories = [CSCategory MR_findAllSortedBy:@"rank" ascending:NO withPredicate:predicate];
