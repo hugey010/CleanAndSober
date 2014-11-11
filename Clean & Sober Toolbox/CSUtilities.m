@@ -49,139 +49,52 @@ static NSMutableSet *webRequests;
     [def synchronize];
 }
 
-/*
-+(void)checkAndLoadInitialJSONFileIntoDatabase {
-    [MagicalRecord setupAutoMigratingCoreDataStack];
-
-    if (!CSUtilities.hasLoadedJson) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"newest_cleaned_data" ofType:@"json"];
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        NSError *error = nil;
-        id result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        if (error) {
-            NSLog(@"error loading json from file = %@", [error description]);
-        }
-                
-        [CSUtilities parseJSONDictionaryIntoDatabase:result];
-        [CSUtilities setHasLoadedJson:YES];
-    }
++(void)loadOfflineContent {
+    [CSUtilities resetLoad];
+    
+    // help
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"help" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *help = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    [CSUtilities parseHelp:help];
+    
+    // disclaimer
+    filePath = [[NSBundle mainBundle] pathForResource:@"disclaimer" ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSString *disclaimer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    [CSUtilities parseDisclaimer:disclaimer];
+    
+    // about
+    filePath = [[NSBundle mainBundle] pathForResource:@"about" ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSString *psych = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    [CSUtilities parsePsychology:psych];
+    
+    // messages
+    filePath = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *messages = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+    [CSUtilities parseMessages:messages inContext:context];
+    
+    filePath = [[NSBundle mainBundle] pathForResource:@"categories" ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *structure = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    [CSUtilities parseStructure:structure inContext:context];
 }
 
-+(void)parseJSONDictionaryIntoDatabase:(NSDictionary *)json {
-    // TODO: delete old database entries
-    
-    for (NSDictionary *message in json[@"messages"]) {
-        CSContent *content = [CSContent MR_createEntity];
-        content.identifier = message[@"identifier"];
-        content.message = message[@"message"];
-        content.todo = message[@"todo"];
-        content.title = message[@"title"];
-        content.type = @"content";
-    }
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    
-    for (NSDictionary *topLevel in json[@"structure"][@"list"]) {
-       
-        [CSUtilities parseCSCategoryFromDictionaryIntoDatabase:topLevel inCategory:nil];
-    }
-    
-    // save
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    
-    // TODO: post notification data has updated?
-}
-
-+(CSCategory*)parseCSCategoryFromDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat {
-    CSCategory *category = [CSCategory MR_createEntity];
-    category.identifier = cc[@"identifier"];
-    category.type = cc[@"type"];
-    category.title = cc[@"title"];
-    category.in_category = incat;
-    
-    for (NSDictionary *subcat in cc[@"list"]) {
-        if ([subcat[@"type"] isEqualToString:kCSContentType]) {
-            // fetch content with id and link relationship
-            CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:subcat[@"identifier"]];
-            [content addIn_categoryObject:category];
-            NSMutableOrderedSet *oset = [category.has_contents mutableCopy];
-            [oset addObject:content];
-            category.has_contents = oset;
-            
-        } else if ([subcat[@"type"] isEqualToString:kCSCategoryType]) {
-            NSMutableOrderedSet *oset = [category.has_categories mutableCopy];
-            [oset addObject:[CSUtilities parseCSCategoryFromDictionaryIntoDatabase:subcat inCategory:category]];
-            category.has_categories = oset;
-        }
-    }
-    
-    return category;
-}
-*/
 
 +(void)loadFromPremadeDatabase {
-    /*
-    // Get the default store path, then add the name that MR uses for the store
-    NSURL *defaultStorePath = [NSPersistentStore MR_defaultLocalStoreUrl];
-    defaultStorePath = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:[MagicalRecord defaultStoreName]];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    BOOL firstLaunch = NO;
-    
-    if (![fileManager fileExistsAtPath:[defaultStorePath path]] && [[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite"]) {
-        
-        NSURL *seedPath = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite"]];
-
-
-        NSLog(@"Core data store does not yet exist at: %@. Attempting to copy from seed db %@.", [defaultStorePath path], [seedPath path]);
-        
-        // We must create the path first, or the copy will fail
-        [self createPathToStoreFileIfNeccessary:defaultStorePath];
-     
-        
-        NSError* err = nil;
-        if (![fileManager copyItemAtURL:seedPath toURL:defaultStorePath error:&err]) {
-            NSLog(@"Could not copy seed data 0. error: %@", err);
-        }
-        
-        NSURL *seedPath1 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite-wal"]];
-        NSURL *destPathWAL = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Sober Tool.sqlite-wal"];
-        err = nil;
-        if (![fileManager copyItemAtURL:seedPath1 toURL:destPathWAL error:&err]) {
-            NSLog(@"Could not copy seed data 1. error: %@", err);
-        }
-        
-        NSURL *seedPath2 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Sober Tool" ofType:@"sqlite-shm"]];
-        NSURL *destPathSHM = [[defaultStorePath URLByDeletingLastPathComponent] URLByAppendingPathComponent:@"Sober Tool.sqlite-shm"];
-        err = nil;
-        if (![fileManager copyItemAtURL:seedPath2 toURL:destPathSHM error:&err]) {
-            NSLog(@"Could not copy seed data 2. error: %@", err);
-        }
-        err = nil;
-        
-        firstLaunch = YES;
+    if (![CSUtilities hasLoadedJson]) {
+        NSURL *defaultStore = [NSPersistentStore MR_defaultLocalStoreUrl];
+        [[NSFileManager defaultManager] removeItemAtURL:defaultStore error:nil];
     }
-     */
     
-    
-    NSURL *defaultStore = [NSPersistentStore MR_defaultLocalStoreUrl];
-    [[NSFileManager defaultManager] removeItemAtURL:defaultStore error:nil];
-    
-    //[MagicalRecord setupCoreDataStackWithStoreNamed:@"FixedStore1"];
     
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    
     
     [CSUtilities updateUser];
     
-    
-    
-    
-    
-    /*
-    if (firstLaunch) {
-        [User MR_truncateAll];
-    }
-     */
 }
 
 // This method is copied from one of MR's categories
@@ -327,35 +240,6 @@ static NSMutableSet *webRequests;
         notif.userInfo = @{kDailyMessageNotificationKey : @1};
         [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     }
-    
-    /*
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    NSData *notifData = [def objectForKey:kDailyMessageDefaultsKey];
-    UILocalNotification *notif = [NSKeyedUnarchiver unarchiveObjectWithData:notifData];
-    // check if the date is in the future. if
-    if (!on || !user.dailyNotificationDate) {
-        user.dailyNotificationDate = nil;
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-        return;
-    }
-    if ([notif.fireDate timeIntervalSince1970] >= [[NSDate date] timeIntervalSince1970]) {
-        return;
-    }
-    
-    // cancel previous repeating notification
-    if (notif) {
-     */
-
-    //}
-    
-    // make sure to update date for scheduled notification in future. increment by 1 day
-
-    
-    //NSData *notifData = [NSKeyedArchiver archivedDataWithRootObject:notif];
-    
-    //NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    //[def setObject:notifData forKey:kDailyMessageDefaultsKey];
-    //[def synchronize];
 }
 
 +(void)resetRandomContent {
@@ -429,57 +313,33 @@ static NSMutableSet *webRequests;
         });
     } else {
         [CSUtilities forceUpdateEverything];
-        //[[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
     }
 }
 
 +(void)forceUpdateEverything {
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDownloadingDataNotification object:nil];
-    
-    [CSUtilities resetLoad];
-    
-    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
-    //NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
-    
-    //NSLog(@"default context = %@", [NSManagedObjectContext MR_defaultContext]);
-    
-    //if (context == [NSManagedObjectContext MR_defaultContext]) {
-    //    NSLog(@"foooo");
-    //}
-    
-    
-    
-    
-    //dispatch_async(dispatch_get_main_queue(), ^{
-    
-    //});
-    //
-    [CSContent MR_truncateAllInContext:context];
-    [CSCategory MR_truncateAllInContext:context];
-    
-    [CSContent MR_deleteAllMatchingPredicate:TRUE_PREDICATE];
-    [CSCategory MR_deleteAllMatchingPredicate:TRUE_PREDICATE];
-    
-    // update everything
-    [CSUtilities updateHelp];
-    [CSUtilities updateDisclaimer];
-    [CSUtilities updatePsychology];
-    
-    [CSUtilities updateMessages:context];
-    
-    //dispatch_async(dispatch_get_main_queue(), ^{
+    if ([CSUtilities isNetworkAvailable]) {
         
-        //[NSManagedObjectContext MR_setDefaultContext:context];
-        //[context MR_saveToPersistentStoreAndWait];
+        [CSUtilities resetLoad];
         
-        //[CSUtilities resetRandomContent];
-        
-        //[[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
-        
-        //[SVProgressHUD dismiss];
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
 
-    //});
+        [CSContent MR_truncateAllInContext:context];
+        [CSCategory MR_truncateAllInContext:context];
+        
+        [CSContent MR_deleteAllMatchingPredicate:TRUE_PREDICATE];
+        [CSCategory MR_deleteAllMatchingPredicate:TRUE_PREDICATE];
+        
+        // update everything
+        [CSUtilities updateHelp];
+        [CSUtilities updateDisclaimer];
+        [CSUtilities updatePsychology];
+        
+        [CSUtilities updateMessages:context];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+
+    }
 }
 
 +(void)updateHelp {
@@ -496,20 +356,11 @@ static NSMutableSet *webRequests;
         requestError = nil;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         
-        User *user = [User MR_findFirst];
-        user.helpMessageOne = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help1"]];
-        user.helpMessageTwo = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help2"]];
-        user.helpMessage3 = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help3"]];
-         
-        
-
-        
+        [CSUtilities parseHelp:result];
         //NSLog(@"help 1: %@", user.helpMessageOne);
         //NSLog(@"help 2: %@", user.helpMessageTwo);
         //NSLog(@"help 3: %@", user.helpMessage3);
         
-        helpUpdated = YES;
-        [CSUtilities notifiyIfDoneLoading];
 
     } else {
         NSLog(@"Update help error: %@", [requestError description]);
@@ -518,6 +369,15 @@ static NSMutableSet *webRequests;
         [CSUtilities notifiyIfDoneLoading];
     }
 
+}
+
++(void)parseHelp:(NSDictionary*)result {
+    User *user = [User MR_findFirst];
+    user.helpMessageOne = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help1"]];
+    user.helpMessageTwo = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help2"]];
+    user.helpMessage3 = [NSString stringWithFormat:@"%@", [result objectForKeyNotNull:@"help3"]];
+    helpUpdated = YES;
+    [CSUtilities notifiyIfDoneLoading];
 }
 
 +(void)updateMessages:(NSManagedObjectContext*)context {
@@ -534,23 +394,7 @@ static NSMutableSet *webRequests;
         requestError = nil;
         NSArray *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
         
-        for (NSDictionary *m in result) {
-            CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:[m objectForKeyNotNull:@"id"] inContext:context];
-            if (!content) {
-                content = [CSContent MR_createInContext:context];
-            }
-            content.identifier = [m objectForKeyNotNull:@"id"];
-            content.title = [m objectForKeyNotNull:@"title"];
-            content.todo = [m objectForKeyNotNull:@"todo"];
-            content.message = [m objectForKeyNotNull:@"content"];
-            content.rank = [m objectForKeyNotNull:@"rank"];
-            
-        }
-        
-        messagesUpdated = YES;
-        [CSUtilities notifiyIfDoneLoading];
-        
-        
+        [CSUtilities parseMessages:result inContext:context];
         [CSUtilities updateStructure:context];
         
     } else {
@@ -559,6 +403,23 @@ static NSMutableSet *webRequests;
         messagesUpdated = YES;
         [CSUtilities notifiyIfDoneLoading];
     }
+}
+
++(void)parseMessages:(NSArray*)result inContext:(NSManagedObjectContext*)context {
+    for (NSDictionary *m in result) {
+        CSContent *content = [CSContent MR_findFirstByAttribute:@"identifier" withValue:[m objectForKeyNotNull:@"id"] inContext:context];
+        if (!content) {
+            content = [CSContent MR_createInContext:context];
+        }
+        content.identifier = [m objectForKeyNotNull:@"id"];
+        content.title = [m objectForKeyNotNull:@"title"];
+        content.todo = [m objectForKeyNotNull:@"todo"];
+        content.message = [m objectForKeyNotNull:@"content"];
+        content.rank = [m objectForKeyNotNull:@"rank"];
+    }
+    
+    messagesUpdated = YES;
+    [CSUtilities notifiyIfDoneLoading];
 }
 
 +(void)updateStructure:(NSManagedObjectContext*)context {
@@ -574,19 +435,23 @@ static NSMutableSet *webRequests;
     if (!requestError) {
         requestError = nil;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&requestError];
-        NSLog(@"categories result = %@", result);
-        NSArray *toplevel = result[@"subcategories"];
-        for (NSDictionary *c in toplevel) {
-            [CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:c inCategory:nil withContext:context];
-        }
-        structureUpdated = YES;
-        [CSUtilities notifiyIfDoneLoading];
+
+        [CSUtilities parseStructure:result inContext:context];
 
     } else {
         NSLog(@"Update structure error: %@", [requestError description]);
         structureUpdated = YES;
         [CSUtilities notifiyIfDoneLoading];
     }
+}
+
++(void)parseStructure:(NSDictionary*)result inContext:(NSManagedObjectContext*)context {
+    NSArray *toplevel = result[@"subcategories"];
+    for (NSDictionary *c in toplevel) {
+        [CSUtilities parseCSCategoryFromWebDictionaryIntoDatabase:c inCategory:nil withContext:context];
+    }
+    structureUpdated = YES;
+    [CSUtilities notifiyIfDoneLoading];
 }
 
 +(CSCategory*)parseCSCategoryFromWebDictionaryIntoDatabase:(NSDictionary*)cc inCategory:(CSCategory*)incat withContext:(NSManagedObjectContext*)context {
@@ -628,11 +493,7 @@ static NSMutableSet *webRequests;
     if (!requestError) {
         NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         
-        User *user = [User MR_findFirst];
-        user.disclaimerMessage = responseString;
-        
-        disclaimerUpdated = YES;
-        [CSUtilities notifiyIfDoneLoading];
+        [CSUtilities parseDisclaimer:responseString];
         
     } else {
         NSLog(@"Update disclaimer error: %@", [requestError description]);
@@ -640,7 +501,14 @@ static NSMutableSet *webRequests;
         disclaimerUpdated = YES;
         [CSUtilities notifiyIfDoneLoading];
     }
+}
+
++(void)parseDisclaimer:(NSString*)disclaimer {
+    User *user = [User MR_findFirst];
+    user.disclaimerMessage = disclaimer;
     
+    disclaimerUpdated = YES;
+    [CSUtilities notifiyIfDoneLoading];
 }
 
 +(void)updatePsychology {
@@ -659,18 +527,20 @@ static NSMutableSet *webRequests;
     
     if (!requestError) {
         NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        User *user = [User MR_findFirst];
-        user.psychologyMessage = responseString;
-        
-        //NSLog(@"psychology: %@", user.psychologyMessage);
-        psychologyUpdated = YES;
-        [CSUtilities notifiyIfDoneLoading];
+        [CSUtilities parsePsychology:responseString];
 
     } else {
         NSLog(@"Update psychology error: %@", [requestError description]);
         psychologyUpdated = YES;
         [CSUtilities notifiyIfDoneLoading];
     }
+}
+
++(void)parsePsychology:(NSString*)psychology {
+    User *user = [User MR_findFirst];
+    user.psychologyMessage = psychology;
+    psychologyUpdated = YES;
+    [CSUtilities notifiyIfDoneLoading];
 }
 
 // help, disclaimer, psychology, messages, structure
@@ -690,14 +560,30 @@ static BOOL structureUpdated = NO;
 
 +(void)notifiyIfDoneLoading {
     if (helpUpdated && disclaimerUpdated && psychologyUpdated && messagesUpdated && structureUpdated) {
-
         [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
-        
-        //[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
-        //}];
-        
-        //[MagicalRecord saveUsingCurrentThreadContextWithBlockAndWait:^(NSManagedObjectContext *localContext) {}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUpdatedDataNotification object:nil];
+    }
+}
+
++ (BOOL)isNetworkAvailable
+{
+    CFNetDiagnosticRef dReference;
+    dReference = CFNetDiagnosticCreateWithURL (NULL, (__bridge CFURLRef)[NSURL URLWithString:@"www.apple.com"]);
+    
+    CFNetDiagnosticStatus status;
+    status = CFNetDiagnosticCopyNetworkStatusPassively (dReference, NULL);
+    
+    CFRelease (dReference);
+    
+    if ( status == kCFNetDiagnosticConnectionUp )
+    {
+        NSLog (@"Connection is Available");
+        return YES;
+    }
+    else
+    {
+        NSLog (@"Connection is down");
+        return NO;
     }
 }
 

@@ -16,6 +16,7 @@
 #import "PayPalMobile.h"
 #import <iAd/iAd.h>
 #import "CSMenuViewController.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation CSAppDelegate
 
@@ -44,6 +45,10 @@
     
     UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     [self checkNotification:notification application:application];
+    
+//#ifndef DEBUG
+    [Crashlytics startWithAPIKey:@"5190a69964a302d074951c8b1c02508a74a9ead9"];
+//#endif
 
     return YES;
 }

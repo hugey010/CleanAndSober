@@ -11,7 +11,6 @@
 #import <Foundation/Foundation.h>
 
 #define kUpdatedDataNotification @"updated_data_notification"
-#define kDownloadingDataNotification @"kDownloadingDataNotification"
 
 @class CSContent;
 
@@ -29,6 +28,7 @@
 +(NSDate*)dateInFutureAfterDays:(int)days fromDate:(NSDate*)date;
 +(void)scheduleDailyMessageNotification:(BOOL)on;
 +(CSContent*)randomContent;
++(void)loadOfflineContent;
 
 /**
  * Checks version against current and downloads new data if necessary.

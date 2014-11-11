@@ -57,7 +57,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedData) name:kUpdatedDataNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadingData) name:kDownloadingDataNotification object:nil];
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -65,6 +64,10 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
             [CSUtilities checkVersionAndDownload];
         });
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * 60 * 24 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        onceToken = 0;
     });
 }
 
@@ -112,6 +115,12 @@
     [self.tableView reloadData];
     
     [SVProgressHUD dismiss];
+    
+    
+    if (categories.count == 0) {
+        [SVProgressHUD showWithStatus:@"Updating Content" maskType:SVProgressHUDMaskTypeGradient];
+        [CSUtilities loadOfflineContent];
+    }
 }
 
 -(void)loadListAt:(CSCategory*)cat {
