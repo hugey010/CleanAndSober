@@ -1,24 +1,43 @@
 PODS:
-  - ECSlidingViewController (1.3.3)
+  - CardIO (5.4.1)
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - ECSlidingViewController (2.0.3)
+  - Fabric (1.6.11)
   - FPPopover (1.4.1)
-  - MagicalRecord (2.2):
-    - MagicalRecord/Core (= 2.2)
-  - MagicalRecord/Core (2.2)
-  - SVProgressHUD (1.0)
-  - TPKeyboardAvoiding (1.2.4)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - PayPal-iOS-SDK (2.16.1):
+    - PayPal-iOS-SDK/CardIO (= 2.16.1)
+    - PayPal-iOS-SDK/Core (= 2.16.1)
+  - PayPal-iOS-SDK/CardIO (2.16.1):
+    - CardIO (~> 5.4.1)
+  - PayPal-iOS-SDK/Core (2.16.1)
+  - SVProgressHUD (2.0.3)
+  - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
-  - ECSlidingViewController (~> 1.3)
+  - Crashlytics
+  - ECSlidingViewController
+  - Fabric
   - FPPopover
   - MagicalRecord
+  - PayPal-iOS-SDK
   - SVProgressHUD
-  - TPKeyboardAvoiding (~> 1.2.3)
+  - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
-  ECSlidingViewController: d69dbb4b70571310672f1ef508a8c8b7c26147c2
-  FPPopover: bbfc452ec8949a2c2f555cf2d8c7236e621811f0
-  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
-  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
-  TPKeyboardAvoiding: 925e1e1912597d1a4956697eec3bd9656552153c
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  ECSlidingViewController: 6485c14f23b4487e9946535421ca8f111f86cc53
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FPPopover: aaf34a88cad4113867c5f1d0a4f9b2f1c06e2352
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  PayPal-iOS-SDK: 774ac7de2d7c3b0ee7e8a35f8b347fd07787321b
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-COCOAPODS: 0.35.0.rc1
+PODFILE CHECKSUM: 7544ea0ceb5892b99bf4ef9d1dced132966e3122
+
+COCOAPODS: 1.1.1

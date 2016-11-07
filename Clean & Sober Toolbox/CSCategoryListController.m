@@ -6,14 +6,16 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import MagicalRecord;
+@import ECSlidingViewController;
+@import SVProgressHUD;
+#import "Constants.h"
 #import "CSCategoryListController.h"
-#import <ECSlidingViewController/ECSlidingViewController.h>
 #import "CSCategory.h"
 #import "CSContent.h"
 #import "CSContentViewController.h"
 #import "User.h"
 #import "CSUtilities.h"
-#import <SVProgressHUD/SVProgressHUD.h>
 
 #define kFirstHelpLoad @"first_help_load"
 
@@ -197,11 +199,11 @@
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
-    [self.slidingViewController anchorTopViewTo:ECLeft];
+//    [self.slidingViewController anchorTopViewTo:ECLeft]; todo
 }
 
 -(void)navigateToContentWithId:(NSNumber*)identifier {
-    [self.slidingViewController resetTopView];
+//    [self.slidingViewController resetTopView]; todo
     
     [self.navigationController popToRootViewControllerAnimated:NO];
     CSContentViewController *contentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"content"];

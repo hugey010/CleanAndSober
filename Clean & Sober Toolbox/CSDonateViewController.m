@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import ECSlidingViewController;
+#import "Constants.h"
 #import "CSDonateViewController.h"
-#import <ECSlidingViewController/ECSlidingViewController.h>
 
 @interface CSDonateViewController ()
 
@@ -48,7 +49,8 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [self.slidingViewController anchorTopViewTo:ECLeft];
+    // TODO: fix this
+//    [self.slidingViewController anchorTopViewTo:ECLeft];
     [super viewWillDisappear:animated];
 }
 
@@ -81,7 +83,8 @@
                                                               configuration:self.payPalConfig
                                                               delegate:self];
         [self.navigationController presentViewController:paymentViewController animated:YES completion:nil];
-        [self.slidingViewController resetTopView];
+        // TODO: fix this
+//        [self.slidingViewController resetTopView];
     }
 }
 

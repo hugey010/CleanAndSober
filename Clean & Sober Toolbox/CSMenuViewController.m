@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import ECSlidingViewController;
+@import MagicalRecord;
+#import "Constants.h"
 #import "CSMenuViewController.h"
-#import <ECSlidingViewController/ECSlidingViewController.h>
 #import "User.h"
 #import "CSUtilities.h"
 #import "CSCategoryListController.h"
@@ -101,7 +103,8 @@
     [nav popToRootViewControllerAnimated:NO];
     CSCategoryListController *listvc = (CSCategoryListController*)nav.viewControllers[0];
     [listvc loadInitialContent];
-    [self.slidingViewController resetTopView];
+    // todo:
+//    [self.slidingViewController resetTopView];
 }
 
 -(void)sendtoPsychology {
@@ -110,7 +113,8 @@
 }
 
 -(void)specializedPush:(UIViewController*)viewController {
-    [self.slidingViewController resetTopView];
+    // todo
+//    [self.slidingViewController resetTopView];
     [(UINavigationController*)self.slidingViewController.topViewController pushViewController:viewController animated:YES];
 }
 
@@ -209,14 +213,16 @@
     UINavigationController *nav = (UINavigationController*)self.slidingViewController.topViewController;
     CSCategoryListController *listvc = (CSCategoryListController*)nav.viewControllers[0];
     [listvc searchAllContent:searchBar.text];
-    [self.slidingViewController resetTopView];
+    // todo
+//    [self.slidingViewController resetTopView];
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
     UINavigationController *nav = (UINavigationController*)self.slidingViewController.topViewController;
     [nav popToRootViewControllerAnimated:NO];
-    [self.slidingViewController resetTopView];
+    // todo
+//    [self.slidingViewController resetTopView];
 }
 
 @end

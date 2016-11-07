@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import MagicalRecord;
+@import SVProgressHUD;
+#import "Constants.h"
 #import "CSUtilities.h"
 #import "CSContent.h"
 #import "CSCategory.h"
 #import "User.h"
-#import <NSPersistentStore+MagicalRecord.h>
 #import "NSDictionary+NotNull.h"
-#import <NSManagedObjectContext+MagicalRecord.h>
-#import <SVProgressHUD/SVProgressHUD.h>
 
 #define kHasFirstLoadedDataKey @"has_loaded_static_json"
 #define kLastVersionKey @"last_version"

@@ -11,7 +11,6 @@
 		1E04D3AD18ADD15000BC81FC /* ContentModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3AB18ADD15000BC81FC /* ContentModel.xcdatamodeld */; };
 		1E04D3B218ADD65900BC81FC /* CSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */; };
 		1E04D3DC18ADECE400BC81FC /* CSContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E04D3DB18ADECE400BC81FC /* CSContentViewController.m */; };
-		1E272A1C18F5FDCC00D766B0 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E272A1618F5FDCC00D766B0 /* libPayPalMobile.a */; };
 		1E3377A918ADBCA80052DEAA /* CSCategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */; };
 		1E3F34C518FAEA0000CA61A8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AF9F18A540A300E28EAA /* Main_iPhone.storyboard */; };
 		1E3F34CF18FB400700CA61A8 /* appicon_crop_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3F34C818FB400700CA61A8 /* appicon_crop_57.png */; };
@@ -29,29 +28,21 @@
 		1E563F5D18FACFF2009644E5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5A18FACFF2009644E5 /* Default.png */; };
 		1E563F5E18FACFF2009644E5 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5B18FACFF2009644E5 /* Default~iphone.png */; };
 		1E563F5F18FACFF2009644E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E563F5C18FACFF2009644E5 /* Default-568h@2x.png */; };
-		1E58AF8E18A540A300E28EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8D18A540A300E28EAA /* Foundation.framework */; };
-		1E58AF9018A540A300E28EAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */; };
-		1E58AF9218A540A300E28EAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF9118A540A300E28EAA /* UIKit.framework */; };
 		1E58AF9818A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AF9618A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AF9A18A540A300E28EAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AF9918A540A300E28EAA /* main.m */; };
 		1E58AF9E18A540A300E28EAA /* CSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AF9D18A540A300E28EAA /* CSAppDelegate.m */; };
 		1E58AFA918A540A300E28EAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFA818A540A300E28EAA /* Images.xcassets */; };
-		1E58AFB018A540A300E28EAA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AFAF18A540A300E28EAA /* XCTest.framework */; };
-		1E58AFB118A540A300E28EAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF8D18A540A300E28EAA /* Foundation.framework */; };
-		1E58AFB218A540A300E28EAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58AF9118A540A300E28EAA /* UIKit.framework */; };
 		1E58AFBA18A540A300E28EAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E58AFB818A540A300E28EAA /* InfoPlist.strings */; };
 		1E58AFBC18A540A300E28EAA /* Clean___Sober_ToolboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */; };
 		1EA131F218FA4E48000B3C94 /* yearcert.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA131F118FA4E48000B3C94 /* yearcert.png */; };
 		1ECF7D941914115900D70F68 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D931914115900D70F68 /* User.m */; };
 		1ECF7D971914115900D70F68 /* CSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D961914115900D70F68 /* CSCategory.m */; };
 		1ECF7D9A1914115A00D70F68 /* CSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF7D991914115A00D70F68 /* CSContent.m */; };
-		1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED3137B18EC833D00C4A6A1 /* iAd.framework */; };
 		1ED7DE5D1A11B40700D82F63 /* about.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED7DE581A11B40700D82F63 /* about.json */; };
 		1ED7DE5E1A11B40700D82F63 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED7DE591A11B40700D82F63 /* categories.json */; };
 		1ED7DE5F1A11B40700D82F63 /* disclaimer.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED7DE5A1A11B40700D82F63 /* disclaimer.json */; };
 		1ED7DE601A11B40700D82F63 /* help.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED7DE5B1A11B40700D82F63 /* help.json */; };
 		1ED7DE611A11B40700D82F63 /* messages.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED7DE5C1A11B40700D82F63 /* messages.json */; };
-		1ED7DE641A11C2CB00D82F63 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED7DE631A11C2CB00D82F63 /* Crashlytics.framework */; };
 		1EDC5FD818B9B57600826A52 /* CSDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */; };
 		1EDC5FDE18B9BA1800826A52 /* CSPsychologyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */; };
 		1EDC5FE118B9BFAC00826A52 /* CSDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */; };
@@ -63,12 +54,9 @@
 		1EF1FD4E18F33753003DA04C /* coin60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4718F33753003DA04C /* coin60.png */; };
 		1EF1FD4F18F33753003DA04C /* coin30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4818F33753003DA04C /* coin30.png */; };
 		1EF1FD5018F33753003DA04C /* coin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1FD4918F33753003DA04C /* coin7.png */; };
-		1EF1FD5F18F4675F003DA04C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809518E7A5C900A93FBB /* AVFoundation.framework */; };
-		1EF1FD6018F46767003DA04C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */; };
-		1EF1FD6118F46771003DA04C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809918E7A5D600A93FBB /* MessageUI.framework */; };
-		1EF1FD6218F46778003DA04C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */; };
 		1EF8DF15192D982900ADC204 /* CSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8DF14192D982900ADC204 /* CSWebViewController.m */; };
-		DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */; };
+		818B5640D9C0C97293086EB6 /* Pods_Clean___Sober_ToolboxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80B3B16DED89E64110E0BC4 /* Pods_Clean___Sober_ToolboxTests.framework */; };
+		C9E6B5DF9B3AA422B1B604C0 /* Pods_Sober_Tool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368C182D7AE120AA6AD9F402 /* Pods_Sober_Tool.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,12 +78,6 @@
 		1E04D3B118ADD65900BC81FC /* CSMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMenuViewController.m; sourceTree = "<group>"; };
 		1E04D3DA18ADECE400BC81FC /* CSContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContentViewController.h; sourceTree = "<group>"; };
 		1E04D3DB18ADECE400BC81FC /* CSContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSContentViewController.m; sourceTree = "<group>"; };
-		1E272A1618F5FDCC00D766B0 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
-		1E272A1718F5FDCC00D766B0 /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
-		1E272A1818F5FDCC00D766B0 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
-		1E272A1918F5FDCC00D766B0 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
-		1E272A1A18F5FDCC00D766B0 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
-		1E272A1B18F5FDCC00D766B0 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
 		1E3377A718ADBCA80052DEAA /* CSCategoryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCategoryListController.h; sourceTree = "<group>"; };
 		1E3377A818ADBCA80052DEAA /* CSCategoryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategoryListController.m; sourceTree = "<group>"; };
 		1E3F34C818FB400700CA61A8 /* appicon_crop_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_crop_57.png; sourceTree = "<group>"; };
@@ -115,9 +97,6 @@
 		1E563F5B18FACFF2009644E5 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		1E563F5C18FACFF2009644E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1E58AF8A18A540A300E28EAA /* Sobertool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sobertool.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E58AF8D18A540A300E28EAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1E58AF9118A540A300E28EAA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1E58AF9518A540A300E28EAA /* Clean & Sober Toolbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clean & Sober Toolbox-Info.plist"; sourceTree = "<group>"; };
 		1E58AF9718A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AF9918A540A300E28EAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,7 +106,6 @@
 		1E58AFA018A540A300E28EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1E58AFA818A540A300E28EAA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1E58AFAE18A540A300E28EAA /* Clean & Sober ToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clean & Sober ToolboxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E58AFAF18A540A300E28EAA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1E58AFB718A540A300E28EAA /* Clean & Sober ToolboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clean & Sober ToolboxTests-Info.plist"; sourceTree = "<group>"; };
 		1E58AFB918A540A300E28EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E58AFBB18A540A300E28EAA /* Clean___Sober_ToolboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Clean___Sober_ToolboxTests.m"; sourceTree = "<group>"; };
@@ -138,23 +116,17 @@
 		1ECF7D961914115900D70F68 /* CSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCategory.m; sourceTree = "<group>"; };
 		1ECF7D981914115A00D70F68 /* CSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSContent.h; sourceTree = "<group>"; };
 		1ECF7D991914115A00D70F68 /* CSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSContent.m; sourceTree = "<group>"; };
-		1ED3137B18EC833D00C4A6A1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1ED7DE581A11B40700D82F63 /* about.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = about.json; sourceTree = "<group>"; };
 		1ED7DE591A11B40700D82F63 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		1ED7DE5A1A11B40700D82F63 /* disclaimer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = disclaimer.json; sourceTree = "<group>"; };
 		1ED7DE5B1A11B40700D82F63 /* help.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = help.json; sourceTree = "<group>"; };
 		1ED7DE5C1A11B40700D82F63 /* messages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messages.json; sourceTree = "<group>"; };
-		1ED7DE631A11C2CB00D82F63 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1EDC5FD618B9B57600826A52 /* CSDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDonateViewController.h; sourceTree = "<group>"; };
 		1EDC5FD718B9B57600826A52 /* CSDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDonateViewController.m; sourceTree = "<group>"; };
 		1EDC5FDC18B9BA1800826A52 /* CSPsychologyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPsychologyViewController.h; sourceTree = "<group>"; };
 		1EDC5FDD18B9BA1800826A52 /* CSPsychologyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPsychologyViewController.m; sourceTree = "<group>"; };
 		1EDC5FDF18B9BFAC00826A52 /* CSDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDisclaimerViewController.h; sourceTree = "<group>"; };
 		1EDC5FE018B9BFAC00826A52 /* CSDisclaimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDisclaimerViewController.m; sourceTree = "<group>"; };
-		1EDE809518E7A5C900A93FBB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1EDE809918E7A5D600A93FBB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1EF1FD3F18F31AF1003DA04C /* CSRewardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRewardsViewController.h; sourceTree = "<group>"; };
 		1EF1FD4018F31AF1003DA04C /* CSRewardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRewardsViewController.m; sourceTree = "<group>"; };
 		1EF1FD4318F33753003DA04C /* coinyear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinyear.png; sourceTree = "<group>"; };
@@ -166,9 +138,12 @@
 		1EF1FD4918F33753003DA04C /* coin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin7.png; sourceTree = "<group>"; };
 		1EF8DF13192D982900ADC204 /* CSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWebViewController.h; sourceTree = "<group>"; };
 		1EF8DF14192D982900ADC204 /* CSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWebViewController.m; sourceTree = "<group>"; };
-		35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		73D2FE354176902C05D70296 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		92F831692859DECDD26AEF4B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2DED28D77CAA24A9397AAC1A /* Pods-Clean & Sober ToolboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clean & Sober ToolboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clean & Sober ToolboxTests/Pods-Clean & Sober ToolboxTests.release.xcconfig"; sourceTree = "<group>"; };
+		368C182D7AE120AA6AD9F402 /* Pods_Sober_Tool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sober_Tool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		925B1CD318E56D1D8EF2B913 /* Pods-Clean & Sober ToolboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clean & Sober ToolboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clean & Sober ToolboxTests/Pods-Clean & Sober ToolboxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE7EB1BC152F652D2CDC1E4F /* Pods-Sober Tool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sober Tool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sober Tool/Pods-Sober Tool.release.xcconfig"; sourceTree = "<group>"; };
+		C80B3B16DED89E64110E0BC4 /* Pods_Clean___Sober_ToolboxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Clean___Sober_ToolboxTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F3CFEB86B17BDE01F9FBE4 /* Pods-Sober Tool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sober Tool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sober Tool/Pods-Sober Tool.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,17 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF1FD6218F46778003DA04C /* CoreLocation.framework in Frameworks */,
-				1EF1FD6118F46771003DA04C /* MessageUI.framework in Frameworks */,
-				1EF1FD6018F46767003DA04C /* SystemConfiguration.framework in Frameworks */,
-				1EF1FD5F18F4675F003DA04C /* AVFoundation.framework in Frameworks */,
-				1ED3137C18EC833D00C4A6A1 /* iAd.framework in Frameworks */,
-				1E58AF9018A540A300E28EAA /* CoreGraphics.framework in Frameworks */,
-				1E58AF9218A540A300E28EAA /* UIKit.framework in Frameworks */,
-				1E58AF8E18A540A300E28EAA /* Foundation.framework in Frameworks */,
-				1E272A1C18F5FDCC00D766B0 /* libPayPalMobile.a in Frameworks */,
-				DCA1EB1CD5B34C3DA8215CA8 /* libPods.a in Frameworks */,
-				1ED7DE641A11C2CB00D82F63 /* Crashlytics.framework in Frameworks */,
+				C9E6B5DF9B3AA422B1B604C0 /* Pods_Sober_Tool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,9 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E58AFB018A540A300E28EAA /* XCTest.framework in Frameworks */,
-				1E58AFB218A540A300E28EAA /* UIKit.framework in Frameworks */,
-				1E58AFB118A540A300E28EAA /* Foundation.framework in Frameworks */,
+				818B5640D9C0C97293086EB6 /* Pods_Clean___Sober_ToolboxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,19 +213,6 @@
 			name = "CoreData Stuff";
 			sourceTree = "<group>";
 		};
-		1E272A1518F5FDCC00D766B0 /* PayPalMobile */ = {
-			isa = PBXGroup;
-			children = (
-				1E272A1618F5FDCC00D766B0 /* libPayPalMobile.a */,
-				1E272A1718F5FDCC00D766B0 /* PayPalConfiguration.h */,
-				1E272A1818F5FDCC00D766B0 /* PayPalFuturePaymentViewController.h */,
-				1E272A1918F5FDCC00D766B0 /* PayPalMobile.h */,
-				1E272A1A18F5FDCC00D766B0 /* PayPalPayment.h */,
-				1E272A1B18F5FDCC00D766B0 /* PayPalPaymentViewController.h */,
-			);
-			path = PayPalMobile;
-			sourceTree = "<group>";
-		};
 		1E563F5918FACFE6009644E5 /* splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,9 +230,9 @@
 				1E41CBAC19002E0400945BE0 /* Images.xcassets */,
 				1E58AF9318A540A300E28EAA /* Clean & Sober Toolbox */,
 				1E58AFB518A540A300E28EAA /* Clean & Sober ToolboxTests */,
-				1E58AF8C18A540A300E28EAA /* Frameworks */,
 				1E58AF8B18A540A300E28EAA /* Products */,
-				63F0E47DCE3CA0041323B3EB /* Pods */,
+				C38F448F7E6B171694A0274A /* Pods */,
+				B5AAC4F35F43B99C3AACF940 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,25 +243,6 @@
 				1E58AFAE18A540A300E28EAA /* Clean & Sober ToolboxTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1E58AF8C18A540A300E28EAA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1ED7DE631A11C2CB00D82F63 /* Crashlytics.framework */,
-				1E272A1518F5FDCC00D766B0 /* PayPalMobile */,
-				1ED3137B18EC833D00C4A6A1 /* iAd.framework */,
-				1EDE809B18E7A5DD00A93FBB /* SystemConfiguration.framework */,
-				1EDE809918E7A5D600A93FBB /* MessageUI.framework */,
-				1EDE809718E7A5CE00A93FBB /* CoreLocation.framework */,
-				1EDE809518E7A5C900A93FBB /* AVFoundation.framework */,
-				1E58AF8D18A540A300E28EAA /* Foundation.framework */,
-				1E58AF8F18A540A300E28EAA /* CoreGraphics.framework */,
-				1E58AF9118A540A300E28EAA /* UIKit.framework */,
-				1E58AFAF18A540A300E28EAA /* XCTest.framework */,
-				35D2BB7B7BAF4FD4B4D4D4C9 /* libPods.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1E58AF9318A540A300E28EAA /* Clean & Sober Toolbox */ = {
@@ -423,11 +354,22 @@
 			name = art;
 			sourceTree = "<group>";
 		};
-		63F0E47DCE3CA0041323B3EB /* Pods */ = {
+		B5AAC4F35F43B99C3AACF940 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				73D2FE354176902C05D70296 /* Pods.debug.xcconfig */,
-				92F831692859DECDD26AEF4B /* Pods.release.xcconfig */,
+				C80B3B16DED89E64110E0BC4 /* Pods_Clean___Sober_ToolboxTests.framework */,
+				368C182D7AE120AA6AD9F402 /* Pods_Sober_Tool.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C38F448F7E6B171694A0274A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				925B1CD318E56D1D8EF2B913 /* Pods-Clean & Sober ToolboxTests.debug.xcconfig */,
+				2DED28D77CAA24A9397AAC1A /* Pods-Clean & Sober ToolboxTests.release.xcconfig */,
+				E2F3CFEB86B17BDE01F9FBE4 /* Pods-Sober Tool.debug.xcconfig */,
+				BE7EB1BC152F652D2CDC1E4F /* Pods-Sober Tool.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -439,12 +381,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E58AFBF18A540A300E28EAA /* Build configuration list for PBXNativeTarget "Sober Tool" */;
 			buildPhases = (
-				EF8B9DB67F444F5592930D30 /* Check Pods Manifest.lock */,
+				B20ABCDA8B48BB0ABFE4A847 /* [CP] Check Pods Manifest.lock */,
 				1E58AF8618A540A300E28EAA /* Sources */,
 				1E58AF8718A540A300E28EAA /* Frameworks */,
 				1E58AF8818A540A300E28EAA /* Resources */,
-				CD410196F66D45439ABAF6D9 /* Copy Pods Resources */,
-				1ED7DE621A11C2A000D82F63 /* ShellScript */,
+				11EA214C02FCBCD7EE33F320 /* [CP] Embed Pods Frameworks */,
+				BD65081C7F7AFBDCCEA1AB4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -459,9 +401,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E58AFC218A540A300E28EAA /* Build configuration list for PBXNativeTarget "Clean & Sober ToolboxTests" */;
 			buildPhases = (
+				5E8E0F3334B2C14A99B35C8C /* [CP] Check Pods Manifest.lock */,
 				1E58AFAA18A540A300E28EAA /* Sources */,
 				1E58AFAB18A540A300E28EAA /* Frameworks */,
 				1E58AFAC18A540A300E28EAA /* Resources */,
+				D4ED48DE4F84109944CDC67B /* [CP] Embed Pods Frameworks */,
+				B14BFFC277E22660A3CEE7C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -480,7 +425,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CS;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Tyler Hugenberg";
 				TargetAttributes = {
 					1E58AF8918A540A300E28EAA = {
@@ -559,47 +504,94 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1ED7DE621A11C2A000D82F63 /* ShellScript */ = {
+		11EA214C02FCBCD7EE33F320 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 5190a69964a302d074951c8b1c02508a74a9ead9 acb2acaa5b2b7d512a0f8003bdfe90e85f126b3aeb73f98d489a5d1f19d399cf";
-		};
-		CD410196F66D45439ABAF6D9 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sober Tool/Pods-Sober Tool-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF8B9DB67F444F5592930D30 /* Check Pods Manifest.lock */ = {
+		5E8E0F3334B2C14A99B35C8C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B14BFFC277E22660A3CEE7C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Clean & Sober ToolboxTests/Pods-Clean & Sober ToolboxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B20ABCDA8B48BB0ABFE4A847 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD65081C7F7AFBDCCEA1AB4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sober Tool/Pods-Sober Tool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4ED48DE4F84109944CDC67B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Clean & Sober ToolboxTests/Pods-Clean & Sober ToolboxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -687,13 +679,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -706,7 +704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -726,20 +724,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -748,7 +751,7 @@
 		};
 		1E58AFC018A540A300E28EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73D2FE354176902C05D70296 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E2F3CFEB86B17BDE01F9FBE4 /* Pods-Sober Tool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
@@ -761,7 +764,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
@@ -792,6 +795,7 @@
 					"$(inherited)",
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.osu.cleanandsober;
 				PRODUCT_NAME = Sobertool;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -801,7 +805,7 @@
 		};
 		1E58AFC118A540A300E28EAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92F831692859DECDD26AEF4B /* Pods.release.xcconfig */;
+			baseConfigurationReference = BE7EB1BC152F652D2CDC1E4F /* Pods-Sober Tool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
@@ -814,7 +818,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober Toolbox/Clean & Sober Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
@@ -845,6 +849,7 @@
 					"$(inherited)",
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.osu.cleanandsober;
 				PRODUCT_NAME = Sobertool;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -854,6 +859,7 @@
 		};
 		1E58AFC318A540A300E28EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 925B1CD318E56D1D8EF2B913 /* Pods-Clean & Sober ToolboxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clean & Sober Toolbox.app/Clean & Sober Toolbox";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -868,6 +874,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Clean & Sober ToolboxTests/Clean & Sober ToolboxTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.osu.cleanandsober.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -876,6 +883,7 @@
 		};
 		1E58AFC418A540A300E28EAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DED28D77CAA24A9397AAC1A /* Pods-Clean & Sober ToolboxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clean & Sober Toolbox.app/Clean & Sober Toolbox";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -886,6 +894,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clean & Sober Toolbox/Clean & Sober Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "Clean & Sober ToolboxTests/Clean & Sober ToolboxTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.osu.cleanandsober.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

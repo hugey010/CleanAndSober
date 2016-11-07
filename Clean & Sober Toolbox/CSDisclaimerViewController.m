@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import ECSlidingViewController;
+@import MagicalRecord;
+#import "Constants.h"
 #import "CSDisclaimerViewController.h"
-#import <ECSlidingViewController/ECSlidingViewController.h>
 #import "User.h"
 
 @interface CSDisclaimerViewController ()
@@ -34,7 +36,8 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [self.slidingViewController anchorTopViewTo:ECLeft];
+    // TODO: fix this
+//    [self.slidingViewController anchorTopViewTo:ECLeft];
     [super viewWillDisappear:animated];
 }
 

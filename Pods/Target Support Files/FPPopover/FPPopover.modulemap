@@ -1,0 +1,6 @@
+framework module FPPopover {
+  umbrella header "FPPopover-umbrella.h"
+
+  export *
+  module * { export * }
+}

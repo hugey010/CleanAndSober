@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import MagicalRecord;
+#import "Constants.h"
 #import "CSRewardsViewController.h"
 #import "User.h"
 #import "CSUtilities.h"

@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Tyler Hugenberg. All rights reserved.
 //
 
+@import Crashlytics;
+@import Fabric;
+@import ECSlidingViewController;
+@import MagicalRecord;
+#import "Constants.h"
 #import "CSAppDelegate.h"
-#import <ECSlidingViewController/ECSlidingViewController.h>
 #import "CSUtilities.h"
 #import "CSCategoryListController.h"
 #import "CSMenuViewController.h"
@@ -16,7 +20,6 @@
 #import "PayPalMobile.h"
 #import <iAd/iAd.h>
 #import "CSMenuViewController.h"
-#import <Crashlytics/Crashlytics.h>
 
 @implementation CSAppDelegate
 
@@ -72,7 +75,7 @@
     [self.slidingVC setUnderRightViewController:self.menuNav];
     [self.slidingVC setAnchorLeftRevealAmount:MENU_PEEK_AMOUNT];
     [self.slidingVC setAnchorRightRevealAmount:MENU_PEEK_AMOUNT];
-    self.slidingVC.underRightWidthLayout = ECFixedRevealWidth;
+//    self.slidingVC.underRightWidthLayout = ECFixedRevealWidth; todo
 
 }
 
@@ -150,7 +153,7 @@
     if (notification) {
         if ([notification.userInfo objectForKey:kCoinNotificationKey]) {
             // send to coin screen
-            [self.slidingVC anchorTopViewTo:ECRight];
+//            [self.slidingVC anchorTopViewTo:ECRight]; todo
             [(CSMenuViewController*)self.menuNav.viewControllers[0] sendToRewards];
         
         } else if ([notification.userInfo objectForKey:kDailyMessageNotificationKey]) {

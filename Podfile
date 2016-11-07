@@ -1,8 +1,21 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '5.0'
-pod 'ECSlidingViewController', '~> 1.3'
-pod 'MagicalRecord'
-pod 'TPKeyboardAvoiding', '~> 1.2.3'
-pod 'FPPopover'
-pod 'SVProgressHUD'
 
+project 'Clean & Sober Toolbox'
+platform :ios, '8.0'
+use_frameworks!
+
+target 'Sober Tool' do
+  pod 'ECSlidingViewController'
+  pod 'MagicalRecord'
+  pod 'TPKeyboardAvoiding'
+  pod 'FPPopover'
+  pod 'SVProgressHUD'
+  pod 'PayPal-iOS-SDK'
+  pod 'Crashlytics'
+  pod 'Fabric'
+
+  target 'Clean & Sober ToolboxTests' do
+    inherit! :search_paths
+  end
+
+end
